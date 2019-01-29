@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Denner</b>Grillo',
+    'logo' => '<img class="logo-login" src="storage/images/logo.png">',
 
-    'logo_mini' => '<b>D</b>G',
+    'logo_mini' => '<img class="logo-login" src="storage/images/mini-logo.png">',
 
     /*
     |--------------------------------------------------------------------------

@@ -41,9 +41,9 @@
             <!-- Logo -->
             <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini">{!! config('adminlte.logo_mini', '<b>A</b>LT') !!}</span>
+                <span class="logo-mini">{!! config('adminlte.logo_mini') !!}</span>
                 <!-- logo for regular state and mobile devices -->
-                <img class="logo-login" src="http://10.1.19.220/denner/images/logo3.png" alt="Denner Grillo">
+                <span class="logo-login">{!! config('adminlte.logo') !!}</span>
             </a>
 
             <!-- Header Navbar -->
