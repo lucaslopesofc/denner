@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<img class="logo-login" src="storage/images/logo.png">',
+    'logo' => '<img class="logo-login" src="../storage/images/logo.png" />',
 
-    'logo_mini' => '<img class="logo-login" src="storage/images/mini-logo.png">',
+    'logo_mini' => '<img class="logo-login" src="../storage/images/mini-logo.png" />',
 
     /*
     |--------------------------------------------------------------------------
@@ -120,7 +120,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Estatísticas',
-                    'url'  => '#',
+                    'url'  => 'admin/estatistica',
                 ],
             ],
         ],
