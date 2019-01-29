@@ -22,12 +22,27 @@ class StatistcController extends Controller
 
     public function store(Request $request)
     {
+        $userLogged = auth()->user()->id;
+
         $stats = new Statistic();
 
-        $stats->user_id = 1;
-        $stats->patient = $request->input('patient');
-        $stats->diets   = $request->input('diets');
-        $stats->recipe  = $request->input('recipe');
+        if(!isset($stats)) {
+            $stats->user_id = $userLogged;
+            $stats->patient = $request->input('patient');
+            $stats->diets   = $request->input('diets');
+            $stats->recipe  = $request->input('recipe');
+        }else{
+            $stats->delete();
+            $stats->user_id = $userLogged;
+            $stats->patient = $request->input('patient');
+            $stats->diets   = $request->input('diets');
+            $stats->recipe  = $request->input('recipe');
+        }
+
+        //$stats->user_id = $userLogged;
+        //$stats->patient = $request->input('patient');
+        //$stats->diets   = $request->input('diets');
+        //$stats->recipe  = $request->input('recipe');
 
         $stats->save();
     }
