@@ -8,5 +8,9 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
 });
 
 Route::get('/', 'Site\SiteController@index')->name('home');
+Route::get('/sobremim', 'Site\SobreMimController@index')->name('sobremim');
+Route::get('/servicos', 'Site\ServicosController@index')->name('servicos');
+Route::get('/blog', 'Site\BlogController@index')->name('blog');
+Route::get('/contato', 'Site\ContatoController@index')->name('contato');
 
 Auth::routes();
