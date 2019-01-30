@@ -46,7 +46,7 @@
                     <nav class="tp-menu tagpoint-menu-3">
                         <ul class="tagpoint-main-menu ">
 
-                            <li class="current_page_item">
+                            <li>
                                 <i class="fas fa-chevron-down tp_phone_dropdown"></i>
                                 <a title="Home" href="/">Home</a>
                             </li>
@@ -66,7 +66,7 @@
                                 <a title="Artigos & Receitas" href="/blog">Artigos & Receitas</a>
                             </li>
 
-                            <li>
+                            <li class="current_page_item">
                                 <i class="fas fa-chevron-down tp_phone_dropdown"></i>
                                 <a title="Depoimentos" href="/depoimentos">Depoimentos</a>
                             </li>
@@ -87,157 +87,108 @@
         </div>
     </header>
 
-    <section class="rafaa-slider rafaa-slider-2 index-5">
-        <div class="owl-carousel r_slider" data-dots="off">
-            <div class="r_wrap_slider">
-                <div class="r_slider_img" style="background-image:url({{ asset('vendor/site/images/slider1.jpg') }})"></div>
-            </div>
-            <div class="r_wrap_slider">
-                <div class="r_slider_img" style="background-image:url({{ asset('vendor/site/images/slider2.jpg') }})"></div>
-            </div>
-            <div class="r_wrap_slider">
-                <div class="r_slider_img" style="background-image:url({{ asset('vendor/site/images/slider3.jpg') }})"></div>
-            </div>
-        </div>
-    </section>
-
-    <div class="rafaa-section r-about-us-3">
-        <div class="container container-sobre-mim">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-12 ">
-                    <div class="wrap_about_us">
-                        <span class="rp-tip">Sobre Mim</span>
-                        <h2 class="l-head">Denner Grillo</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-12 ">
-                    <div class="feature-service-img-denner">
-                        <img src="{{ asset('vendor/site/images/denner.png') }}"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- feature services -->
-
-    <!-- lasts blogs -->
-    <section class="rafaa-section last_news">
+    <!-- breadcrumbs -->
+    <section class="rafaa-section r-breadcurmbs-2">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="last-news-title">
-                        <h2 class="l-head">Artigos & Receitas</h2>
-                        <p>Às vezes bate aquela vontade de fugir da dieta, não é? Você pode!
-                        	<br>Veja aqui receitas práticas e fáceis para fugir da rotina!</p>
-                    </div>
-                    <div class="carousel-blogs owl-carousel">
-
-                        <div class="wrap_blog">
-                            <div class="wrap-blog-img">
-                                <img src="{{ asset('vendor/site/images/stronda.jpg') }}" alt="blog title" />
-                            </div>
-                            <div class="wrap-blog-text">
-                                <h2><a href="#" title="blog title">Título da Postagem 1</a></h2>
-                                <ul class="r-datameta">
-                                    <li><a href="#" title="author name" class="r-author"><i class="fas fa-user"></i>Denner Grillo</a></li>
-                                    <li><span class="r-data"><i class="fas fa-clock"></i>Janeiro 25,2019</span></li>
-                                </ul>
-                                <p>Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt.</p>
-                                <div class="ream_more"><a href="#">Leia mais</a></div>
-                            </div>
-                        </div>
-
-                        <div class="wrap_blog">
-                            <div class="wrap-blog-img">
-                                <img src="{{ asset('vendor/site/images/stronda.jpg') }}" alt="blog title" />
-                            </div>
-                            <div class="wrap-blog-text">
-                                <h2><a href="#" title="blog title">Título da Postagem 2</a></h2>
-                                <ul class="r-datameta">
-                                    <li><a href="#" title="author name" class="r-author"><i class="fas fa-user"></i>Denner Grillo</a></li>
-                                    <li><span class="r-data"><i class="fas fa-clock"></i>Janeiro 25,2019</span></li>
-                                </ul>
-                                <p>Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt.</p>
-                                <div class="ream_more"><a href="#">Leia mais</a></div>
-                            </div>
-                        </div>
-
-                        <div class="wrap_blog">
-                            <div class="wrap-blog-img">
-                                <img src="{{ asset('vendor/site/images/stronda.jpg') }}" alt="blog title" />
-                            </div>
-                            <div class="wrap-blog-text">
-                                <h2><a href="#" title="blog title">Título da Postagem 3</a></h2>
-                                <ul class="r-datameta">
-                                    <li><a href="#" title="author name" class="r-author"><i class="fas fa-user"></i>Denner Grillo</a></li>
-                                    <li><span class="r-data"><i class="fas fa-clock"></i>Janeiro 25,2019</span></li>
-                                </ul>
-                                <p>Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt.</p>
-                                <div class="ream_more"><a href="#">Leia mais</a></div>
-                            </div>
-                        </div>
-
-                        <div class="wrap_blog">
-                            <div class="wrap-blog-img">
-                                <img src="{{ asset('vendor/site/images/stronda.jpg') }}" alt="blog title" />
-                            </div>
-                            <div class="wrap-blog-text">
-                                <h2><a href="#" title="blog title">Título da Postagem 4</a></h2>
-                                <ul class="r-datameta">
-                                    <li><a href="#" title="author name" class="r-author"><i class="fas fa-user"></i>Denner Grillo</a></li>
-                                    <li><span class="r-data"><i class="fas fa-clock"></i>Janeiro 25,2019</span></li>
-                                </ul>
-                                <p>Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt.</p>
-                                <div class="ream_more"><a href="#">Leia mais</a></div>
-                            </div>
-                        </div>
-
+                    <div class="wrap_breadcrumbs_col-2">
+                        <h1 class="l-head"> Depoimentos
+                            </h1>
+                        <ul class="breadcrumbs_content-2 ">
+                            <li><a href="/" title="home">Home</a> /</li>
+                            <li><span>Depoimentos</span></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="rafaa-section r-testmonail-2">
+    <section class="rafaa-section contactus-page depoimentos">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="wrap_testmoinal_title">
-                        <h2 class="l-head">Relatos de Pacientes</h2>
-                        <p>Leia alguns comentários de pacientes que já consultaram comigo!
-                        	<br>Avalie meu trabalho e me ajude a melhorar também!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="offset-lg-2 col-lg-8 offset-md-1 col-md-10 col-sm-12 offset-sm-0 col-12">
+                    <div class="wrap_contact_page">
+                        <div class="rq-wrap-form ">
 
-    <section class="tesmonails-section">
-        <div class="container">
-            <div class="row row-testmonail">
-                <div class="col-12">
-                    <div class="wrap_tesmonails owl-carousel" data-show="3">
-                        @foreach ($testimonies as $testimonie)
-                        <div class="testmonail_2">
-                            <div class="test_head">
-                                <span class="tesmonail_img"><img src="{{ asset('vendor/site/images/cleint_1.jpg') }}" alt="cleint name" /></span>
-                                <div class="test_text">
-                                    <h3>{{ $testimonie->name }}</h3>
-                                    <p>{{ $testimonie->city }}</p>
+                            <form action="depoimentos" method="POST" class="tp-form-1">
+                            {!! csrf_field() !!}
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12 col-form-right">
+
+                                        @if ($errors->has('name'))
+                                            <span class="text-red">
+                                                <strong>{{ $errors->first('name') }}</strong>
+                                            </span>
+                                        @endif
+                                        <p class="tp-form-el">
+                                            <input type="text" name="name" class="tp-feild" placeholder="Nome completo *">
+                                        </p>
+
+                                        <div class="form-group">
+                                            <input type="file" style="margin-bottom: 15px;">
+                                        </div> 
+
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-12 col-form-left">
+                                        
+                                        @if ($errors->has('city'))
+                                            <span class="text-red">
+                                                <strong>{{ $errors->first('city') }}</strong>
+                                            </span>
+                                        @endif
+                                        <p class="tp-form-el">
+                                            <input type="text" name="city" class="tp-feild" placeholder="Cidade *">
+                                        </p>
+
+                                    </div>
+                                    <div class="col-12">
+                                        @if ($errors->has('comment'))
+                                            <span class="text-red">
+                                                <strong>{{ $errors->first('comment') }}</strong>
+                                            </span>
+                                        @endif
+                                        <p class="tp-form-el">
+                                            <textarea name="comment" class="tp-message" placeholder="Seu depoimento deverá conter no máximo 160 caracteres."></textarea>
+                                        </p>
+                                    </div>
+                                    <div class="col-12 ">
+                                        <div class="tp-wrap-btn">
+                                            <button type="submit" class="sendmessage_btn" id="tp-submit">Enviar</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="test_body">
-                                <p>{{ $testimonie->comment }}</p>
-                            </div>
+                            </form>
+
                         </div>
-                        @endforeach
                     </div>
                 </div>
             </div>
-            <div class="col-md-12" style="text-align: center;">
-                <a href="/depoimentos" class="checkout_features">Envie o seu depoimento</a>
+        </div>
+    </section>
+
+    <section class="rafaa-section r-what-offers">
+        <div class="container">
+            <div class="row">
+
+                @foreach ($testimonies as $testimonie)
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="wrap_service_2 services_index_4 ">
+                        <div class="head-servcie">
+                            <span class="tesmonail_img">
+                                <img src="http://127.0.0.1:8000/vendor/site/images/cleint_1.jpg" alt="cleint name">
+                            </span>
+                            <h3>{{ $testimonie->name }}</h3>
+                            <p>{{ $testimonie->city }}</p>
+                        </div>
+                        <div class="body-service">
+                            <p>{{ $testimonie->comment }}</p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                
             </div>
         </div>
     </section>

@@ -702,7 +702,7 @@
 
 
                     $(el).owlCarousel({
-                        loop: true,
+                        loop: false,
                         margin: 0,
                         nav: true,
                         dots: false,
