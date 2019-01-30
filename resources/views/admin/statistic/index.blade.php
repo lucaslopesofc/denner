@@ -4,6 +4,10 @@
 
 @section('content_header')
     <h1>Painel Adminstrativo</h1>
+    <ol class="breadcrumb">
+        <li><a href="/admin"><i class="fa fa-home"></i> Home</a></li>
+        <li class="active">Estatísticas</li>
+    </ol>
 @stop
 
 @section('content')
@@ -12,9 +16,11 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-            @foreach ($stats as $stat)
-                <h3>{{ $stat->patient }}</h3>
-            @endforeach
+            @if (!$stats == null)
+                <h3>{{ $stats->patient }}</h3>
+            @else
+                <h3>0</h3>
+            @endif
                 <p>Pacientes</p>
             </div>
             <div class="icon">
@@ -28,9 +34,11 @@
         <!-- small box -->
         <div class="small-box bg-green">
             <div class="inner">
-            @foreach ($stats as $stat)
-                <h3>{{ $stat->diets }}</h3>
-            @endforeach
+            @if (!$stats == null)
+                <h3>{{ $stats->diets }}</h3>
+            @else
+                <h3>0</h3>
+            @endif
                 <p>Dietas</p>
             </div>
             <div class="icon">
@@ -44,9 +52,11 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
-            @foreach ($stats as $stat)
-                <h3>{{ $stat->recipe }}</h3>
-            @endforeach
+            @if (!$stats == null)
+                <h3>{{ $stats->recipe }}</h3>
+            @else
+                <h3>0</h3>
+            @endif
                 <p>Receitas</p>
             </div>
             <div class="icon">
@@ -67,15 +77,45 @@
             <div class="row">
                 <div class="col-xs-4">
                     <label>Pacientes</label>
-                    <input type="text" name="patient" class="form-control" placeholder="{{ $stat->patient }}">
+                    @if (!($stats == null))
+                        <input type="number" name="patient" class="form-control" value="{{ $stats->patient }}">
+                    @else
+                        <input type="number" name="patient" class="form-control" value="0">
+                    @endif
+
+                    @if ($errors->has('patient'))
+                        <span class="text-red">
+                            <strong>{{ $errors->first('patient') }}</strong>
+                        </span>
+                    @endif
                 </div>
                 <div class="col-xs-4">
                     <label>Dietas</label>
-                    <input type="text" name="diets" class="form-control" placeholder="{{ $stat->diets }}">
+                    @if (!($stats == null))
+                        <input type="number" name="diets" class="form-control" value="{{ $stats->diets }}">
+                    @else
+                        <input type="number" name="diets" class="form-control" value="0">
+                    @endif
+
+                    @if ($errors->has('diets'))
+                        <span class="text-red">
+                            <strong>{{ $errors->first('diets') }}</strong>
+                        </span>
+                    @endif
                 </div>
                 <div class="col-xs-4">
                     <label>Receitas</label>
-                    <input type="text" name="recipe" class="form-control" placeholder="{{ $stat->recipe }}">
+                    @if (!($stats == null))
+                        <input type="number" name="recipe" class="form-control" value="{{ $stats->recipe }}">
+                    @else
+                        <input type="number" name="recipe" class="form-control" value="0">
+                    @endif
+
+                    @if ($errors->has('recipe'))
+                        <span class="text-red">
+                            <strong>{{ $errors->first('recipe') }}</strong>
+                        </span>
+                    @endif
                 </div>
             </div>
             <div class="box-footer">
