@@ -190,6 +190,15 @@
                 @endforeach
                 
             </div>
+
+            <ul class="wrap_pignation">
+                <li><a href="#"><i class="fas fa-chevron-left"></i> </a></li>
+                <li class="pigination_action"><span> 1 </span></li>
+                <li><a href="#">2 </a></li>
+                <li><a href="#">5 </a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> </a></li>
+            </ul>
+
         </div>
     </section>
 
