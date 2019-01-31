@@ -219,7 +219,7 @@
                         @foreach ($testimonies as $testimonie)
                         <div class="testmonail_2">
                             <div class="test_head">
-                                <span class="tesmonail_img"><img src="{{ asset('vendor/site/images/cleint_1.jpg') }}" alt="cleint name" /></span>
+                                <span class="tesmonail_img"><img src="/storage/{{ $testimonie->photo }}" alt="{{ $testimonie->name }}" /></span>
                                 <div class="test_text">
                                     <h3>{{ $testimonie->name }}</h3>
                                     <p>{{ $testimonie->city }}</p>

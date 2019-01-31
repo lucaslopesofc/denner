@@ -108,7 +108,7 @@
                     <div class="wrap_contact_page">
                         <div class="rq-wrap-form ">
 
-                            <form action="depoimentos" method="POST" class="tp-form-1">
+                            <form action="depoimentos" method="POST" class="tp-form-1" enctype="multipart/form-data">
                             {!! csrf_field() !!}
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-12 col-form-right">
@@ -122,9 +122,14 @@
                                             <input type="text" name="name" class="tp-feild" placeholder="Nome completo *">
                                         </p>
 
+                                        @if ($errors->has('photo'))
+                                            <span class="text-red">
+                                                <strong>{{ $errors->first('photo') }}</strong>
+                                            </span>
+                                        @endif
                                         <div class="form-group">
-                                            <input type="file" style="margin-bottom: 15px;">
-                                        </div> 
+                                            <input type="file" name="photo" style="margin-bottom: 15px;">
+                                        </div>
 
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-12 col-form-left">
@@ -173,7 +178,7 @@
                     <div class="wrap_service_2 services_index_4 ">
                         <div class="head-servcie">
                             <span class="tesmonail_img">
-                                <img src="http://127.0.0.1:8000/vendor/site/images/cleint_1.jpg" alt="cleint name">
+                                <img src="/storage/{{ $testimonie->photo }}" alt="{{ $testimonie->name }}">
                             </span>
                             <h3>{{ $testimonie->name }}</h3>
                             <p>{{ $testimonie->city }}</p>

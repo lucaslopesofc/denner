@@ -23,12 +23,19 @@ class DepoimentoController extends Controller
 
     public function store(TestimonyFormRequest $request)
     {
+        if ($request->file('photo') == null) {
+            $path = 'images/testemunhas/perfil.jpg';
+        } else {
+            $path = $request->file('photo')->store('images/testemunhas', 'public');
+        }
+
         $tes = new Testimony();
 
         $tes->user_id = 1;
         $tes->name    = $request->input('name');
         $tes->city    = $request->input('city');
         $tes->comment = $request->input('comment');
+        $tes->photo   = $path;
 
         $tes->save();
 

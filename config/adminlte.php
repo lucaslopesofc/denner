@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<img class="logo-login" src="../storage/images/logo.png" />',
+    'logo' => '<img class="logo-login" src="../vendor/site/images/logo.png" />',
 
-    'logo_mini' => '<img class="logo-login" src="../storage/images/mini-logo.png" />',
+    'logo_mini' => '<img class="logo-login" src="../vendor/site/images/mini-logo.png" />',
 
     /*
     |--------------------------------------------------------------------------
@@ -125,18 +125,9 @@ return [
             ],
         ],
         [
-            'text'    => 'Blog',
-            'icon'    => 'pencil',
-            'submenu' => [
-                [
-                    'text' => 'Postagens',
-                    'url'  => '#',
-                ],
-                [
-                    'text' => 'Categorias',
-                    'url'  => '#',
-                ],
-            ],
+            'text' => 'Depoimento',
+            'url'  => 'admin/depoimento',
+            'icon' => 'pencil',
         ],
     ],
 

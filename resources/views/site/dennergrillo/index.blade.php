@@ -137,33 +137,46 @@
             </div>
 
             <div class="row row_fa_facts">
+
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12 achieves_col">
                     <div class="tp_counter_section construction_facts">
                         <div class="tp_wrap-acheiv">
                             <span class="wrap_counter">
-                                
+                                @if (!($stats == null))
                                 <span class="tp-counter odometer " data-to="{{ $stats->patient }}">0</span>
-                                
+                                @else
+                                <span class="tp-counter odometer ">0</span>
+                                @endif
                             </span>
                             <h3 class="acheiv-counter-title">Pacientes</h3>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12 achieves_col">
                     <div class="tp_counter_section construction_facts">
                         <div class="tp_wrap-acheiv">
                             <span class="wrap_counter">
-                                <span class="tp-counter  odometer" data-to="{{ $stats->diets }}">0</span>
+                                @if (!($stats == null))
+                                <span class="tp-counter odometer " data-to="{{ $stats->diets }}">0</span>
+                                @else
+                                <span class="tp-counter odometer ">0</span>
+                                @endif
                             </span>
                             <h3 class="acheiv-counter-title">Dietas</h3>
                         </div>
                     </div>
                 </div>
+                
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12 achieves_col">
                     <div class="tp_counter_section construction_facts">
                         <div class="tp_wrap-acheiv">
                             <span class="wrap_counter">
-                                <span class="tp-counter  odometer" data-to="{{ $stats->recipe }}">0</span>
+                                @if (!($stats == null))
+                                <span class="tp-counter odometer " data-to="{{ $stats->recipe }}">0</span>
+                                @else
+                                <span class="tp-counter odometer ">0</span>
+                                @endif
                             </span>
                             <h3 class="acheiv-counter-title">Receitas</h3>
                         </div>

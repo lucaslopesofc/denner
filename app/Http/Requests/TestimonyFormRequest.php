@@ -27,6 +27,7 @@ class TestimonyFormRequest extends FormRequest
             'name'    => 'required|max:30',
             'city'    => 'required|max:25',
             'comment' => 'required|max:160',
+            'photo'   => 'mimes:jpeg,png,jpg|max:2048',
         ];
     }
 
@@ -39,6 +40,8 @@ class TestimonyFormRequest extends FormRequest
             'city.max'         => 'O campo cidade aceita no máximo 25 caracteres.',
             'comment.required' => 'O campo comentário é obrigatório.',
             'comment.max'      => 'O comentário deve conter no máximo 160 caracteres.',
+            'photo.mimes'      => 'Formato de imagem inválida. Por favor selecione uma com apenas formatos JPEG/PNG/JPG.',
+            'photo.max'        => 'Imagem deve ter tamanho máximo de 2MB.',
         ];
     }
 }
