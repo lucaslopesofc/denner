@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+
+use App\Models\Testimony;
 
 class TestimonyController extends Controller
 {
@@ -14,7 +17,8 @@ class TestimonyController extends Controller
      */
     public function index()
     {
-        return view('admin.testimony.index');
+        $testimonies = Testimony::orderBy('id', 'desc')->paginate(8);
+        return view('admin.testimony.index', compact('testimonies'));
     }
 
     /**
@@ -80,6 +84,16 @@ class TestimonyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $testimonies = Testimony::find($id);
+
+        if ($testimonies->photo != 'images/testemunhas/perfil.jpg') {
+            $photo = $testimonies->photo;
+            Storage::disk('public')->delete($photo);
+            $testimonies->delete();
+        }else{
+            $testimonies->delete();
+        }
+
+        return redirect()->route('admin.testimony');
     }
 }
