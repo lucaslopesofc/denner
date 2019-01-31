@@ -12,7 +12,7 @@ class DepoimentoController extends Controller
 {
     public function index()
     {
-        $testimonies = Testimony::orderBy('id', 'desc')->get();
+        $testimonies = Testimony::orderBy('id', 'desc')->paginate(6);
         return view('site.depoimento.index', compact('testimonies'));
     }
 

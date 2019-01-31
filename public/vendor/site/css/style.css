@@ -4647,6 +4647,21 @@ Style Documentation:
  .wrap_pignation li {
      display: inline-block;
  }
+
+.pagination {
+    float: right;
+}
+
+ .page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #1960a0;
+    border-color: #1960a0;
+ }
+
+ .page-item:last-child .page-link {
+     
+ }
  
  .wrap_pignation li a,
  .wrap_pignation li span {

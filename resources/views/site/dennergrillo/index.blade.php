@@ -32,14 +32,12 @@
             <div class="row row_menu_2">
                 <div class="col-lg-2 col-md-12 col-12 col-logo-3">
                     <div class="tagpoint-wrap-logo ">
-                        <a href="index.html" title="Denner Grillo">
-                                            
-                            <img src="{{ asset('vendor/site/images/logo3.png') }}" alt="Denner Grillo" class="tp_whitelogo">
-                            
+                        <a href="/" title="Denner Grillo">       
+                            <img src="{{ asset('vendor/site/images/logo.png') }}" alt="Denner Grillo" class="tp_whitelogo">
                         </a>
                         <span class="phone_menu  primary-color">
-                                <i class="fas fa-bars"></i>
-                            </span>
+                            <i class="fas fa-bars"></i>
+                        </span>
                     </div>
                 </div>
                 <div class="col-lg-10 col-md-12 col-12">
@@ -63,19 +61,17 @@
 
                             <li>
                                 <i class="fas fa-chevron-down tp_phone_dropdown"></i>
-                                <a title="Artigos & Receitas" href="blog.html">Artigos & Receitas</a>
+                                <a title="Artigos & Receitas" href="/blog">Artigos & Receitas</a>
                             </li>
 
                             <li>
                                 <i class="fas fa-chevron-down tp_phone_dropdown"></i>
-                                <a title="Na Mídia" href="namidia.html">Na Mídia</a>
+                                <a title="Depoimentos" href="/depoimentos">Depoimentos</a>
                             </li>
 
                             <li>
                                 <i class="  fas fa-chevron-down tp_phone_dropdown"></i>
-                                <a title="Contato" href="contato.html">
-                                    Contato
-                                </a>
+                                <a title="Contato" href="/contato">Contato</a>
                             </li>
                             <li class="wrap_phone request_qoute">
                                 <a href="http://bit.ly/NutricionistaDennerGrillo" target="_blank" title="Marque Sua Consulta" class="request_qoute">MARQUE SUA CONSULTA<i class="fas fa-external-link-alt"></i></a>
@@ -185,7 +181,7 @@
 
                 <div class="col-lg-3 col-md-6 col-sm-12 col-12">
                     <div class="wrap_footer_col">
-                        <img src="{{ asset('vendor/site/images/logo3.png') }}" alt="Raqeeb Template">
+                        <img src="{{ asset('vendor/site/images/logo.png') }}" alt="Raqeeb Template">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor ut labore et dolore magna aliqua ut enim. </p>
                         <ul class="footer_sicons">
                             <li>
@@ -219,12 +215,12 @@
                     <div class="wrap_footer_col footer_col_links">
                         <h3 class="footer-head ">Links</h3>
                         <ul class="footer_list">
-                            <li><a href="index.html" title="about us">Home</a></li>
-                            <li><a href="dennergrillo.html" title="about us">Denner Grillo</a></li>
-                            <li><a href="servicos.html" title="about us">Serviços</a></li>
-                            <li><a href="blog.html" title="about us">Artigos & Receitas</a></li>
-                            <li><a href="namidia.html" title="about us">Na Mídia</a></li>
-                            <li><a href="contato.html" title="about us">Contato</a></li>
+                            <li><a href="/" title="Home">Home</a></li>
+                            <li><a href="/sobremim" title="Denner Grillo">Denner Grillo</a></li>
+                            <li><a href="/servicos" title="Serviços">Serviços</a></li>
+                            <li><a href="/blog" title="Artigos & Receitas">Artigos & Receitas</a></li>
+                            <li><a href="/depoimentos" title="Depoimentos">Na Mídia</a></li>
+                            <li><a href="/contato" title="Contato">Contato</a></li>
                         </ul>
                     </div>
                 </div>
@@ -233,7 +229,7 @@
             <div class="row copywright_row">
                 <div class="col-lg-7 col-md-7 col-12 ">
                     <p class="copywright">Todos os direitos reservados - Copyright © 2018
-                        <a href="index.html">Denner Grillo</a>
+                        <a href="/">Denner Grillo</a>
                     </p>
                 </div>
                 <div class="col-5 col-md-5 col-12">
