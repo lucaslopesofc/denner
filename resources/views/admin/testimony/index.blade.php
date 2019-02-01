@@ -35,7 +35,7 @@
                             <td style="vertical-align:middle;font-size: 15px;">{{ $testimonie->comment }}</td>
                             <td style="vertical-align:middle;" ><span class="label label-warning">Pendente</span></td>
                             <td style="width: 100px; text-align: right; vertical-align:middle;">
-                                <a href="javascript:;" data-toggle="modal" onclick="editData({{ $testimonie->id }})" 
+                                <a href="javascript:;" data-toggle="modal" onclick="editData({{$testimonie->id}})" 
                                     data-target="#EditModal" class="btn btn-success btn-flat"><i class="fa fa-check"></i></a>
 
                                 <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$testimonie->id}})" 
@@ -50,8 +50,8 @@
                             <td style="vertical-align:middle;font-size: 15px;">{{ $testimonie->comment }}</td>
                             <td style="vertical-align:middle;" ><span class="label label-success">Aprovado</span></td>
                             <td style="width: 100px; text-align: right; vertical-align:middle;">
-                            <a href="javascript:;" data-toggle="modal" onclick="deleteData({{ $testimonie->id }})" 
-                                            data-target="#DeleteModal" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
+                            <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$testimonie->id}})" 
+                                    data-target="#DeleteModal" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                         @endif
@@ -89,7 +89,7 @@
              </div>
              <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
-                <button type="submit" name="" class="btn btn-success" data-dismiss="modal" onclick="formSubmit()">Sim, Aceitar</button>
+                <button type="submit" name="" class="btn btn-success" data-dismiss="modal" onclick="formSubmitEdit()">Sim, Aceitar</button>
              </div>
          </div>
      </form>
@@ -132,7 +132,7 @@
         $("#editForm").attr('action', url);
     }
 
-    function formSubmit()
+    function formSubmitEdit()
     {
         $("#editForm").submit();
     }
