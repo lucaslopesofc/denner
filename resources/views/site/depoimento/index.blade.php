@@ -172,22 +172,24 @@
     <section class="rafaa-section r-what-offers">
         <div class="container">
             <div class="row">
-
+                
                 @foreach ($testimonies as $testimonie)
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="wrap_service_2 services_index_4 ">
-                        <div class="head-servcie">
-                            <span class="tesmonail_img">
-                                <img src="/storage/{{ $testimonie->photo }}" alt="{{ $testimonie->name }}">
-                            </span>
-                            <h3>{{ $testimonie->name }}</h3>
-                            <p>{{ $testimonie->city }}</p>
-                        </div>
-                        <div class="body-service">
-                            <p>{{ $testimonie->comment }}</p>
+                    @if ($testimonie->status == 1)
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="wrap_service_2 services_index_4 ">
+                            <div class="head-servcie">
+                                <span class="tesmonail_img">
+                                    <img src="/storage/{{ $testimonie->photo }}" alt="{{ $testimonie->name }}">
+                                </span>
+                                <h3>{{ $testimonie->name }}</h3>
+                                <p>{{ $testimonie->city }}</p>
+                            </div>
+                            <div class="body-service">
+                                <p>{{ $testimonie->comment }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    @endif
                 @endforeach
                 
             </div>

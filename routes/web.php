@@ -1,7 +1,8 @@
 <?php
 
 $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function(){
-    Route::get('depoimento', 'TestimonyController@index')->name('admin.testimony');
+    Route::get('depoimentos', 'TestimonyController@index')->name('admin.testimony');
+    Route::post('depoimento/{id}', 'TestimonyController@update')->name('admin.testimony.update');
     Route::delete('depoimento/{id}', 'TestimonyController@destroy')->name('admin.testimony.destroy');
 
     Route::get('estatistica', 'StatistcController@index')->name('admin.statistic');

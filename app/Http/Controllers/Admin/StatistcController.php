@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StatisticFormRequest;
+Use Session;
 
 use App\Models\Statistic;
 
@@ -33,6 +34,8 @@ class StatistcController extends Controller
         $stats->recipe  = $request->input('recipe');
 
         $stats->save();
+
+        Session::put('success', 'Dados atualizados com sucesso.');
 
         return redirect()->route('admin.statistic');
     }

@@ -125,8 +125,8 @@ return [
             ],
         ],
         [
-            'text' => 'Depoimento',
-            'url'  => 'admin/depoimento',
+            'text' => 'Depoimentos',
+            'url'  => 'admin/depoimentos',
             'icon' => 'pencil',
         ],
     ],

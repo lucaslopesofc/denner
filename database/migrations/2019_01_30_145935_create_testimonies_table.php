@@ -21,6 +21,7 @@ class CreateTestimoniesTable extends Migration
             $table->string('city', 25);
             $table->string('comment', 160);
             $table->string('photo', 100);
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

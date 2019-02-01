@@ -17,7 +17,7 @@ class TestimonyController extends Controller
      */
     public function index()
     {
-        $testimonies = Testimony::orderBy('id', 'desc')->paginate(8);
+        $testimonies = Testimony::orderBy('id', 'desc')->paginate(10);
         return view('admin.testimony.index', compact('testimonies'));
     }
 
@@ -73,7 +73,13 @@ class TestimonyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $testimonies = Testimony::find($id);
+
+        $testimonies->status = '1';
+
+        $testimonies->save();
+
+        return redirect()->route('admin.testimony');
     }
 
     /**

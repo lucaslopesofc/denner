@@ -11,61 +11,14 @@
 @stop
 
 @section('content')
-<div class="row">
-    <div class="col-lg-4 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-aqua">
-            <div class="inner">
-            @if (!$stats == null)
-                <h3>{{ $stats->patient }}</h3>
-            @else
-                <h3>0</h3>
-            @endif
-                <p>Pacientes</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-person"></i>
-            </div>
-        </div>
-    </div>
-    <!-- ./col -->
 
-    <div class="col-lg-4 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-green">
-            <div class="inner">
-            @if (!$stats == null)
-                <h3>{{ $stats->diets }}</h3>
-            @else
-                <h3>0</h3>
-            @endif
-                <p>Dietas</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-pizza"></i>
-            </div>
-        </div>
-    </div>
-    <!-- ./col -->
-
-    <div class="col-lg-4 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-yellow">
-            <div class="inner">
-            @if (!$stats == null)
-                <h3>{{ $stats->recipe }}</h3>
-            @else
-                <h3>0</h3>
-            @endif
-                <p>Receitas</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-folder"></i>
-            </div>
-        </div>
-    </div>
-    <!-- ./col -->
+@if ($message = Session::get('success'))
+<div class="custom-alerts alert alert-success fade in">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+    {!! $message !!}
 </div>
+<?php Session::forget('success');?>
+@endif
 
 <div class="box box-primary">
     <div class="box-header with-border">

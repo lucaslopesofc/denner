@@ -11,7 +11,7 @@
 @section('body')
     <div class="login-box">
         <div class="login-box-body">
-        <img class="logo-login" src="{{ url('storage/images/logo.png') }}" alt="Denner Grillo">
+        <img class="logo-login" src="../vendor/site/images/logo.png" alt="Denner Grillo">
             <p class="login-box-msg">Digite suas credenciais para ter acesso a área.</p>
             <form action="{{ url(config('adminlte.login_url', 'login')) }}" method="post">
                 {!! csrf_field() !!}

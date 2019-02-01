@@ -217,18 +217,20 @@
                     <div class="wrap_tesmonails owl-carousel" data-show="3">
                     
                         @foreach ($testimonies as $testimonie)
-                        <div class="testmonail_2">
-                            <div class="test_head">
-                                <span class="tesmonail_img"><img src="/storage/{{ $testimonie->photo }}" alt="{{ $testimonie->name }}" /></span>
-                                <div class="test_text">
-                                    <h3>{{ $testimonie->name }}</h3>
-                                    <p>{{ $testimonie->city }}</p>
+                            @if ($testimonie->status == 1)
+                            <div class="testmonail_2">
+                                <div class="test_head">
+                                    <span class="tesmonail_img"><img src="/storage/{{ $testimonie->photo }}" alt="{{ $testimonie->name }}" /></span>
+                                    <div class="test_text">
+                                        <h3>{{ $testimonie->name }}</h3>
+                                        <p>{{ $testimonie->city }}</p>
+                                    </div>
+                                </div>
+                                <div class="test_body">
+                                    <p>{{ $testimonie->comment }}</p>
                                 </div>
                             </div>
-                            <div class="test_body">
-                                <p>{{ $testimonie->comment }}</p>
-                            </div>
-                        </div>
+                            @endif
                         @endforeach
 
                     </div>

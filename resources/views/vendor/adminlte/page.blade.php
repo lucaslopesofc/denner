@@ -43,7 +43,7 @@
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini">{!! config('adminlte.logo_mini') !!}</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-login">{!! config('adminlte.logo') !!}</span>
+                <img class="logo-login" src="../../vendor/site/images/logo.png" />
             </a>
 
             <!-- Header Navbar -->
