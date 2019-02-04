@@ -3,7 +3,7 @@
 @section('title')
 
 @section('content_header')
-    <h1>Painel Administrativo</h1>
+    <h1>Painel Administrativo <small>Estatísticas</small></h1>
     <ol class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-home"></i> Home</a></li>
         <li class="active">Estatísticas</li>
