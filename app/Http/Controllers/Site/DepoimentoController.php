@@ -13,7 +13,7 @@ class DepoimentoController extends Controller
 {
     public function index()
     {
-        $testimonies = Testimony::where('status', '=', '1')->orderBy('id', 'desc')->paginate(3);
+        $testimonies = Testimony::where('status', '=', '1')->orderBy('id', 'desc')->paginate(6);
         return view('site.depoimento.index', compact('testimonies'));
     }
 

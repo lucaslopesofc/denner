@@ -99,4 +99,5 @@ class ApprovedController extends Controller
 
         return redirect()->route('admin.testimony.approved');
     }
+
 }
