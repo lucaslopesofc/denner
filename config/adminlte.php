@@ -115,6 +115,11 @@ return [
             'icon' => 'home',
         ],
         [
+            'text' => 'Sliders',
+            'url'  => 'admin/sliders',
+            'icon' => 'image',
+        ],
+        [
             'text'    => 'Sobre Mim',
             'icon'    => 'user',
             'submenu' => [
@@ -126,7 +131,6 @@ return [
         ],
         [
             'text' => 'Depoimentos',
-            'url'  => 'admin/depoimentos',
             'icon' => 'pencil',
             'submenu' => [
                 [
