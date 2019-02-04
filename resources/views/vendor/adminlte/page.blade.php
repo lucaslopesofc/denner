@@ -43,7 +43,7 @@
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini">{!! config('adminlte.logo_mini') !!}</span>
                 <!-- logo for regular state and mobile devices -->
-                <img class="logo-login" src="../../vendor/site/images/logo.png" />
+                <span class="logo-login">{!! config('adminlte.logo') !!}</span>
             </a>
 
             <!-- Header Navbar -->
@@ -94,7 +94,7 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="/storage/{{ Auth::user()->photo }}" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
                         <p>{{ Auth::user()->name }}</p>

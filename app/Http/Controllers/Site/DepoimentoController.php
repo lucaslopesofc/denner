@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TestimonyFormRequest;
+use Session;
 
 use App\Models\Testimony;
 
@@ -12,7 +13,7 @@ class DepoimentoController extends Controller
 {
     public function index()
     {
-        $testimonies = Testimony::orderBy('id', 'desc')->paginate(6);
+        $testimonies = Testimony::where('status', '=', '1')->orderBy('id', 'desc')->paginate(3);
         return view('site.depoimento.index', compact('testimonies'));
     }
 
@@ -38,6 +39,8 @@ class DepoimentoController extends Controller
         $tes->photo   = $path;
 
         $tes->save();
+
+        Session::put('success', 'Depoimento enviado com sucesso. Por favor aguarde aprovação.');
 
         return redirect()->route('depoimento');
     }

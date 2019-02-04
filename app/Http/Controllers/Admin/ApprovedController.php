@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Session;
 
 use App\Models\Testimony;
 
-class TestimonyController extends Controller
+class ApprovedController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +18,8 @@ class TestimonyController extends Controller
      */
     public function index()
     {
-        $testimonies = Testimony::orderBy('id', 'desc')->paginate(10);
-        return view('admin.testimony.index', compact('testimonies'));
+        $testimonies = Testimony::where('status', '=', '1')->orderBy('id', 'desc')->paginate(8);
+        return view('admin.testimony.approved', compact('testimonies'));
     }
 
     /**
@@ -73,13 +74,7 @@ class TestimonyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $testimonies = Testimony::find($id);
-
-        $testimonies->status = '1';
-
-        $testimonies->save();
-
-        return redirect()->route('admin.testimony');
+        //
     }
 
     /**
@@ -100,6 +95,8 @@ class TestimonyController extends Controller
             $testimonies->delete();
         }
 
-        return redirect()->route('admin.testimony');
+        Session::put('success', 'Este depoimento foi deletado com sucesso.');
+
+        return redirect()->route('admin.testimony.approved');
     }
 }

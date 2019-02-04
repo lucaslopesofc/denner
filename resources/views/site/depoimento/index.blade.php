@@ -103,11 +103,19 @@
 
     <section class="rafaa-section contactus-page depoimentos">
         <div class="container">
+
             <div class="row">
                 <div class="offset-lg-2 col-lg-8 offset-md-1 col-md-10 col-sm-12 offset-sm-0 col-12">
                     <div class="wrap_contact_page">
-                        <div class="rq-wrap-form ">
 
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            {!! $message !!}
+                        </div>
+                        <?php Session::forget('success');?>
+                    @endif
+
+                        <div class="rq-wrap-form ">
                             <form action="depoimentos" method="POST" class="tp-form-1" enctype="multipart/form-data">
                             {!! csrf_field() !!}
                                 <div class="row">
@@ -119,7 +127,7 @@
                                             </span>
                                         @endif
                                         <p class="tp-form-el">
-                                            <input type="text" name="name" class="tp-feild" placeholder="Nome completo *">
+                                            <input type="text" name="name" class="tp-feild" placeholder="Nome completo *" maxlength="30" required>
                                         </p>
 
                                         @if ($errors->has('photo'))
@@ -140,7 +148,7 @@
                                             </span>
                                         @endif
                                         <p class="tp-form-el">
-                                            <input type="text" name="city" class="tp-feild" placeholder="Cidade *">
+                                            <input type="text" name="city" class="tp-feild" placeholder="Cidade *" maxlength="25" required>
                                         </p>
 
                                     </div>
@@ -151,7 +159,7 @@
                                             </span>
                                         @endif
                                         <p class="tp-form-el">
-                                            <textarea name="comment" class="tp-message" placeholder="Seu depoimento deverá conter no máximo 160 caracteres."></textarea>
+                                            <textarea name="comment" class="tp-message" placeholder="Seu depoimento deverá conter no máximo 160 caracteres." maxlength="160" required></textarea>
                                         </p>
                                     </div>
                                     <div class="col-12 ">
@@ -174,7 +182,6 @@
             <div class="row">
                 
                 @foreach ($testimonies as $testimonie)
-                    @if ($testimonie->status == 1)
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class="wrap_service_2 services_index_4 ">
                             <div class="head-servcie">
@@ -189,7 +196,6 @@
                             </div>
                         </div>
                     </div>
-                    @endif
                 @endforeach
                 
             </div>

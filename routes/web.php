@@ -1,9 +1,12 @@
 <?php
 
 $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function(){
-    Route::get('depoimentos', 'TestimonyController@index')->name('admin.testimony');
-    Route::post('depoimento/{id}', 'TestimonyController@update')->name('admin.testimony.update');
-    Route::delete('depoimento/{id}', 'TestimonyController@destroy')->name('admin.testimony.destroy');
+    Route::get('depoimentos/aprovados', 'ApprovedController@index')->name('admin.testimony.approved');
+    Route::delete('depoimento/aprovados/{id}', 'ApprovedController@destroy')->name('admin.testimony.approved.destroy');
+
+    Route::get('depoimentos/pendentes', 'PendingController@index')->name('admin.testimony.pending');
+    Route::post('depoimento/pendentes/{id}', 'PendingController@update')->name('admin.testimony.pending.update');
+    Route::delete('depoimento/pendentes/{id}', 'PendingController@destroy')->name('admin.testimony.pending.destroy');
 
     Route::get('estatistica', 'StatistcController@index')->name('admin.statistic');
     Route::post('estatistica', 'StatistcController@store')->name('admin.statistic.store');

@@ -120,7 +120,7 @@
                             <li>
                                 <span class="contact_icon"><i class="fas fa-phone"></i></span>
                                 <h3>Celular</h3>
-                                <p>(28) 9 9973-0380</p>
+                                <p>(28) 9 9901-0528</p>
                             </li>
                         </ul>
                         <div class="rq-wrap-form ">

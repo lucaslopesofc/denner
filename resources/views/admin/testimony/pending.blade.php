@@ -5,14 +5,24 @@
 @section('content_header')
     <h1>Painel Administrativo <small>Depoimentos</small></h1>
     <ol class="breadcrumb">
-        <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="/admin"><i class="fa fa-home"></i> Home</a></li>
         <li class="active">Depoimentos</li>
+        <li class="active">Pendentes</li>
     </ol>
 @stop
 
 @section('content')
 <div class="row">
     <div class="col-xs-12">
+
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="icon fa fa-check"></i> Sucesso!</h4>
+            {!! $message !!}
+        </div>
+        <?php Session::forget('success');?>
+        @endif
 
         <div class="box box-primary">
             <!-- /.box-header -->
@@ -27,7 +37,6 @@
                         <th></th>
                     </tr>
                     @foreach ($testimonies as $testimonie)
-                        @if ($testimonie->status == 0)
                         <tr>
                             <td style="width: 50px; vertical-align:middle;font-size: 15px;">{{ $testimonie->id }}</td>
                             <td style="width: 200px; vertical-align:middle;font-size: 15px;">{{ $testimonie->name }}</td>
@@ -42,19 +51,6 @@
                                     data-target="#DeleteModal" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
-                        @else
-                        <tr>
-                            <td style="width: 50px; vertical-align:middle;font-size: 15px;">{{ $testimonie->id }}</td>
-                            <td style="width: 200px; vertical-align:middle;font-size: 15px;">{{ $testimonie->name }}</td>
-                            <td style="width: 200px; vertical-align:middle;font-size: 15px;">{{ $testimonie->city }}</td>
-                            <td style="vertical-align:middle;font-size: 15px;">{{ $testimonie->comment }}</td>
-                            <td style="vertical-align:middle;" ><span class="label label-success">Aprovado</span></td>
-                            <td style="width: 100px; text-align: right; vertical-align:middle;">
-                            <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$testimonie->id}})" 
-                                    data-target="#DeleteModal" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        @endif
                     @endforeach
                 </table>
             </div>
@@ -127,7 +123,7 @@
     function editData(id)
     {
         var id = id;
-        var url = '{{ route("admin.testimony.update", ":id") }}';
+        var url = '{{ route("admin.testimony.pending.update", ":id") }}';
         url = url.replace(':id', id);
         $("#editForm").attr('action', url);
     }
@@ -144,7 +140,7 @@
     function deleteData(id)
     {
         var id = id;
-        var url = '{{ route("admin.testimony.destroy", ":id") }}';
+        var url = '{{ route("admin.testimony.pending.destroy", ":id") }}';
         url = url.replace(':id', id);
         $("#deleteForm").attr('action', url);
     }

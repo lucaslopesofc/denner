@@ -128,6 +128,17 @@ return [
             'text' => 'Depoimentos',
             'url'  => 'admin/depoimentos',
             'icon' => 'pencil',
+            'submenu' => [
+                [
+                    'text' => 'Aprovados',
+                    'url'  => 'admin/depoimentos/aprovados',
+                ],
+                [
+                    'text' => 'Pendentes
+                    ',
+                    'url'  => 'admin/depoimentos/pendentes',
+                ],
+            ],
         ],
     ],
 

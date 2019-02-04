@@ -12,7 +12,7 @@ class SiteController extends Controller
 {
     public function index()
     {
-        $testimonies = Testimony::orderBy('id', 'desc')->get();
+        $testimonies = Testimony::where('status', '=', '1')->orderBy('id', 'desc')->paginate(6);
         return view('site.home.index', compact(['testimonies']));
     }
 }
