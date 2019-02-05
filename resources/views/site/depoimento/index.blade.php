@@ -127,7 +127,7 @@
                                             </span>
                                         @endif
                                         <p class="tp-form-el">
-                                            <input type="text" name="name" class="tp-feild" placeholder="Nome completo *" maxlength="30" required>
+                                            <input type="text" name="name" value="{{ old('name') }}" class="tp-feild" placeholder="Nome completo *" maxlength="30" required>
                                         </p>
 
                                         @if ($errors->has('photo'))
@@ -136,7 +136,7 @@
                                             </span>
                                         @endif
                                         <div class="form-group">
-                                            <input type="file" name="photo" style="margin-bottom: 15px;">
+                                            <input type="file" name="photo" value="{{ old('photo') }}" style="margin-bottom: 15px;">
                                         </div>
 
                                     </div>
@@ -148,7 +148,7 @@
                                             </span>
                                         @endif
                                         <p class="tp-form-el">
-                                            <input type="text" name="city" class="tp-feild" placeholder="Cidade *" maxlength="25" required>
+                                            <input type="text" name="city" value="{{ old('city') }}" class="tp-feild" placeholder="Cidade *" maxlength="25" required>
                                         </p>
 
                                     </div>
@@ -159,7 +159,7 @@
                                             </span>
                                         @endif
                                         <p class="tp-form-el">
-                                            <textarea name="comment" class="tp-message" placeholder="Seu depoimento deverá conter no máximo 160 caracteres." maxlength="160" required></textarea>
+                                            <textarea name="comment" value="{{ old('comment') }}" class="tp-message" placeholder="Seu depoimento deverá conter no máximo 160 caracteres." maxlength="160" required></textarea>
                                         </p>
                                     </div>
                                     <div class="col-12 ">

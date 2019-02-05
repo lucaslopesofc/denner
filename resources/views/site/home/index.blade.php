@@ -85,15 +85,13 @@
 
     <section class="rafaa-slider rafaa-slider-2 index-5">
         <div class="owl-carousel r_slider" data-dots="off">
+
+            @foreach ($slider as $sli)
             <div class="r_wrap_slider">
-                <div class="r_slider_img" style="background-image:url({{ asset('vendor/site/images/slider1.jpg') }})"></div>
+                <a href="{{ $sli->link }}"><div class="r_slider_img" style="background-image:url(/storage/{{ $sli->image }})"></div></a>
             </div>
-            <div class="r_wrap_slider">
-                <div class="r_slider_img" style="background-image:url({{ asset('vendor/site/images/slider2.jpg') }})"></div>
-            </div>
-            <div class="r_wrap_slider">
-                <div class="r_slider_img" style="background-image:url({{ asset('vendor/site/images/slider3.jpg') }})"></div>
-            </div>
+            @endforeach
+
         </div>
     </section>
 

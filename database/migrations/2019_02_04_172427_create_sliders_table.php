@@ -19,6 +19,7 @@ class CreateSlidersTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('image', 150);
             $table->string('link');
+            $table->integer('status');
             $table->timestamps();
         });
     }

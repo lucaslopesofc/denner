@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SliderFormRequest;
+use Session;
+
+use App\Models\Slider;
 
 class SliderController extends Controller
 {
@@ -14,7 +18,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-        return view('admin.slider.index');
+        $slider = Slider::orderBy('id')->paginate(4);
+        return view('admin.slider.index', compact('slider'));
     }
 
     /**
@@ -24,7 +29,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.slider.novo');
     }
 
     /**
@@ -33,9 +38,23 @@ class SliderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SliderFormRequest $request)
     {
-        //
+        $userLogged = auth()->user()->id;
+        $path = $request->file('image')->store('images/slider', 'public');
+
+        $slider = new Slider();
+
+        $slider->user_id = $userLogged;
+        $slider->image   = $path;
+        $slider->link    = $request->input('link');
+        $slider->status  = $request->input('status');
+
+        $slider->save();
+
+        Session::put('success', 'Slider cadastrado com sucesso.');
+
+        return redirect()->route('admin.slider');
     }
 
     /**
