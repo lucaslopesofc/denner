@@ -38,7 +38,7 @@
                 <h3 class="box-title">Editar Slider</h3>
             </div>
 
-            <form action="sliders/{{ $slider->id }}" method="POST" enctype="multipart/form-data" role="form">
+            <form action="{{ route('admin.slider.update', $slider->id) }}" method="POST" enctype="multipart/form-data" role="form">
                 {{ csrf_field() }}
                 <div class="box-body">
                     <div class="form-group">

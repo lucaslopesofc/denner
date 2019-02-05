@@ -125,7 +125,7 @@ class SliderController extends Controller
             Session::put('success', 'Slider cadastrado com sucesso.');
         }
 
-        return view('admin.slider');
+        return redirect()->route('admin.slider');
     }
 
     /**

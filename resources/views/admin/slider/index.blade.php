@@ -48,7 +48,7 @@
                 <td><img src="/storage/{{ $sli->image }}" class="media-object" style="width: 200px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);"></td>
                 <td style="vertical-align:middle;"><a href="{{ $sli->link }}" target="_blank">{{ $sli->link }}</a></td>
                 <td style="text-align: right; vertical-align:middle;">
-                    <a href="sliders/editar/{{$sli->id}}" class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>
+                    <a href="{{ route('admin.slider.edit', $sli->id) }}" class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>
                     <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$sli->id}})" 
                         data-target="#DeleteModal" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
                 </td>
