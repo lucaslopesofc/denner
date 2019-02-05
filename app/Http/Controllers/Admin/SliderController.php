@@ -83,7 +83,13 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $slider = Slider::find($id);
+
+        if(isset($slider)) {
+            return view('admin.slider.editar', compact('slider'));
+        }
+
+        return view('admin.slider');
     }
 
     /**
@@ -95,7 +101,31 @@ class SliderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $slider = Slider::find($id);
+
+        if(isset($slider)) {
+            $userLogged = auth()->user()->id;
+            $path = $request->file('image')->store('images/slider', 'public');
+
+            $slider = new Slider();
+
+            $slider->user_id = $userLogged;
+            $slider->image   = $path;
+
+            if (!($request->input('link') == null)) {
+                $slider->link = 'http://' . $request->input('link');
+            }else{
+                $slider->link = null;
+            }
+
+            $slider->status  = $request->input('status');
+
+            $slider->save();
+
+            Session::put('success', 'Slider cadastrado com sucesso.');
+        }
+
+        return view('admin.slider');
     }
 
     /**

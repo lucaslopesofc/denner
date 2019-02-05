@@ -7,7 +7,7 @@
     <ol class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-home"></i> Home</a></li>
         <li class="active">Slider</li>
-        <li class="active">Novo</li>
+        <li class="active">Editar</li>
     </ol>
 @stop
 
@@ -35,10 +35,10 @@
     <div class="col-md-6" style="float: none;margin: 0 auto;">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Adicionar Novo Slider</h3>
+                <h3 class="box-title">Editar Slider</h3>
             </div>
 
-            <form action="{{ route('admin.slider.store') }}" method="POST" enctype="multipart/form-data" role="form">
+            <form action="sliders/{{ $slider->id }}" method="POST" enctype="multipart/form-data" role="form">
                 {{ csrf_field() }}
                 <div class="box-body">
                     <div class="form-group">
@@ -49,7 +49,7 @@
                                 </span>
                             @endif
                             <div class="col-md-5">
-                                <img id="blah" src="../../vendor/adminlte/img/default.jpg" style="width: 200px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);" />
+                                <img id="blah" src="/storage/{{ $slider->image }}" style="width: 200px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);" />
                             </div>
                             <div class="col-md-7">
                                 <div class="fileUpload btn btn-primary">
@@ -62,7 +62,7 @@
                         <div class="col-md-12">
                             <div class="form-group" style="margin-top: 15px;">
                                 <label>Link (Opcional)</label>
-                                <input type="text" name="link" value="{{ old('link') }}" class="form-control" placeholder="www.nomedosite.com.br">
+                                <input type="text" name="link" value="{{ $slider->link }}" class="form-control" placeholder="www.nomedosite.com.br">
                                 @if ($errors->has('link'))
                                     <span class="text-red">
                                         <strong>{{ $errors->first('link') }}</strong>
@@ -75,6 +75,11 @@
                             <div class="form-group">
                                 <label>Status</label>
                                 <select class="form-control" name="status">
+                                    @if($slider->status == 0)
+                                        <option value="" selected disabled hidden>Inativo</option>
+                                    @else
+                                        <option value="" selected disabled hidden>Ativo</option>
+                                    @endif
                                     <option value="1">Ativo</option>
                                     <option value="0">Inativo</option>
                                 </select>
