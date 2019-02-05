@@ -87,9 +87,9 @@
         <div class="owl-carousel r_slider" data-dots="off">
 
             @foreach ($slider as $sli)
-            <div class="r_wrap_slider">
-                <a href="{{ $sli->link }}"><div class="r_slider_img" style="background-image:url(/storage/{{ $sli->image }})"></div></a>
-            </div>
+                <div class="r_wrap_slider">
+                    <a href="{{ $sli->link }}"><div class="r_slider_img" style="background-image:url(/storage/{{ $sli->image }})"></div></a>
+                </div>
             @endforeach
 
         </div>

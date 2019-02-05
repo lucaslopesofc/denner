@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\SliderFormRequest;
 use Session;
 
@@ -47,7 +48,13 @@ class SliderController extends Controller
 
         $slider->user_id = $userLogged;
         $slider->image   = $path;
-        $slider->link    = $request->input('link');
+
+        if (!($request->input('link') == null)) {
+            $slider->link = 'http://' . $request->input('link');
+        }else{
+            $slider->link = null;
+        }
+
         $slider->status  = $request->input('status');
 
         $slider->save();
@@ -99,6 +106,14 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $slider = Slider::find($id);
+
+        $image = $slider->image;
+        Storage::disk('public')->delete($image);
+        $slider->delete();
+
+        Session::put('success', 'Slider deletado com sucesso.');
+
+        return redirect()->route('admin.slider');
     }
 }

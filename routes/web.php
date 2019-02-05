@@ -5,6 +5,7 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::get('sliders', 'SliderController@index')->name('admin.slider');
     Route::get('sliders/novo', 'SliderController@create')->name('admin.slider.create');
     Route::post('sliders/novo', 'SliderController@store')->name('admin.slider.store');
+    Route::delete('sliders/{id}', 'SliderController@destroy')->name('admin.slider.destroy');
 
     // Depoimentos Aprovados
     Route::get('depoimentos/aprovados', 'ApprovedController@index')->name('admin.testimony.approved');

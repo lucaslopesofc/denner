@@ -48,7 +48,8 @@
                 <td><a href="#"><img src="/storage/{{ $sli->image }}" class="media-object" style="width: 200px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);"></a></td>
                 <td style="vertical-align:middle;"><a href="{{ $sli->link }}" target="_blank">{{ $sli->link }}</a></td>
                 <td style="text-align: right; vertical-align:middle;">
-                    <button type="submit" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$sli->id}})" 
+                        data-target="#DeleteModal" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
                 </td>
             </tr>
             @endforeach
@@ -63,4 +64,46 @@
     </div>
     <!-- /.box -->
 </div>
+
+<!-- Delete Modal -->
+<div id="DeleteModal" class="modal fade in" role="dialog">
+   <div class="modal-dialog ">
+     <!-- Modal content-->
+     <form action="" id="deleteForm" method="post">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+                 <h4 class="modal-title text-center">Confirmar Exclusão</h4>
+             </div>
+             <div class="modal-body">
+                 {{ csrf_field() }}
+                 {{ method_field('DELETE') }}
+                 <p class="text-center">Você tem certeza que deseja deletar este slider?</p>
+             </div>
+             <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+                <button type="submit" name="" class="btn btn-danger" data-dismiss="modal" onclick="formSubmit()">Sim, Deletar</button>
+             </div>
+         </div>
+     </form>
+   </div>
+</div>
+<!-- Delete Modal -->
+
+<!-- Script -->
+<script type="text/javascript">
+    function deleteData(id)
+    {
+        var id = id;
+        var url = '{{ route("admin.slider.destroy", ":id") }}';
+        url = url.replace(':id', id);
+        $("#deleteForm").attr('action', url);
+    }
+
+    function formSubmit()
+    {
+        $("#deleteForm").submit();
+    }
+</script>
+<!-- Script -->
 @stop
