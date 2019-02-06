@@ -138,9 +138,22 @@ return [
                     'url'  => 'admin/depoimentos/aprovados',
                 ],
                 [
-                    'text' => 'Pendentes
-                    ',
+                    'text' => 'Pendentes',
                     'url'  => 'admin/depoimentos/pendentes',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Configurações',
+            'icon' => 'gear',
+            'submenu' => [
+                [
+                    'text' => 'Páginas',
+                    'url'  => 'admin/configuracoes/paginas',
+                ],
+                [
+                    'text' => 'Informações',
+                    'url'  => '#',
                 ],
             ],
         ],

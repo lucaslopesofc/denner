@@ -18,6 +18,9 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::post('depoimento/pendentes/{id}', 'PendingController@update')->name('admin.testimony.pending.update');
     Route::delete('depoimento/pendentes/{id}', 'PendingController@destroy')->name('admin.testimony.pending.destroy');
 
+    // Configurações de Páginas
+    Route::get('configuracoes/paginas', 'PageController@index')->name('admin.config.pages');
+
     // Estatísticas da Página Sobre Mim
     Route::get('estatistica', 'StatistcController@index')->name('admin.statistic');
     Route::post('estatistica', 'StatistcController@store')->name('admin.statistic.store');

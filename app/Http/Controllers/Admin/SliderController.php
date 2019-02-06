@@ -41,12 +41,10 @@ class SliderController extends Controller
      */
     public function store(SliderFormRequest $request)
     {
-        $userLogged = auth()->user()->id;
         $path = $request->file('image')->store('images/slider', 'public');
 
         $slider = new Slider();
 
-        $slider->user_id = $userLogged;
         $slider->image   = $path;
         $slider->link    = $request->input('link');
         $slider->status  = $request->input('status');
@@ -96,10 +94,7 @@ class SliderController extends Controller
     public function update(SliderFormRequest $request, $id)
     {
         $slider = Slider::find($id);
-
-        $userLogged = auth()->user()->id;
-
-        $slider->user_id = $userLogged;
+        
         $slider->link    = $request->input('link');
         $slider->status  = $request->input('status');
 

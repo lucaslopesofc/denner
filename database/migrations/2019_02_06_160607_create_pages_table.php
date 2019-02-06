@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStatisticsTable extends Migration
+class CreatePagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateStatisticsTable extends Migration
      */
     public function up()
     {
-        Schema::create('statistics', function (Blueprint $table) {
+        Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('patient');
-            $table->integer('diets');
-            $table->integer('recipe');
+            $table->string('title');
+            $table->string('subtitle');
+            $table->string('text', 600);
+            $table->string('image', 150);
+            $table->string('tags', 20);
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateStatisticsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('statistics');
+        Schema::dropIfExists('pages');
     }
 }

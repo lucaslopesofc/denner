@@ -6,7 +6,7 @@
     <h1>Painel Administrativo <small>Sliders</small></h1>
     <ol class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-home"></i> Home</a></li>
-        <li class="active">Slider</li>
+        <li><a href="/admin/sliders">Slider</a></li>
         <li class="active">Novo</li>
     </ol>
 @stop
