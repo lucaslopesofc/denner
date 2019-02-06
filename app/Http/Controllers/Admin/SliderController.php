@@ -96,6 +96,7 @@ class SliderController extends Controller
     public function update(SliderFormRequest $request, $id)
     {
         $slider = Slider::find($id);
+
         $userLogged = auth()->user()->id;
 
         $slider->user_id = $userLogged;
