@@ -6,7 +6,7 @@
     <h1>Painel Administrativo <small>Sliders</small></h1>
     <ol class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-home"></i> Home</a></li>
-        <li class="active">Slider</li>
+        <li><a href="/admin/sliders">Slider</a></li>
         <li class="active">Editar</li>
     </ol>
 @stop
@@ -30,6 +30,7 @@
         filter: alpha(opacity=0);
     }
 </style>
+
 <div class="row">
 
     <div class="col-md-6" style="float: none;margin: 0 auto;">
@@ -54,7 +55,7 @@
                             <div class="col-md-7">
                                 <div class="fileUpload btn btn-primary">
                                     <span>Selecione a Imagem do Slider</span>
-                                    <input type="file" name="image" value="{{ old('image') }}" class="upload" onchange="readURL(this);" />
+                                    <input type="file" name="image" value="{{ $slider->image }}" class="upload" onchange="readURL(this);" />
                                 </div>
                             </div>
                         </div>
@@ -62,7 +63,7 @@
                         <div class="col-md-12">
                             <div class="form-group" style="margin-top: 15px;">
                                 <label>Link (Opcional)</label>
-                                <input type="text" name="link" value="{{ $slider->link }}" class="form-control" placeholder="www.nomedosite.com.br">
+                                <input type="text" name="link" value="{{ $slider->link }}" class="form-control" placeholder="http://www.nomedosite.com.br">
                                 @if ($errors->has('link'))
                                     <span class="text-red">
                                         <strong>{{ $errors->first('link') }}</strong>
@@ -75,13 +76,13 @@
                             <div class="form-group">
                                 <label>Status</label>
                                 <select class="form-control" name="status">
-                                    @if($slider->status == 0)
-                                        <option value="" selected disabled hidden>Inativo</option>
+                                    @if ($slider->status == 0)
+                                        <option value="{{ $slider->status }}">Inativo</option>
+                                        <option value="1">Ativo</option>
                                     @else
-                                        <option value="" selected disabled hidden>Ativo</option>
+                                        <option value="{{ $slider->status }}">Ativo</option>
+                                        <option value="0">Inativo</option>
                                     @endif
-                                    <option value="1">Ativo</option>
-                                    <option value="0">Inativo</option>
                                 </select>
                                 @if ($errors->has('status'))
                                     <span class="text-red">

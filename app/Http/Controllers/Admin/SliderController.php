@@ -48,13 +48,7 @@ class SliderController extends Controller
 
         $slider->user_id = $userLogged;
         $slider->image   = $path;
-
-        if (!($request->input('link') == null)) {
-            $slider->link = 'http://' . $request->input('link');
-        }else{
-            $slider->link = null;
-        }
-
+        $slider->link    = $request->input('link');
         $slider->status  = $request->input('status');
 
         $slider->save();
@@ -99,31 +93,26 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SliderFormRequest $request, $id)
     {
         $slider = Slider::find($id);
+        $userLogged = auth()->user()->id;
 
-        if(isset($slider)) {
-            $userLogged = auth()->user()->id;
+        $slider->user_id = $userLogged;
+        $slider->link    = $request->input('link');
+        $slider->status  = $request->input('status');
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
             $path = $request->file('image')->store('images/slider', 'public');
-
-            $slider = new Slider();
-
-            $slider->user_id = $userLogged;
-            $slider->image   = $path;
-
-            if (!($request->input('link') == null)) {
-                $slider->link = 'http://' . $request->input('link');
-            }else{
-                $slider->link = null;
-            }
-
-            $slider->status  = $request->input('status');
-
-            $slider->save();
-
-            Session::put('success', 'Slider cadastrado com sucesso.');
+            $oldFilename = $slider->image;
+            $slider->image = $path;
+            Storage::disk('public')->delete($oldFilename);
         }
+
+        $slider->save();
+
+        Session::put('success', 'Slider alterado com sucesso.');
 
         return redirect()->route('admin.slider');
     }

@@ -24,7 +24,7 @@ class SliderFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'image'  => 'required|mimes:jpeg,png,jpg|max:2048',
+            'image'  => 'mimes:jpeg,png,jpg|max:2048',
             'link'   => 'nullable|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
             'status' => 'required|integer',
         ];
@@ -33,9 +33,8 @@ class SliderFormRequest extends FormRequest
     public function messages()
     {
         return [
-            'image.required' => 'A imagem é obrigatória, por favor selecione uma.',
             'image.mimes'     => 'Formato de imagem inválida. Por favor selecione uma com apenas formatos JPEG/PNG/JPG.',
-            'image.max'      => 'Imagem deve ter tamanho máximo de 2MB.',
+            'image.max'       => 'Imagem deve ter tamanho máximo de 2MB.',
 
             'link.regex'      => 'Formato de link inválido.',
 

@@ -62,7 +62,7 @@
                         <div class="col-md-12">
                             <div class="form-group" style="margin-top: 15px;">
                                 <label>Link (Opcional)</label>
-                                <input type="text" name="link" value="{{ old('link') }}" class="form-control" placeholder="www.nomedosite.com.br">
+                                <input type="text" name="link" value="{{ old('link') }}" class="form-control" placeholder="http://www.nomedosite.com.br">
                                 @if ($errors->has('link'))
                                     <span class="text-red">
                                         <strong>{{ $errors->first('link') }}</strong>
