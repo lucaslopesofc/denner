@@ -143,9 +143,9 @@
                         <div class="tp_wrap-acheiv">
                             <span class="wrap_counter">
                                 @if (!($stats == null))
-                                <span class="tp-counter odometer " data-to="{{ $stats->patient }}">0</span>
+                                    <span class="tp-counter odometer " data-to="{{ $stats->patient }}">0</span>
                                 @else
-                                <span class="tp-counter odometer ">0</span>
+                                    <span class="tp-counter odometer ">0</span>
                                 @endif
                             </span>
                             <h3 class="acheiv-counter-title">Pacientes</h3>

@@ -105,15 +105,17 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-12 ">
                     <div class="wrap_about_us">
-                        <span class="rp-tip">Sobre Mim</span>
-                        <h2 class="l-head">Denner Grillo</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        @foreach ($pages as $page)
+                            <span class="rp-tip">{{ $page->subtitle }}</span>
+                            <h2 class="l-head">{{ $page->title }}</h2>
+                            <p>{{ $page->text1 }}</p>
+                            <p>{{ $page->text2 }}</p>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-12 ">
                     <div class="feature-service-img-denner">
-                        <img src="{{ asset('vendor/site/images/denner.png') }}"/>
+                        <img src="/storage/{{ $page->image }}"/>
                     </div>
                 </div>
             </div>

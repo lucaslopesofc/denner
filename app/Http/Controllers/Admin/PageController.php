@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Models\Page;
+
 class PageController extends Controller
 {
     /**
@@ -14,7 +16,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.index');
+        $pages = Page::all();
+        return view('admin.pages.index', compact('pages'));
     }
 
     /**

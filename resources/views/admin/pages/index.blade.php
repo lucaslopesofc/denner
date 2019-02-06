@@ -26,14 +26,16 @@
                     <th>Título</th>
                     <th></th>
                 </tr>
+                @foreach ($pages as $page)
                 <tr>
-                    <td style="vertical-align:middle;">1</td>
-                    <td style="vertical-align:middle;">Home</td>
-                    <td style="vertical-align:middle;">Denner Grillo</td>
+                    <td style="vertical-align:middle;">{{ $page->id }}</td>
+                    <td style="vertical-align:middle;">{{ $page->tags }}</td>
+                    <td style="vertical-align:middle;">{{ $page->title }}</td>
                     <td style="width: 100px; text-align: right; vertical-align:middle;">
-                    <a class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>
+                        <a class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>
                     </td>
                 </tr>
+                @endforeach
             </table>
         </div>
         <!-- /.box-body -->
