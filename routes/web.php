@@ -20,6 +20,8 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
 
     // Configurações de Páginas
     Route::get('configuracoes/paginas', 'PageController@index')->name('admin.config.pages');
+    Route::get('configuracoes/paginas/editar/{id}', 'PageController@edit')->name('admin.config.pages.edit');
+    Route::post('configuracoes/paginas/{id}', 'PageController@update')->name('admin.config.pages.update');
 
     // Estatísticas da Página Sobre Mim
     Route::get('estatistica', 'StatistcController@index')->name('admin.statistic');

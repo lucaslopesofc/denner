@@ -102,23 +102,25 @@
 
     <div class="rafaa-section r-about-us-3">
         <div class="container container-sobre-mim">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-12 ">
-                    <div class="wrap_about_us">
-                        @foreach ($pages as $page)
-                            <span class="rp-tip">{{ $page->subtitle }}</span>
-                            <h2 class="l-head">{{ $page->title }}</h2>
-                            <p>{{ $page->text1 }}</p>
-                            <p>{{ $page->text2 }}</p>
-                        @endforeach
+            @foreach ($pages as $page)
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-12 ">
+                        <div class="wrap_about_us">
+                            
+                                <span class="rp-tip">{{ $page->subtitle }}</span>
+                                <h2 class="l-head">{{ $page->title }}</h2>
+                                <p>{{ $page->text1 }}</p>
+                                <p>{{ $page->text2 }}</p>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-12 ">
+                        <div class="feature-service-img-denner">
+                            <img src="/storage/{{ $page->image }}"/>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-12 ">
-                    <div class="feature-service-img-denner">
-                        <img src="/storage/{{ $page->image }}"/>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <!-- feature services -->

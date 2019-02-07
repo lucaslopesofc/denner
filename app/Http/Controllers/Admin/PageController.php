@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\PageFormRequest;
+use Session;
 
 use App\Models\Page;
 
@@ -60,7 +63,9 @@ class PageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pages = Page::find($id);
+
+        return view('admin.pages.editar', compact('pages'));
     }
 
     /**
@@ -70,9 +75,31 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PageFormRequest $request, $id)
     {
-        //
+        $pages = Page::find($id);
+        
+        $pages->title    = $request->input('title');
+        $pages->subtitle = $request->input('subtitle');
+        $pages->text1    = $request->input('text1');
+        $pages->text2    = $request->input('text2');
+        $pages->tags     = $request->input('tags');
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $request->file('image')->store('images/pages', 'public');
+            $oldFilename = $pages->image;
+            $pages->image = $path;
+            Storage::disk('public')->delete($oldFilename);
+        }
+
+        var_dump($pages);
+
+        $pages->save();
+
+        //Session::put('success', 'Slider alterado com sucesso.');
+
+        return redirect()->route('admin.config.pages');
     }
 
     /**

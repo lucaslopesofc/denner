@@ -103,37 +103,44 @@
 
     <section class="rafaa-section about-us">
         <div class="container">
-
             <div class="row">
-                <div class="row align-items-center f-service-row">
-                    <div class="col-lg-6 col-md-12 col-12 col-fs-img">
-                        <div class="feature-service-img " >
-                            <img src="{{ asset('vendor/site/images/analysis.jpg') }}" alt="join us">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-12 col-fs-text">
-                        <div class="feature-service-content " >
-                            <span class="rp-tip"> Seja Bem Vindo</span>
-                            <h2 class="m-head">Meu nome é Denner Grillo</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec nunc mauris. Pellentesque euismod vulputate vulputate. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam non justo sit amet metus molestie ultrices at ac magna. Quisque ac enim laoreet, accumsan arcu non, tincidunt ipsum. Nunc ultricies pulvinar est, ultricies fermentum turpis fringilla sed. Cras vel consectetur turpis. Vestibulum quis fermentum est.</p>
-                        </div>
-                    </div>
-                </div>
 
+                @foreach ($pages as $page)
+                    <div class="row align-items-center f-service-row">
+                        <div class="col-lg-6 col-md-12 col-12 col-fs-img">
+                            <div class="feature-service-img " >
+                                <img src="/storage/{{ $page->image }}" alt="join us">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-12 col-fs-text">
+                            <div class="feature-service-content " >
+                                <span class="rp-tip">{{ $page->subtitle }}</span>
+                                <h2 class="m-head">{{ $page->title }}</h2>
+                                <p>{{ $page->text1 }}</p>
+                                <p>{{ $page->text2 }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+                @foreach ($pages2 as $page)
                 <div class="row align-items-center f-service-row">
                     <div class="col-lg-6 col-md-12 col-12 col-fs-text">
                         <div class="feature-service-content  " >
-                            <h2 class="m-head">Formãções & Especializações</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec nunc mauris. Pellentesque euismod vulputate vulputate. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam non justo sit amet metus molestie ultrices at ac magna.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit:</p>
+                            <span class="rp-tip">{{ $page->subtitle }}</span>
+                            <h2 class="m-head">{{ $page->title }}</h2>
+                            <p>{{ $page->text1 }}</p>
+                            <p>{{ $page->text2 }}</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-12 col-fs-img">
                         <div class="feature-service-img ">
-                            <img src="{{ asset('vendor/site/images/slide_2.jpg') }}" alt="join us">
+                            <img src="/storage/{{ $page->image }}" alt="join us">
                         </div>
                     </div>
                 </div>
+                @endforeach
+
             </div>
 
             <div class="row row_fa_facts">

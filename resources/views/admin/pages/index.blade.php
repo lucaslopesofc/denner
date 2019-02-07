@@ -32,7 +32,7 @@
                     <td style="vertical-align:middle;">{{ $page->tags }}</td>
                     <td style="vertical-align:middle;">{{ $page->title }}</td>
                     <td style="width: 100px; text-align: right; vertical-align:middle;">
-                        <a class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>
+                        <a href="{{ route('admin.config.pages.edit', $page->id) }}" class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>
                     </td>
                 </tr>
                 @endforeach

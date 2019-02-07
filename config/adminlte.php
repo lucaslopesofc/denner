@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<img class="logo-login" src="../../../vendor/site/images/logo.png" />',
+    'logo' => '<img class="logo-login" src="../../../../vendor/site/images/logo.png" />',
 
-    'logo_mini' => '<img class="logo-login" src="../../../vendor/site/images/mini-logo.png" />',
+    'logo_mini' => '<img class="logo-login" src="../../../../vendor/site/images/mini-logo.png" />',
 
     /*
     |--------------------------------------------------------------------------
@@ -120,14 +120,9 @@ return [
             'icon' => 'image',
         ],
         [
-            'text'    => 'Sobre Mim',
-            'icon'    => 'user',
-            'submenu' => [
-                [
-                    'text' => 'Estatísticas',
-                    'url'  => 'admin/estatistica',
-                ],
-            ],
+            'text' => 'Estatística',
+            'url'  => 'admin/estatistica',
+            'icon' => 'user',
         ],
         [
             'text' => 'Depoimentos',
