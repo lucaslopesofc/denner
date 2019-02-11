@@ -294,7 +294,7 @@
                             <li><a href="/sobremim" title="Denner Grillo">Denner Grillo</a></li>
                             <li><a href="/servicos" title="Serviços">Serviços</a></li>
                             <li><a href="/blog" title="Artigos & Receitas">Artigos & Receitas</a></li>
-                            <li><a href="/depoimentos" title="Depoimentos">Na Mídia</a></li>
+                            <li><a href="/depoimentos" title="Depoimentos">Depoimentos</a></li>
                             <li><a href="/contato" title="Contato">Contato</a></li>
                         </ul>
                     </div>

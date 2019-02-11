@@ -148,7 +148,7 @@ return [
                 ],
                 [
                     'text' => 'Informações',
-                    'url'  => '#',
+                    'url'  => 'admin/configuracoes/informacoes',
                 ],
             ],
         ],
