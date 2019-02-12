@@ -8,13 +8,15 @@ use App\Http\Requests\TestimonyFormRequest;
 use Session;
 
 use App\Models\Testimony;
+use App\Models\Information;
 
 class DepoimentoController extends Controller
 {
     public function index()
     {
         $testimonies = Testimony::where('status', '=', '1')->orderBy('id', 'desc')->paginate(6);
-        return view('site.depoimento.index', compact('testimonies'));
+        $infos = Information::where('id', '=', '1')->get();
+        return view('site.depoimento.index', compact('testimonies', 'infos'));
     }
 
     public function create()

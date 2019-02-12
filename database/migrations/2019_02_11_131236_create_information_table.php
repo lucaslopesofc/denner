@@ -15,16 +15,17 @@ class CreateInformationTable extends Migration
     {
         Schema::create('information', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('logo', 150);
-            $table->string('desc', 150);
-            $table->string('facebook');
-            $table->string('instagram');
-            $table->string('street');
-            $table->string('neighborhood');
-            $table->integer('number');
-            $table->string('email');
-            $table->string('telephone', 13);
-            $table->string('cellphone', 14);
+            $table->string('logo', 150)->nullable();
+            $table->string('desc', 150)->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('street')->nullable();
+            $table->string('neighborhood')->nullable();
+            $table->integer('number')->nullable();
+            $table->string('city')->nullable();
+            $table->string('email')->nullable();
+            $table->string('telephone')->nullable();
+            $table->string('cellphone')->nullable();
             $table->timestamps();
         });
     }

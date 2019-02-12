@@ -250,19 +250,20 @@
     </section>
 
     <!-- footer -->
+    @foreach ($infos as $info)
     <footer class="rafaa-section rp-footer rp-footer-3">
         <div class="container">
             <div class="row">
 
                 <div class="col-lg-3 col-md-6 col-sm-12 col-12">
                     <div class="wrap_footer_col">
-                        <img src="{{ asset('vendor/site/images/logo.png') }}" alt="Raqeeb Template">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor ut labore et dolore magna aliqua ut enim. </p>
+                        <img src="/storage/{{ $info->logo }}" alt="Raqeeb Template">
+                        <p>{{ $info->desc }}</p>
                         <ul class="footer_sicons">
                             <li>
-                                <a href="https://www.facebook.com/denner.grillo" target="_blank" title="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                <a href="{{ $info->facebook }}" target="_blank" title="facebook"><i class="fab fa-facebook-f"></i></a></li>
                             <li>
-                                <a href="https://instagram.com/dennergrillonutri/" target="_blank" title="instagram"><i class="fab fa-instagram"></i></a></li>
+                                <a href="{{ $info->instagram }}" target="_blank" title="instagram"><i class="fab fa-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -270,11 +271,11 @@
                 <div class="col-lg-3 col-md-6 col-sm-12 col-12">
                     <div class="wrap_footer_col footer_address">
                         <h3 class="footer-head ">Localização</h3>
-                        <p>Rua Paulo Ribeiro da Silva, n°52, Boa Esperança</p>
-                        <p>Cachoeiro de Itapemirim</p>
-                        <p><a href="mailto:dennergrillo@hotmail.com" title="mailto"><i class="far fa-envelope"></i> dennergrillo@hotmail.com</a></p>
-                        <p><a href="#" title="+435-977-3779"><i class="fas fa-phone"></i> (28) 3521-2881</a></p>
-                        <p><a href="#" title="+435-977-3779"><i class="fas fa-mobile-alt"></i> (28) 9 9901-0528</a></p>
+                        <p>{{ $info->street }}, n°{{ $info->number }}, {{ $info->neighborhood }}</p>
+                        <p>{{ $info->city }}</p>
+                        <p><a href="mailto:{{ $info->email }}" title="mailto"><i class="far fa-envelope"></i> {{ $info->email }}</a></p>
+                        <p><a href="#"><i class="fas fa-phone"></i> {{ $info->telephone }}</a></p>
+                        <p><a href="#"><i class="fas fa-mobile-alt"></i> {{ $info->cellphone }}</a></p>
                     </div>
                 </div>
 
@@ -315,6 +316,7 @@
             </div>
         </div>
     </footer>
+    @endforeach
 
     <!-- js library including -->
     <script src="{{ asset('vendor/site/js/jquery.min.js') }}"></script>

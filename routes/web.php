@@ -25,6 +25,7 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
 
     //Configurações de Informações
     Route::get('configuracoes/informacoes', 'InformationController@index')->name('admin.config.info');
+    Route::post('configuracoes/informacoes/{id}', 'InformationController@update')->name('admin.config.info.update');
 
     // Estatísticas da Página Sobre Mim
     Route::get('estatistica', 'StatistcController@index')->name('admin.statistic');
