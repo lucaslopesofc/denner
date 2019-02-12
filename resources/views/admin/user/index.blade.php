@@ -45,11 +45,8 @@
                     <div class="box-body">
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-xs-6">
-                                    <img id="blah" src="" style="width: 200px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);" />
-                                    <p class="help-block">Imagem deve ser no máximo 200 x 40 pixels.</p>
-                                </div>
-                                <div class="col-xs-6">
+                                <div class="col-xs-3">
+                                    <img id="blah" src="/storage/images/perfil/default.jpg" class="img-circle" style="width: 100px;height: auto;" />
                                     <div class="fileUpload btn btn-primary">
                                         <span>Carregar Nova Logomarca</span>
                                         <input type="file" name="logo" value="" class="upload" onchange="readURL(this);" />
@@ -59,81 +56,30 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Descrição do Site</label>
-                            <textarea name="desc" class="form-control" rows="2" maxlength="150" value=""></textarea>
+                            <label>Nome</label>
+                            <input type="text" name="" class="form-control" value="" maxlength="100">
                         </div>
 
                         <div class="form-group">
-                            <div class="row">
-                                <div class="col-xs-10">
-                                    <label>Rua</label>
-                                    <input type="text" name="street" class="form-control" value="" maxlength="100">
-                                </div>
-                                <div class="col-xs-2">
-                                    <label>Nº</label>
-                                    <input type="number" name="number" class="form-control" value="">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Bairro</label>
-                            <input type="text" name="neighborhood" class="form-control" value="" maxlength="100">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Cidade</label>
-                            <input type="text" name="city" class="form-control" value="" maxlength="100">
+                            <label>Login</label>
+                            <input type="text" name="" class="form-control" value="" maxlength="100">
                         </div>                        
 
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="text" name="email" class="form-control" value="">
+                            <input type="text" name="" class="form-control" value="">
                         </div>
 
                         <div class="form-group">
-                            <label>Facebook</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-facebook"></i>
-                                </div>
-                                <input type="text" name="facebook" class="form-control" value="">
-                            </div>
+                            <label>Senha</label>
+                            <input type="password" name="" class="form-control" value="">
                         </div>
 
                         <div class="form-group">
-                            <label>Instagram</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-instagram"></i>
-                                </div>
-                                <input type="text" name="instagram" class="form-control" value="">
-                            </div>
+                            <label>Repita a Senha</label>
+                            <input type="password" name="" class="form-control" value="">
                         </div>
 
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <label>Telefone</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-phone"></i>
-                                        </div>
-                                            <input type="text" name="telephone" class="form-control" value="">
-                                    </div>
-                                </div>
-                                
-                                <div class="col-xs-6">
-                                    <label>Celular</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-mobile-phone"></i>
-                                        </div>
-                                        <input type="text" name="cellphone" class="form-control" value="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
