@@ -32,9 +32,11 @@
             <div class="row row_menu_2">
                 <div class="col-lg-2 col-md-12 col-12 col-logo-3">
                     <div class="tagpoint-wrap-logo ">
-                        <a href="/" title="Denner Grillo">       
-                            <img src="{{ asset('vendor/site/images/logo.png') }}" alt="Denner Grillo" class="tp_whitelogo">
-                        </a>
+                        @foreach ($infos as $info)
+                            <a href="/" title="Denner Grillo">       
+                                <img src="/storage/{{ $info->logo }}" alt="Denner Grillo" class="tp_whitelogo">
+                            </a>
+                        @endforeach
                         <span class="phone_menu  primary-color">
                             <i class="fas fa-bars"></i>
                         </span>

@@ -22,8 +22,8 @@ class InformationTableSeeder extends Seeder
             'number'       => 52,
             'city'         => 'Cachoeiro de Itapemirim',
             'email'        => 'dennergrillo@hotmail.com',
-            'telephone'    => '2835212881',
-            'cellphone'    => '28999010528'
+            'telephone'    => '(28) 3521-2881',
+            'cellphone'    => '(28) 9 9901-0528'
         ]);
     }
 }

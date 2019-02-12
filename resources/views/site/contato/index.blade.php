@@ -32,9 +32,11 @@
             <div class="row row_menu_2">
                 <div class="col-lg-2 col-md-12 col-12 col-logo-3">
                     <div class="tagpoint-wrap-logo ">
-                        <a href="/" title="Denner Grillo">       
-                            <img src="{{ asset('vendor/site/images/logo.png') }}" alt="Denner Grillo" class="tp_whitelogo">
-                        </a>
+                        @foreach ($infos as $info)
+                            <a href="/" title="Denner Grillo">       
+                                <img src="/storage/{{ $info->logo }}" alt="Denner Grillo" class="tp_whitelogo">
+                            </a>
+                        @endforeach
                         <span class="phone_menu  primary-color">
                             <i class="fas fa-bars"></i>
                         </span>
@@ -106,23 +108,25 @@
             <div class="row">
                 <div class="offset-lg-2 col-lg-8 offset-md-1 col-md-10 col-sm-12 offset-sm-0 col-12">
                     <div class="wrap_contact_page">
+                        @foreach ($infos as $info)
                         <ul class="contact_list">
                             <li>
                                 <span class="contact_icon"><i class="fas fa-fax"></i></span>
                                 <h3>Fixo</h3>
-                                <p>(28) 3521-2881</p>
+                                <p>{{ $info->telephone }}</p>
                             </li>
                             <li>
                                 <span class="contact_icon"><i class="fas fa-envelope"></i></span>
                                 <h3>Email</h3>
-                                <p>dennergrillo@homail.com</p>
+                                <p>{{ $info->email }}</p>
                             </li>
                             <li>
                                 <span class="contact_icon"><i class="fas fa-phone"></i></span>
                                 <h3>Celular</h3>
-                                <p>(28) 9 9901-0528</p>
+                                <p>{{ $info->cellphone }}</p>
                             </li>
                         </ul>
+                        @endforeach
                         <div class="rq-wrap-form ">
                             <form action="#" id="tp-form" class="tp-form-1">
                                 <div class="row">

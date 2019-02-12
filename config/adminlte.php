@@ -150,6 +150,10 @@ return [
                     'text' => 'Informações',
                     'url'  => 'admin/configuracoes/informacoes',
                 ],
+                [
+                    'text' => 'Usuário',
+                    'url'  => 'admin/configuracoes/usuario',
+                ],
             ],
         ],
     ],
