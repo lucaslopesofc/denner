@@ -36,7 +36,7 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::post('estatistica', 'StatistcController@store')->name('admin.statistic.store');
 
     // Serviços
-    //Route::get('servicos', 'StatistcController@index')->name('admin.statistic');
+    Route::get('servicos', 'ServiceController@index')->name('admin.service');
 
     // Página Inicial do Administrador
     Route::get('/', 'AdminController@index')->name('admin.home');
