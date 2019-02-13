@@ -95,8 +95,8 @@ class SliderController extends Controller
     {
         $slider = Slider::find($id);
         
-        $slider->link    = $request->input('link');
-        $slider->status  = $request->input('status');
+        $slider->link   = $request->input('link');
+        $slider->status = $request->input('status');
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');

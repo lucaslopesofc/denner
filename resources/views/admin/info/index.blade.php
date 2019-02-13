@@ -176,7 +176,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-phone"></i>
                                         </div>
-                                            <input type="text" name="telephone" class="form-control" value="{{ $info->telephone }}">
+                                            <input type="text" name="telephone" class="form-control" value="{{ $info->telephone }}" maxlength="14">
                                     </div>
                                     @if ($errors->has('telephone'))
                                         <span class="text-red">
@@ -191,7 +191,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-mobile-phone"></i>
                                         </div>
-                                        <input type="text" name="cellphone" class="form-control" value="{{ $info->cellphone }}">
+                                        <input type="text" name="cellphone" class="form-control" value="{{ $info->cellphone }}" maxlength="16">
                                     </div>
                                     @if ($errors->has('cellphone'))
                                         <span class="text-red">

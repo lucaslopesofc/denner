@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\ProfileFormRequest;
 use App\User;
+use Auth;
+use Session;
 
 class UserController extends Controller
 {
@@ -70,9 +73,35 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProfileFormRequest $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        $user->name  = $request->input('name');
+        $user->login = $request->input('login');
+        $user->email = $request->input('email');
+
+        if(password_verify($request->input('password'), Auth::user()->password)) {
+            $user = Auth::user();
+            $user->password = bcrypt($request->input('newPassword'));
+        }else{
+            //Session::put('error', 'Senha atual incorreta. Por favor digite a sua senha antiga corretamente.');
+            //return redirect()->route('admin.config.user');
+        }
+
+        if ($request->hasFile('photo')) {
+            $photo = $request->file('photo');
+            $path = $request->file('photo')->store('images/perfil', 'public');
+            $oldFilename = $user->photo;
+            $user->photo = $path;
+            Storage::disk('public')->delete($oldFilename);
+        }
+
+        $user->save();
+
+        Session::put('success', 'Informações do usuário alteradas com sucesso.');
+
+        return redirect()->route('admin.config.user');
     }
 
     /**

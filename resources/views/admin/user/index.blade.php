@@ -31,6 +31,24 @@
     }
 </style>
 
+@if ($message = Session::get('success'))
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><i class="icon fa fa-check"></i> Sucesso!</h4>
+        {!! $message !!}
+    </div>
+    <?php Session::forget('success');?>
+@endif
+
+@if ($message = Session::get('error'))
+    <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><i class="icon fa fa-check"></i> Error!</h4>
+        {!! $message !!}
+    </div>
+    <?php Session::forget('error');?>
+@endif
+
 <div class="row">
     <div class="col-md-6" style="float: none;margin: 0 auto;">
         <div class="box box-primary">
@@ -40,44 +58,80 @@
             <!-- /.box-header -->
         
             <!-- form start -->
-                <form action="" method="POST" enctype="multipart/form-data" role="form">
+            @foreach ($user as $u)
+                <form action="{{ route('admin.config.user.update', $u->id) }}" method="POST" enctype="multipart/form-data" role="form">
                     {{ csrf_field() }}
                     <div class="box-body">
+
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-xs-3">
-                                    <img id="blah" src="/storage/images/perfil/default.jpg" class="img-circle" style="width: 100px;height: auto;" />
+                                <div class="col-xs-3" style="float:none;margin:0 auto;">
+                                    <img id="blah" src="/storage/{{ $u->photo }}" class="img-circle" style="width: 100px;height: auto;" />
                                     <div class="fileUpload btn btn-primary">
-                                        <span>Carregar Nova Logomarca</span>
-                                        <input type="file" name="logo" value="" class="upload" onchange="readURL(this);" />
+                                        <span>Foto de Perfil</span>
+                                        <input type="file" name="photo" value="{{ $u->photo }}" class="upload" onchange="readURL(this);" />
                                     </div>
                                 </div>
                             </div>
+                            @if ($errors->has('photo'))
+                                <span class="text-red">
+                                    <strong>{{ $errors->first('photo') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
                         <div class="form-group">
                             <label>Nome</label>
-                            <input type="text" name="" class="form-control" value="" maxlength="100">
+                            <input type="text" name="name" class="form-control" value="{{ $u->name }}" maxlength="100">
+                            @if ($errors->has('name'))
+                                <span class="text-red">
+                                    <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
                         <div class="form-group">
                             <label>Login</label>
-                            <input type="text" name="" class="form-control" value="" maxlength="100">
+                            <input type="text" name="login" class="form-control" value="{{ $u->login }}" maxlength="100">
+                            @if ($errors->has('login'))
+                                <span class="text-red">
+                                    <strong>{{ $errors->first('login') }}</strong>
+                                </span>
+                            @endif
                         </div>                        
 
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="text" name="" class="form-control" value="">
+                            <input type="text" name="email" class="form-control" value="{{ $u->email }}">
+                            @if ($errors->has('email'))
+                                <span class="text-red">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
                         <div class="form-group">
-                            <label>Senha</label>
-                            <input type="password" name="" class="form-control" value="">
+                            <label>Senha Atual</label>
+                            <input type="password" name="password" class="form-control">
+                            @if ($errors->has('password'))
+                                <span class="text-red">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
                         <div class="form-group">
-                            <label>Repita a Senha</label>
-                            <input type="password" name="" class="form-control" value="">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <label>Nova Senha</label>
+                                    <input type="password" name="newPassword" class="form-control" value="">
+                                </div>
+                                
+                                <div class="col-xs-6">
+                                    <label>Repita a Senha</label>
+                                    <input type="password" name="confirmPassword" class="form-control" value="">
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -86,9 +140,11 @@
                         <button type="submit" class="btn btn-primary pull-right">Salvar Alterações</button>
                     </div>
                 </form>
+            @endforeach
         </div>
         <!-- /.box -->
     </div>
+
 </div>
 
 <script>

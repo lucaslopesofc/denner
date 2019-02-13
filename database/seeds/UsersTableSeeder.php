@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
             'name'     => 'Denner Grillo',
             'login'    => 'admin',
             'email'    => 'dennergrillo@hotmail.com',
-            'password' => bcrypt('admin'),
+            'password' => bcrypt('123456'),
             'photo'    => 'images/perfil/default.jpg'
         ]);
     }
