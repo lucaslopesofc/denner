@@ -103,62 +103,45 @@
         </div>
     </section>
 
-    <section class="rafaa-section singel-service-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 col-md-12 col-12">
-                    <h2>
-                        Digital Solution for your bussine
-                    </h2>
-                    <p>Modern design prioritizes content, which is why we develop visuals that guide users and contextualize information without being distracting. Icons, banners, and other illustrated.</p>
-                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
-                </div>
-                <div class="col-lg-5 col-md-12 col-12">
-                    <div class="singel-page-img right-simage">
-                        <img src="{{ asset('vendor/site/images/why_us.jpg') }}" alt="image title" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <?php $aux = 0; ?>
 
-    <section class="rafaa-section singel-service-page cinza">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-md-12 col-12">
-                    <div class="singel-page-img left-simage">
-                        <img src="{{ asset('vendor/site/images/why_us.jpg') }}" alt="image title" />
+    @foreach ($service as $s)
+        @if ($aux == 0)
+            <section class="rafaa-section singel-service-page">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-12 col-12">
+                            <h2>{{ $s->title }}</h2>
+                            <p>{{ $s->text }}</p>
+                        </div>
+                        <div class="col-lg-5 col-md-12 col-12">
+                            <div class="singel-page-img right-simage">
+                                <img src="/storage/{{ $s->image }}" alt="image title" />
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-7 col-md-12 col-12">
-                    <h2>
-                        Digital Solution for your bussine
-                    </h2>
-                    <p>Modern design prioritizes content, which is why we develop visuals that guide users and contextualize information without being distracting. Icons, banners, and other illustrated.</p>
-                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="rafaa-section singel-service-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 col-md-12 col-12">
-                    <h2>
-                        Digital Solution for your bussine
-                    </h2>
-                    <p>Modern design prioritizes content, which is why we develop visuals that guide users and contextualize information without being distracting. Icons, banners, and other illustrated.</p>
-                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
-                </div>
-                <div class="col-lg-5 col-md-12 col-12">
-                    <div class="singel-page-img right-simage">
-                        <img src="{{ asset('vendor/site/images/why_us.jpg') }}" alt="image title" />
+            </section>
+            <?php $aux = 1; ?>
+        @else
+            <section class="rafaa-section singel-service-page cinza">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-12 col-12">
+                            <div class="singel-page-img left-simage">
+                                <img src="/storage/{{ $s->image }}" alt="image title" />
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-12 col-12">
+                            <h2>{{ $s->title }}</h2>
+                            <p>{{ $s->text }}</p>                            
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
+            <?php $aux = 0; ?>
+        @endif
+    @endforeach
 
     <!-- footer -->
     @foreach ($infos as $info)

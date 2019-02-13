@@ -125,6 +125,11 @@ return [
             'icon' => 'user',
         ],
         [
+            'text' => 'Serviços',
+            'url'  => 'admin/servicos',
+            'icon' => 'book',
+        ],
+        [
             'text' => 'Depoimentos',
             'icon' => 'pencil',
             'submenu' => [

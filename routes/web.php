@@ -30,11 +30,13 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     // Configurações de Usuário
     Route::get('configuracoes/usuario', 'UserController@index')->name('admin.config.user');
     Route::post('configuracoes/usuario/{id}', 'UserController@update')->name('admin.config.user.update');
-    //Route::post('configuracoes/usuario/password/{id}', 'UserController@updatePassword')->name('admin.config.update.password');
 
     // Estatísticas da Página Sobre Mim
     Route::get('estatistica', 'StatistcController@index')->name('admin.statistic');
     Route::post('estatistica', 'StatistcController@store')->name('admin.statistic.store');
+
+    // Serviços
+    //Route::get('servicos', 'StatistcController@index')->name('admin.statistic');
 
     // Página Inicial do Administrador
     Route::get('/', 'AdminController@index')->name('admin.home');
