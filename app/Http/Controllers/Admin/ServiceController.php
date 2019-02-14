@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Service;
+use App\Http\Requests\ServiceFormRequest;
+use Session;
 
 class ServiceController extends Controller
 {
@@ -15,7 +19,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $service = Service::all();
+        //$service = Service::all()->paginate(5);
+        $service = DB::table('services')->paginate(4);
         return view('admin.service.index', compact('service'));
     }
 
@@ -26,7 +31,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.service.novo');
     }
 
     /**
@@ -35,9 +40,25 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ServiceFormRequest $request)
     {
-        //
+        if ($request->file('image') == null) {
+            $path = 'images/services/default.jpg';
+        } else {
+            $path = $request->file('image')->store('images/services', 'public');
+        }
+
+        $service = new Service();
+
+        $service->image = $path;
+        $service->title = $request->input('title');
+        $service->text  = $request->input('text');
+
+        $service->save();
+
+        Session::put('success', 'Serviço cadastrado com sucesso.');
+
+        return redirect()->route('admin.service');
     }
 
     /**
@@ -59,7 +80,8 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $service = Service::find($id);
+        return view('admin.service.editar', compact('service'));
     }
 
     /**
@@ -71,7 +93,24 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $service = Service::find($id);
+        
+        $service->title = $request->input('title');
+        $service->text  = $request->input('text');
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $request->file('image')->store('images/services', 'public');
+            $oldFilename = $service->image;
+            $service->image = $path;
+            Storage::disk('public')->delete($oldFilename);
+        }
+
+        $service->save();
+
+        Session::put('success', 'Serviço alterado com sucesso.');
+
+        return redirect()->route('admin.service');
     }
 
     /**
@@ -82,6 +121,18 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $service = Service::find($id);
+
+        if ($service->image != 'images/services/default.jpg') {
+            $image = $service->image;
+            Storage::disk('public')->delete($image);
+            $service->delete();
+        }else{
+            $service->delete();
+        }
+
+        Session::put('success', 'Este serviço foi deletado com sucesso.');
+
+        return redirect()->route('admin.service');
     }
 }

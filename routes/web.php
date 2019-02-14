@@ -37,6 +37,11 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
 
     // Serviços
     Route::get('servicos', 'ServiceController@index')->name('admin.service');
+    Route::get('servicos/novo', 'ServiceController@create')->name('admin.service.create');
+    Route::post('servicos/novo', 'ServiceController@store')->name('admin.service.store');
+    Route::delete('servicos/{id}', 'ServiceController@destroy')->name('admin.service.destroy');
+    Route::get('servicos/editar/{id}', 'ServiceController@edit')->name('admin.service.edit');
+    Route::post('servicos/{id}', 'ServiceController@update')->name('admin.service.update');
 
     // Página Inicial do Administrador
     Route::get('/', 'AdminController@index')->name('admin.home');
