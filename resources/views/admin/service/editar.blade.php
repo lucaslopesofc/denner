@@ -63,7 +63,7 @@
 
                     <div class="form-group">
                         <label>Título do Serviço</label>
-                        <input type="text" name="title" class="form-control" value="{{ $service->title }}" maxlength="100">
+                        <input type="text" name="title" class="form-control" value="{{ $service->title }}" required>
                         @if ($errors->has('title'))
                             <span class="text-red">
                                 <strong>{{ $errors->first('title') }}</strong>

@@ -118,8 +118,7 @@
                             <div class="feature-service-content " >
                                 <span class="rp-tip">{{ $page->subtitle }}</span>
                                 <h2 class="m-head">{{ $page->title }}</h2>
-                                <p>{{ $page->text1 }}</p>
-                                <p>{{ $page->text2 }}</p>
+                                <p>{{ $page->text }}</p>
                             </div>
                         </div>
                     </div>
@@ -131,8 +130,7 @@
                         <div class="feature-service-content  " >
                             <span class="rp-tip">{{ $page->subtitle }}</span>
                             <h2 class="m-head">{{ $page->title }}</h2>
-                            <p>{{ $page->text1 }}</p>
-                            <p>{{ $page->text2 }}</p>
+                            <p>{{ $page->text }}</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-12 col-fs-img">

@@ -26,9 +26,8 @@ class PageFormRequest extends FormRequest
         return [
             'title'    => 'required|max:60',
             'subtitle' => 'nullable|max:60',
-            'text1'    => 'required|max:600',
-            'text2'    => 'max:600',
-            'image'    => 'mimes:jpeg,png,jpg|max:2048',
+            'text'     => 'required|max:600',
+            'image'    => 'nullable|mimes:jpeg,png,jpg|max:2048',
         ];
     }
 
@@ -40,10 +39,8 @@ class PageFormRequest extends FormRequest
 
             'subtitle.max'   => 'O campo subtítulo deve conter no máximo 60 caracteres.',
 
-            'text1.required' => 'O campo 1º parágrafo é obrigatório.',
-            'text1.max'      => 'O 1º parágrafo não pode conter mais que 600 caracteres.',
-
-            'text2.max'      => 'O 1º parágrafo não pode conter mais que 600 caracteres.',
+            'text.required' => 'O campo 1º parágrafo é obrigatório.',
+            'text.max'      => 'O 1º parágrafo não pode conter mais que 600 caracteres.',
 
             'image.mimes'     => 'Formato de imagem inválida. Por favor selecione uma com apenas formatos JPEG/PNG/JPG.',
             'image.max'       => 'Imagem deve ter tamanho máximo de 2MB.',

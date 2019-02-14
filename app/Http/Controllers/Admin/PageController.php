@@ -81,8 +81,7 @@ class PageController extends Controller
         
         $pages->title    = $request->input('title');
         $pages->subtitle = $request->input('subtitle');
-        $pages->text1    = $request->input('text1');
-        $pages->text2    = $request->input('text2');
+        $pages->text     = $request->input('text');
         $pages->tags     = $request->input('tags');
 
         if ($request->hasFile('image')) {
@@ -97,7 +96,7 @@ class PageController extends Controller
 
         $pages->save();
 
-        //Session::put('success', 'Slider alterado com sucesso.');
+        Session::put('success', 'Dados alterados com sucesso.');
 
         return redirect()->route('admin.config.pages');
     }

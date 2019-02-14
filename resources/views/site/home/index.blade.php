@@ -111,8 +111,7 @@
                             
                                 <span class="rp-tip">{{ $page->subtitle }}</span>
                                 <h2 class="l-head">{{ $page->title }}</h2>
-                                <p>{{ $page->text1 }}</p>
-                                <p>{{ $page->text2 }}</p>
+                                <p>{{ $page->text }}</p>
                             
                         </div>
                     </div>

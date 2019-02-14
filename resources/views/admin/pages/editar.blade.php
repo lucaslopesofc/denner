@@ -64,20 +64,11 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <label>1º Parágrafo *</label>
-                            <textarea name="text1" class="form-control" rows="3" value="{{ $pages->text1 }}" maxlength="600">{{ $pages->text1 }}</textarea>
-                            @if ($errors->has('text1'))
+                            <label>Descrição *</label>
+                            <textarea name="text" class="form-control" rows="5" value="{{ $pages->text }}" maxlength="600">{{ $pages->text }}</textarea>
+                            @if ($errors->has('text'))
                                 <span class="text-red">
-                                    <strong>{{ $errors->first('text1') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                        <div class="form-group">
-                            <label>2º Parágrafo</label>
-                            <textarea name="text2" class="form-control" rows="3" value="{{ $pages->text2 }}" maxlength="600">{{ $pages->text2 }}</textarea>
-                            @if ($errors->has('text2'))
-                                <span class="text-red">
-                                    <strong>{{ $errors->first('text2') }}</strong>
+                                    <strong>{{ $errors->first('text') }}</strong>
                                 </span>
                             @endif
                         </div>
