@@ -130,6 +130,24 @@ return [
             'icon' => 'book',
         ],
         [
+            'text' => 'Blog',
+            'icon' => 'rss',
+            'submenu' => [
+                [
+                    'text' => 'Postagens',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Categorias',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Comentários',
+                    'url'  => '#',
+                ],
+            ],
+        ],
+        [
             'text' => 'Depoimentos',
             'icon' => 'pencil',
             'submenu' => [

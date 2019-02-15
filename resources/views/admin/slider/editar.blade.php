@@ -43,6 +43,7 @@
                 {{ csrf_field() }}
                 <div class="box-body">
                     <div class="form-group">
+                    
                         <div class="form-group">
                             @if ($errors->has('image'))
                                 <span class="text-red">

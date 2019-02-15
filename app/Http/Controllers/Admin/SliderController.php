@@ -94,14 +94,14 @@ class SliderController extends Controller
     public function update(SliderFormRequest $request, $id)
     {
         $slider = Slider::find($id);
-        
+
         $slider->link   = $request->input('link');
         $slider->status = $request->input('status');
 
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $path = $request->file('image')->store('images/slider', 'public');
-            $oldFilename = $slider->image;
+            $image         = $request->file('image');
+            $path          = $request->file('image')->store('images/slider', 'public');
+            $oldFilename   = $slider->image;
             $slider->image = $path;
             Storage::disk('public')->delete($oldFilename);
         }
