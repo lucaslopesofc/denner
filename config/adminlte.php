@@ -139,7 +139,7 @@ return [
                 ],
                 [
                     'text' => 'Categorias',
-                    'url'  => '#',
+                    'url'  => 'admin/blog/categorias',
                 ],
                 [
                     'text' => 'Comentários',

@@ -43,6 +43,10 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::get('servicos/editar/{id}', 'ServiceController@edit')->name('admin.service.edit');
     Route::post('servicos/{id}', 'ServiceController@update')->name('admin.service.update');
 
+    // Categorias
+    Route::get('blog/categorias', 'CategoryController@index')->name('admin.category');
+    Route::post('blog/categorias', 'CategoryController@store')->name('admin.category.store');
+
     // Página Inicial do Administrador
     Route::get('/', 'AdminController@index')->name('admin.home');
 });
