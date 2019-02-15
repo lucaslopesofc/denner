@@ -45,9 +45,9 @@
                     <div class="form-group">
                     
                         <div class="form-group">
-                            @if ($errors->has('image'))
+                            @if ($errors->has('image2'))
                                 <span class="text-red">
-                                    <strong>{{ $errors->first('image') }}</strong>
+                                    <strong>{{ $errors->first('image2') }}</strong>
                                 </span>
                             @endif
                             <div class="col-md-5">
@@ -56,7 +56,7 @@
                             <div class="col-md-7">
                                 <div class="fileUpload btn btn-primary">
                                     <span>Selecione a Imagem do Slider</span>
-                                    <input type="file" name="image" value="{{ $slider->image }}" class="upload" onchange="readURL(this);" />
+                                    <input type="file" name="image2" class="upload" onchange="readURL(this);" />
                                 </div>
                             </div>
                         </div>
