@@ -53,22 +53,21 @@
                 <form action="{{ route('admin.config.info.update', $info->id) }}" method="POST" enctype="multipart/form-data" role="form">
                     {{ csrf_field() }}
                     <div class="box-body">
+
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-xs-6">
+                                <div class="col-xs-4" style="float:none;margin:0 auto;">
                                     <img id="blah" src="/storage/{{ $info->logo }}" style="width: 200px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);" />
-                                    <p class="help-block">Imagem deve ser no máximo 200 x 40 pixels.</p>
-                                </div>
-                                <div class="col-xs-6">
                                     <div class="fileUpload btn btn-primary">
                                         <span>Carregar Nova Logomarca</span>
-                                        <input type="file" name="logo" value="{{ $info->image }}" class="upload" onchange="readURL(this);" />
+                                        <input type="file" name="logo" value="{{ $info->logo }}" class="upload" onchange="readURL(this);" />
                                     </div>
+                                    <p class="help-block">Tamanho da Imagem: 200x40</p>
                                 </div>
                             </div>
-                            @if ($errors->has('logo'))
+                            @if ($errors->has('photo'))
                                 <span class="text-red">
-                                    <strong>{{ $errors->first('logo') }}</strong>
+                                    <strong>{{ $errors->first('photo') }}</strong>
                                 </span>
                             @endif
                         </div>

@@ -25,7 +25,6 @@
         @endif
 
         <div class="box box-primary">
-            <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
                     <tr>
@@ -46,7 +45,6 @@
                             <td style="width: 100px; text-align: right; vertical-align:middle;">
                                 <a href="javascript:;" data-toggle="modal" onclick="editData({{$testimonie->id}})" 
                                     data-target="#EditModal" class="btn btn-success btn-flat"><i class="fa fa-check"></i></a>
-
                                 <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$testimonie->id}})" 
                                     data-target="#DeleteModal" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
                             </td>
@@ -84,7 +82,7 @@
                  <p class="text-center">Você tem certeza que deseja aceitar este depoimento?</p>
              </div>
              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
                 <button type="submit" name="" class="btn btn-success" data-dismiss="modal" onclick="formSubmitEdit()">Sim, Aceitar</button>
              </div>
          </div>
@@ -109,7 +107,7 @@
                  <p class="text-center">Você tem certeza que deseja deletar este depoimento?</p>
              </div>
              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
                 <button type="submit" name="" class="btn btn-danger" data-dismiss="modal" onclick="formSubmit()">Sim, Deletar</button>
              </div>
          </div>

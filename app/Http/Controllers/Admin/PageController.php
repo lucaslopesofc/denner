@@ -96,7 +96,7 @@ class PageController extends Controller
 
         $pages->save();
 
-        Session::put('success', 'Dados alterados com sucesso.');
+        Session::put('success', 'Página alterada com sucesso.');
 
         return redirect()->route('admin.config.pages');
     }

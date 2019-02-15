@@ -7,7 +7,7 @@
     <ol class="breadcrumb">
         <li class="active"><a href="/admin"><i class="fa fa-home"></i> Home</a></li>
         <li class="active"><a>Configurações</a></li>
-        <li class="active"><a>Páginas</a></li>
+        <li class="active"><a href="/admin/configuracoes/paginas">Páginas</a></li>
         <li class="active"><a>Editar</a></li>
     </ol>
 @stop
@@ -45,8 +45,9 @@
                     {{ csrf_field() }}
                     <div class="box-body">
                         <input type="hidden" name="tags" value="{{ $pages->tags }}">
+                        
                         <div class="form-group">
-                            <label>Título *</label>
+                            <label>Título <b class="text-red">*</b></label>
                             <input type="text" name="title" class="form-control" value="{{ $pages->title }}" maxlength="60" required>
                             @if ($errors->has('title'))
                                 <span class="text-red">
@@ -54,6 +55,7 @@
                                 </span>
                             @endif
                         </div>
+
                         <div class="form-group">
                             <label>Subtítulo</label>
                             <input type="text" name="subtitle" class="form-control" value="{{ $pages->subtitle }}" maxlength="60">
@@ -63,8 +65,9 @@
                                 </span>
                             @endif
                         </div>
+
                         <div class="form-group">
-                            <label>Descrição *</label>
+                            <label>Descrição <b class="text-red">*</b></label>
                             <textarea name="text" class="form-control" rows="5" value="{{ $pages->text }}" maxlength="600">{{ $pages->text }}</textarea>
                             @if ($errors->has('text'))
                                 <span class="text-red">
@@ -72,6 +75,7 @@
                                 </span>
                             @endif
                         </div>
+
                         <div class="form-group">
                             <div class="col-md-5">
                                 <img id="blah" src="/storage/{{ $pages->image }}" style="width: 200px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);" />
@@ -90,10 +94,12 @@
                                 @endif
                             </div>
                         </div>
+
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary pull-right">Enviar</button>
+                        <a href="{{ URL::previous() }}" class="btn btn-danger">Cancelar</a>
                     </div>
                 </form>
                 <!-- /.box-body -->

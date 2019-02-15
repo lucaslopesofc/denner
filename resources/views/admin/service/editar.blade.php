@@ -85,6 +85,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary pull-right">Enviar</button>
+                    <a href="{{ URL::previous() }}" class="btn btn-danger">Cancelar</a>
                 </div>
             </form>
 

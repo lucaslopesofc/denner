@@ -26,20 +26,20 @@
 
         <div class="box box-primary">
 
-        <div class="box-header">
-            <h3 class="box-title">Depoimentos Aprovados</h3>
-            <div class="box-tools">
-                <form action="" method="POST">
-                {{ csrf_field() }}
-                    <div class="input-group input-group-sm" style="width: 250px;">
-                        <input type="text" name="table_search" class="form-control pull-right" placeholder="Procurar depoimento...">
-                        <div class="input-group-btn">
-                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+            <div class="box-header">
+                <h3 class="box-title">Depoimentos Aprovados</h3>
+                <div class="box-tools">
+                    <form action="" method="POST">
+                    {{ csrf_field() }}
+                        <div class="input-group input-group-sm" style="width: 250px;">
+                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Procurar depoimento...">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
             <!-- /.box-header -->
 
             <div class="box-body table-responsive no-padding">
@@ -97,7 +97,7 @@
                  <p class="text-center">Você tem certeza que deseja deletar este depoimento?</p>
              </div>
              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
                 <button type="submit" name="" class="btn btn-danger" data-dismiss="modal" onclick="formSubmit()">Sim, Deletar</button>
              </div>
          </div>

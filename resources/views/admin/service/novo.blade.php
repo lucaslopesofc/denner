@@ -44,7 +44,7 @@
                 {{ csrf_field() }}
                 <div class="box-body">
 
-                    <div class="form-group" style="text-align:center;">
+                    <div class="form-group">
                         <div class="row">
                             <div class="col-xs-3" style="float:none;margin:0 auto;">
                                 <img id="blah" src="/storage/images/services/default.jpg" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);" />
@@ -62,8 +62,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Título do Serviço</label>
-                        <input type="text" name="title" class="form-control" required>
+                        <label>Título do Serviço <b class="text-red">*</b></label>
+                        <input type="text" name="title" class="form-control" placeholder="" required>
                         @if ($errors->has('title'))
                             <span class="text-red">
                                 <strong>{{ $errors->first('title') }}</strong>
@@ -72,8 +72,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Descrição do Serviço</label>
-                        <textarea name="text" class="form-control" rows="6"></textarea>
+                        <label>Descrição do Serviço <b class="text-red">*</b></label>
+                        <textarea name="text" class="form-control" rows="6" required></textarea>
                         @if ($errors->has('text'))
                             <span class="text-red">
                                 <strong>{{ $errors->first('text') }}</strong>
@@ -85,6 +85,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary pull-right">Enviar</button>
+                    <a href="{{ URL::previous() }}" class="btn btn-danger">Cancelar</a>
                 </div>
             </form>
 

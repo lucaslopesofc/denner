@@ -24,7 +24,7 @@
 <div class="col-md-6" style="float: none;margin: 0 auto;">
     <div class="box box-primary">
         <div class="box-header">
-            <h3 class="box-title">Slider da Página Inicial</h3>
+            <h3 class="box-title">Sliders</h3>
             <div class="box-tools pull-right">
                 <a href="{{ route('admin.slider.create') }}" class="btn btn-block btn-success btn-flat"><i class="fa fa-plus"></i> Adicionar Slider</a>
             </div>
@@ -82,7 +82,7 @@
                  <p class="text-center">Você tem certeza que deseja deletar este slider?</p>
              </div>
              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
                 <button type="submit" name="" class="btn btn-danger" data-dismiss="modal" onclick="formSubmit()">Sim, Deletar</button>
              </div>
          </div>

@@ -78,7 +78,7 @@
                  <p class="text-center">Você tem certeza que deseja deletar este serviço?</p>
              </div>
              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
                 <button type="submit" name="" class="btn btn-danger" data-dismiss="modal" onclick="formSubmit()">Sim, Deletar</button>
              </div>
          </div>

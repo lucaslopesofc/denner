@@ -94,7 +94,7 @@ class SliderController extends Controller
      */
     public function update(SliderEditFormRequest $request, $id)
     {
-        $files = $request->file('image2');
+        $files = $request->file('image');
         
         $slider = Slider::find($id);
 
@@ -102,8 +102,8 @@ class SliderController extends Controller
         $slider->status = $request->input('status');
 
         if (!empty($files)) {
-            $image         = $request->file('image2');
-            $path          = $request->file('image2')->store('images/slider', 'public');
+            $image         = $request->file('image');
+            $path          = $request->file('image')->store('images/slider', 'public');
             $oldFilename   = $slider->image;
             $slider->image = $path;
             Storage::disk('public')->delete($oldFilename);

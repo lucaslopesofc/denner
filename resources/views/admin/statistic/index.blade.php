@@ -23,11 +23,11 @@
 
 <div class="box box-primary">
     <div class="box-header with-border">
-        <h3 class="box-title">Edite suas estatísticas</h3>
+        <h3 class="box-title">Estatísticas</h3>
     </div>
-    <div class="box-body">
-        <form action="estatistica" method="POST">
-            {!! csrf_field() !!}
+    <form action="estatistica" method="POST">
+        {!! csrf_field() !!}
+        <div class="box-body">
             <div class="row">
                 <div class="col-xs-4">
                     <label>Pacientes</label>
@@ -72,13 +72,13 @@
                     @endif
                 </div>
             </div>
-            <div class="box-footer">
-                <button type="submit" class="btn btn-primary pull-right">Enviar</button>
-            </div>
-            <!-- /.box-footer -->
-        </form>
-    </div>
-    <!-- /.box-body -->      
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary pull-right">Enviar</button>
+        </div>
+        <!-- /.box-footer -->
+    </form>
 </div>
 <!-- /.box -->
 @stop

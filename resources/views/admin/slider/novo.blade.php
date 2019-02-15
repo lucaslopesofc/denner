@@ -53,48 +53,45 @@
                 {{ csrf_field() }}
                 <div class="box-body">
                     <div class="form-group">
+
                         <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-4" style="float:none;margin:0 auto;">
+                                    <img id="blah" src="/storage/images/slider/default.jpg" style="width: 200px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);" />
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Selecione a Imagem do Slider</span>
+                                        <input type="file" name="image" value="{{ old('image') }}" class="upload" onchange="readURL(this);" />
+                                    </div>
+                                </div>
+                            </div>
                             @if ($errors->has('image'))
                                 <span class="text-red">
                                     <strong>{{ $errors->first('image') }}</strong>
                                 </span>
                             @endif
-                            <div class="col-md-5">
-                                <img id="blah" src="../../vendor/adminlte/img/default.jpg" style="width: 200px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);" />
-                            </div>
-                            <div class="col-md-7">
-                                <div class="fileUpload btn btn-primary">
-                                    <span>Selecione a Imagem do Slider</span>
-                                    <input type="file" name="image" value="{{ old('image') }}" class="upload" onchange="readURL(this);" />
-                                </div>
-                            </div>
                         </div>
 
-                        <div class="col-md-12">
-                            <div class="form-group" style="margin-top: 15px;">
-                                <label>Link (Opcional)</label>
-                                <input type="text" name="link" value="{{ old('link') }}" class="form-control" placeholder="http://www.nomedosite.com.br">
-                                @if ($errors->has('link'))
-                                    <span class="text-red">
-                                        <strong>{{ $errors->first('link') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                        <div class="form-group" style="margin-top: 15px;">
+                            <label>Link (Opcional)</label>
+                            <input type="text" name="link" value="{{ old('link') }}" class="form-control" placeholder="http://www.nomedosite.com.br">
+                            @if ($errors->has('link'))
+                                <span class="text-red">
+                                    <strong>{{ $errors->first('link') }}</strong>
+                                </span>
+                            @endif
                         </div>
-
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Status</label>
-                                <select class="form-control" name="status">
-                                    <option value="1">Ativo</option>
-                                    <option value="0">Inativo</option>
-                                </select>
-                                @if ($errors->has('status'))
-                                    <span class="text-red">
-                                        <strong>{{ $errors->first('status') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                        
+                        <div class="form-group">
+                            <label>Status <b class="text-red">*</b></label>
+                            <select class="form-control" name="status">
+                                <option value="1">Ativo</option>
+                                <option value="0">Inativo</option>
+                            </select>
+                            @if ($errors->has('status'))
+                                <span class="text-red">
+                                    <strong>{{ $errors->first('status') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
                     </div>
@@ -103,6 +100,7 @@
 
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary pull-right">Enviar</button>
+                    <a href="{{ URL::previous() }}" class="btn btn-danger">Cancelar</a>
                 </div>
             </form>
         </div>
