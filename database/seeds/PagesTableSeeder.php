@@ -15,7 +15,7 @@ class PagesTableSeeder extends Seeder
         Page::create([
             'title'    => 'Título Principal',
             'subtitle' => 'Subtítulo',
-            'text'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            'text'     => 'Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.',
             'image'    => 'images/pages/default-home.png',
             'tags'     => 'Home'
         ]);
@@ -23,7 +23,7 @@ class PagesTableSeeder extends Seeder
         Page::create([
             'title'    => 'Título Principal',
             'subtitle' => 'Subtítulo',
-            'text'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec nunc mauris. Pellentesque euismod vulputate vulputate. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam non justo sit amet metus molestie ultrices at ac magna. Quisque ac enim laoreet, acc',
+            'text'     => 'Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.',
             'image'    => 'images/pages/default-sobremim.jpg',
             'tags'     => 'Sobre Mim 1'
         ]);
@@ -31,7 +31,7 @@ class PagesTableSeeder extends Seeder
         Page::create([
             'title'    => 'Título Principal',
             'subtitle' => 'Subtítulo',
-            'text'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec nunc mauris. Pellentesque euismod vulputate vulputate. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam non justo sit amet metus molestie ultrices at ac magna. Quisque ac enim laoreet, acc',
+            'text'     => 'Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.',
             'image'    => 'images/pages/default-sobremim.jpg',
             'tags'     => 'Sobre Mim 2'
         ]);

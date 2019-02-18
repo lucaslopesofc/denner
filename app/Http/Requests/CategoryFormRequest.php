@@ -33,7 +33,7 @@ class CategoryFormRequest extends FormRequest
         return [
             'name.required' => 'O nome da categoria é obrigatório.',
             'name.string'   => 'A categoria deve conter apenas letras e números.',
-            'name.max'      => 'A categoria deve ter no máximo 15 caracteres.'            
+            'name.max'      => 'A categoria deve ter no máximo 15 caracteres.'
         ];
     }
 }

@@ -46,6 +46,9 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     // Categorias
     Route::get('blog/categorias', 'CategoryController@index')->name('admin.category');
     Route::post('blog/categorias', 'CategoryController@store')->name('admin.category.store');
+    Route::delete('blog/categorias/{id}', 'CategoryController@destroy')->name('admin.category.destroy');
+    Route::get('blog/categorias/editar/{id}', 'CategoryController@edit')->name('admin.category.edit');
+    Route::post('blog/categorias/editar/{id}', 'CategoryController@update')->name('admin.category.update');
 
     // Página Inicial do Administrador
     Route::get('/', 'AdminController@index')->name('admin.home');

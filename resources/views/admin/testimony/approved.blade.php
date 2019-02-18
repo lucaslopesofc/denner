@@ -16,12 +16,12 @@
     <div class="col-xs-12">
 
         @if ($message = Session::get('success'))
-        <div class="alert alert-success alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h4><i class="icon fa fa-check"></i> Sucesso!</h4>
-            {!! $message !!}
-        </div>
-        <?php Session::forget('success');?>
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-check"></i> Sucesso!</h4>
+                {!! $message !!}
+            </div>
+            <?php Session::forget('success');?>
         @endif
 
         <div class="box box-primary">
@@ -60,7 +60,7 @@
                             <td style="vertical-align:middle;font-size: 15px;">{{ $testimonie->comment }}</td>
                             <td style="vertical-align:middle;" ><span class="label label-success">Aprovado</span></td>
                             <td style="width: 100px; text-align: right; vertical-align:middle;">
-                            <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$testimonie->id}})" 
+                                <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$testimonie->id}})" 
                                     data-target="#DeleteModal" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>

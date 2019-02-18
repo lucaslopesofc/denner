@@ -3,7 +3,7 @@
 @section('title')
 
 @section('content_header')
-    <h1>Painel Administrativo <small>Dashboard</small></h1>
+    <h1>Painel Administrativo <small>Categorias</small></h1>
     <ol class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-home"></i> Home</a></li>
         <li class="active"><a href="/admin/blog"> Blog</a></li>
@@ -44,8 +44,9 @@
                             <td style="width: 50px; vertical-align:middle;font-size: 15px;">{{ $cat->id }}</td>
                             <td style="vertical-align:middle;">{{ $cat->name }}</td>
                             <td style="width: 100px; text-align: right; vertical-align:middle;">
-                                <a class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>
-                                <a class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
+                                <a href="{{ route('admin.category.edit', $cat->id) }}" class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>
+                                <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$cat->id}})" 
+                                    data-target="#DeleteModal" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach
@@ -76,7 +77,12 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label>Nome da Categoria</label>
-                        <input type="text" name="name" class="form-control">
+                        <input type="text" name="name" class="form-control" maxlength="15" required>
+                        @if ($errors->has('name'))
+                            <span class="text-red">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                        @endif
                     </div>
                 </div>
                 <!-- /.box-body -->
@@ -89,4 +95,46 @@
         <!-- /.box -->
     </div>
 </div>
+
+<!-- Delete Modal -->
+<div id="DeleteModal" class="modal fade in" role="dialog">
+   <div class="modal-dialog ">
+     <!-- Modal content-->
+     <form action="" id="deleteForm" method="post">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+                 <h4 class="modal-title text-center">Confirmar Exclusão</h4>
+             </div>
+             <div class="modal-body">
+                 {{ csrf_field() }}
+                 {{ method_field('DELETE') }}
+                 <p class="text-center">Você tem certeza que deseja deletar esta categoria?</p>
+             </div>
+             <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+                <button type="submit" name="" class="btn btn-danger" data-dismiss="modal" onclick="formSubmit()">Sim, Deletar</button>
+             </div>
+         </div>
+     </form>
+   </div>
+</div>
+<!-- Delete Modal -->
+
+<!-- Script -->
+<script type="text/javascript">
+    function deleteData(id)
+    {
+        var id = id;
+        var url = '{{ route("admin.category.destroy", ":id") }}';
+        url = url.replace(':id', id);
+        $("#deleteForm").attr('action', url);
+    }
+
+    function formSubmit()
+    {
+        $("#deleteForm").submit();
+    }
+</script>
+<!-- Script -->
 @stop

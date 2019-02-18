@@ -19,7 +19,7 @@ class CategoryController extends Controller
     public function index()
     {
         $category = DB::table('categories')->paginate(5);
-        return view('admin.blog.categoria', compact('category'));
+        return view('admin.categoria.index', compact('category'));
     }
 
     /**
@@ -71,7 +71,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+
+        return view('admin.categoria.editar', compact('category'));
     }
 
     /**
@@ -81,9 +83,17 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryFormRequest $request, $id)
     {
-        //
+        $category = Category::find($id);
+        
+        $category->name = $request->input('name');
+
+        $category->save();
+
+        Session::put('success', 'Categoria alterada com sucesso.');
+
+        return redirect()->route('admin.category');
     }
 
     /**
@@ -94,6 +104,12 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+
+        $category->delete();
+
+        Session::put('success', 'Categoria deletada com sucesso.');
+
+        return redirect()->route('admin.category');
     }
 }

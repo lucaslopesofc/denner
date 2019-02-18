@@ -92,8 +92,6 @@ class PageController extends Controller
             Storage::disk('public')->delete($oldFilename);
         }
 
-        var_dump($pages);
-
         $pages->save();
 
         Session::put('success', 'Página alterada com sucesso.');
