@@ -32,7 +32,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.post.novo');
+        $category = Category::all();
+
+        return view('admin.post.novo', compact('category'));
     }
 
     /**
@@ -43,7 +45,26 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->file('image') == null) {
+            $path = 'images/blog/imagem.jpg';
+        } else {
+            $path = $request->file('image')->store('images/blog', 'public');
+        }
+
+        $blog = new Blog();
+        
+        $blog->user_id  = Auth::user()->id;
+        $blog->image    = $path;
+        $blog->title    = $request->input('title');
+        $blog->category = $request->input('title');
+        $blog->title    = $request->input('title');
+        $blog->text     = $request->input('text');
+
+        $service->save();
+
+        Session::put('success', 'Serviço cadastrado com sucesso.');
+
+        return redirect()->route('admin.service');
     }
 
     /**

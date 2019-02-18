@@ -46,6 +46,7 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     // Postagem
     Route::get('blog/postagens', 'PostController@index')->name('admin.post');
     Route::get('blog/postagens/novo', 'PostController@create')->name('admin.post.create');
+    Route::post('blog/postagens/novo', 'PostController@store')->name('admin.post.store');
 
     // Categorias
     Route::get('blog/categorias', 'CategoryController@index')->name('admin.category');
