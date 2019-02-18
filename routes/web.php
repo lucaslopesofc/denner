@@ -43,6 +43,10 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::get('servicos/editar/{id}', 'ServiceController@edit')->name('admin.service.edit');
     Route::post('servicos/{id}', 'ServiceController@update')->name('admin.service.update');
 
+    // Postagem
+    Route::get('blog/postagens', 'PostController@index')->name('admin.post');
+    Route::get('blog/postagens/novo', 'PostController@create')->name('admin.post.create');
+
     // Categorias
     Route::get('blog/categorias', 'CategoryController@index')->name('admin.category');
     Route::post('blog/categorias', 'CategoryController@store')->name('admin.category.store');

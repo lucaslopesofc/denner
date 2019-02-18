@@ -135,7 +135,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Postagens',
-                    'url'  => '#',
+                    'url'  => 'admin/blog/postagens',
                 ],
                 [
                     'text' => 'Categorias',

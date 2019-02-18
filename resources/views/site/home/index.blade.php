@@ -138,65 +138,22 @@
                     </div>
                     <div class="carousel-blogs owl-carousel">
 
+                        @foreach ($blog as $b)
                         <div class="wrap_blog">
                             <div class="wrap-blog-img">
-                                <img src="{{ asset('vendor/site/images/stronda.jpg') }}" alt="blog title" />
+                                <img src="/storage/{{ $b->image }}" alt="blog title" />
                             </div>
                             <div class="wrap-blog-text">
-                                <h2><a href="#" title="blog title">Título da Postagem 1</a></h2>
+                                <h2><a href="#" title="{{ $b->title }}">{{ $b->title }}</a></h2>
                                 <ul class="r-datameta">
-                                    <li><a href="#" title="author name" class="r-author"><i class="fas fa-user"></i>Denner Grillo</a></li>
-                                    <li><span class="r-data"><i class="fas fa-clock"></i>Janeiro 25,2019</span></li>
+                                    <li><a href="#" title="{{ $b->name }}" class="r-author"><i class="fas fa-user"></i>{{ $b->name }}</a></li>
+                                    <li><span class="r-data"><i class="fas fa-clock"></i>{{ Carbon\Carbon::parse($b->updated_at)->format('d/m/Y H:i') }}</span></li>
                                 </ul>
                                 <p>Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt.</p>
                                 <div class="ream_more"><a href="#">Leia mais</a></div>
                             </div>
                         </div>
-
-                        <div class="wrap_blog">
-                            <div class="wrap-blog-img">
-                                <img src="{{ asset('vendor/site/images/stronda.jpg') }}" alt="blog title" />
-                            </div>
-                            <div class="wrap-blog-text">
-                                <h2><a href="#" title="blog title">Título da Postagem 2</a></h2>
-                                <ul class="r-datameta">
-                                    <li><a href="#" title="author name" class="r-author"><i class="fas fa-user"></i>Denner Grillo</a></li>
-                                    <li><span class="r-data"><i class="fas fa-clock"></i>Janeiro 25,2019</span></li>
-                                </ul>
-                                <p>Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt.</p>
-                                <div class="ream_more"><a href="#">Leia mais</a></div>
-                            </div>
-                        </div>
-
-                        <div class="wrap_blog">
-                            <div class="wrap-blog-img">
-                                <img src="{{ asset('vendor/site/images/stronda.jpg') }}" alt="blog title" />
-                            </div>
-                            <div class="wrap-blog-text">
-                                <h2><a href="#" title="blog title">Título da Postagem 3</a></h2>
-                                <ul class="r-datameta">
-                                    <li><a href="#" title="author name" class="r-author"><i class="fas fa-user"></i>Denner Grillo</a></li>
-                                    <li><span class="r-data"><i class="fas fa-clock"></i>Janeiro 25,2019</span></li>
-                                </ul>
-                                <p>Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt.</p>
-                                <div class="ream_more"><a href="#">Leia mais</a></div>
-                            </div>
-                        </div>
-
-                        <div class="wrap_blog">
-                            <div class="wrap-blog-img">
-                                <img src="{{ asset('vendor/site/images/stronda.jpg') }}" alt="blog title" />
-                            </div>
-                            <div class="wrap-blog-text">
-                                <h2><a href="#" title="blog title">Título da Postagem 4</a></h2>
-                                <ul class="r-datameta">
-                                    <li><a href="#" title="author name" class="r-author"><i class="fas fa-user"></i>Denner Grillo</a></li>
-                                    <li><span class="r-data"><i class="fas fa-clock"></i>Janeiro 25,2019</span></li>
-                                </ul>
-                                <p>Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt.</p>
-                                <div class="ream_more"><a href="#">Leia mais</a></div>
-                            </div>
-                        </div>
+                        @endforeach
 
                     </div>
                 </div>

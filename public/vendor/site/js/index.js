@@ -362,7 +362,7 @@
                     items: 3,
                     autoplay: true,
                     responsiveClass: true,
-                    loop: true,
+                    loop: false,
                     dots: true,
                     nav: false,
                     responsive: {
