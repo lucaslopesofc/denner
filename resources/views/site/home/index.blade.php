@@ -144,12 +144,12 @@
                                 <img src="/storage/{{ $b->image }}" alt="blog title" />
                             </div>
                             <div class="wrap-blog-text">
-                                <h2><a href="#" title="{{ $b->title }}">{{ $b->title }}</a></h2>
+                                <h2><a href="{{ route('blog.detalhe', $b->id) }}" title="{{ $b->title }}">{{ $b->title }}</a></h2>
                                 <ul class="r-datameta">
                                     <li><a href="#" title="{{ $b->name }}" class="r-author"><i class="fas fa-user"></i>{{ $b->name }}</a></li>
                                     <li><span class="r-data"><i class="fas fa-clock"></i>{{ Carbon\Carbon::parse($b->updated_at)->format('d/m/Y H:i') }}</span></li>
                                 </ul>
-                                <p>Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt.</p>
+                                <p>{{ $b->text }}</p>
                                 <div class="ream_more"><a href="#">Leia mais</a></div>
                             </div>
                         </div>

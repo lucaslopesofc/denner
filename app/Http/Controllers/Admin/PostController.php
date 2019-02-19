@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\BlogFormRequest;
 use App\Models\Blog;
 use App\Models\Category;
+use Session;
 
 class PostController extends Controller
 {
@@ -43,7 +46,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BlogFormRequest $request)
     {
         if ($request->file('image') == null) {
             $path = 'images/blog/imagem.jpg';
@@ -53,18 +56,18 @@ class PostController extends Controller
 
         $blog = new Blog();
         
-        $blog->user_id  = Auth::user()->id;
-        $blog->image    = $path;
-        $blog->title    = $request->input('title');
-        $blog->category = $request->input('title');
-        $blog->title    = $request->input('title');
-        $blog->text     = $request->input('text');
+        $blog->user_id     = Auth::user()->id;
+        $blog->image       = $path;
+        $blog->title       = $request->input('title');
+        $blog->text        = $request->input('text');
+        $blog->status      = $request->input('status');
+        $blog->category_id = $request->input('category');
 
-        $service->save();
+        $blog->save();
 
-        Session::put('success', 'Serviço cadastrado com sucesso.');
+        //Session::put('success', 'Postagem cadastrada com sucesso.');
 
-        return redirect()->route('admin.service');
+        return redirect()->route('admin.post');
     }
 
     /**

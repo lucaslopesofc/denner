@@ -50,6 +50,11 @@
                             <span>Carregar Imagem da Postagem</span>
                             <input type="file" name="image" class="upload" onchange="readURL(this);">
                         </div>
+                        @if ($errors->has('image'))
+                            <span class="text-red">
+                                <strong>{{ $errors->first('image') }}</strong>
+                            </span>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -57,33 +62,53 @@
             <div class="box-body">
                 <div class="form-group">
                     <label>Título da Postagem <b class="text-red">*</b></label>
-                    <input type="text" name="title" class="form-control">
+                    <input type="text" name="title" value="{{ old('title') }}" class="form-control" maxlength="100" required>
+                    @if ($errors->has('title'))
+                        <span class="text-red">
+                            <strong>{{ $errors->first('title') }}</strong>
+                        </span>
+                    @endif
                 </div>
 
                 <div class="row">
                     <div class="col-xs-6">
                         <label>Categoria <b class="text-red">*</b></label>
-                        <select name="status" class="form-control">
+                        <select name="category" class="form-control" required>
                             <option>Selecione a categoria</option>
                             @foreach ($category as $cat)
-                                <option>{{ $cat->name }}</option>
+                                <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                             @endforeach
                         </select>
+                        @if ($errors->has('category'))
+                            <span class="text-red">
+                                <strong>{{ $errors->first('category') }}</strong>
+                            </span>
+                        @endif
                     </div>
+
                     <div class="col-xs-6">
                         <label>Status <b class="text-red">*</b></label>
-                        <select class="form-control">
+                        <select name="status" class="form-control">
                             <option value="1">Ativo</option>
                             <option value="0">Inativo</option>
                         </select>
+                        @if ($errors->has('status'))
+                            <span class="text-red">
+                                <strong>{{ $errors->first('status') }}</strong>
+                            </span>
+                        @endif
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>Texto</label>
-                    <textarea name="text" class="textarea" placeholder="Redija seu texto aqui ..."
+                    <label>Texto <b class="text-red">*</b></label>
+                    <textarea name="text" value="{{ old('text') }}" class="textarea" placeholder="Redija seu texto aqui ..."
                         style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                    
+                    @if ($errors->has('text'))
+                        <span class="text-red">
+                            <strong>{{ $errors->first('text') }}</strong>
+                        </span>
+                    @endif
                 </div>
             </div>
 
