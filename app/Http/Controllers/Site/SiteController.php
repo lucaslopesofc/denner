@@ -22,10 +22,10 @@ class SiteController extends Controller
         $infos       = Information::where('id', '=', '1')->get();
 
         $blog = DB::table('blogs')
-                    ->where('status', '=', '1')
-                    ->join('users', 'blogs.user_id', '=', 'users.id')
-                    ->select('blogs.*', 'users.name')
-                    ->get();
+                ->where('status', '=', '1')
+                ->join('users', 'blogs.user_id', '=', 'users.id')
+                ->select('blogs.*', 'users.name')
+                ->paginate(6);
 
         return view('site.home.index', compact(['testimonies', 'slider', 'pages', 'infos', 'blog']));
     }

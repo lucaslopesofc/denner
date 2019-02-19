@@ -62,8 +62,9 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
 Route::get('/', 'Site\SiteController@index')->name('home');
 Route::get('/sobremim', 'Site\SobreMimController@index')->name('sobremim');
 Route::get('/servicos', 'Site\ServicosController@index')->name('servicos');
+
 Route::get('/blog', 'Site\BlogController@index')->name('blog');
-Route::get('/blog/{id}', 'Site\BlogController@edit')->name('blog.detalhe');
+Route::get('/blog/{slug}', 'Site\BlogController@show')->name('blog.show');
 
 Route::get('/depoimentos', 'Site\DepoimentoController@index')->name('depoimento');
 Route::post('/depoimentos', 'Site\DepoimentoController@store')->name('depoimento.store');

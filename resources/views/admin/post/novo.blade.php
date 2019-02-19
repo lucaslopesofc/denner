@@ -73,7 +73,7 @@
                 <div class="row">
                     <div class="col-xs-6">
                         <label>Categoria <b class="text-red">*</b></label>
-                        <select name="category" class="form-control" required>
+                        <select name="category" class="form-control">
                             <option>Selecione a categoria</option>
                             @foreach ($category as $cat)
                                 <option value="{{ $cat->id }}">{{ $cat->name }}</option>

@@ -91,12 +91,16 @@
             <div class="row">
                 <div class="col-12">
                     <div class="wrap_breadcrumbs_col-2">
-                        <h1 class="l-head">{{ $blog->title }}</h1>
+
+                        @foreach ($blog as $b)
+                        <h1 class="l-head">{{ $b->title }}</h1>
                         <ul class="breadcrumbs_content-2 ">
                             <li><a href="/" title="home">Home</a> /</li>
-                            <li><a href="#" title="categoria">Categoria</a> /</li>
-                            <li><span>{{ $blog->title }}</span></li>
+                            <li><a href="#" title="categoria">{{ $b->catName }}</a> /</li>
+                            <li><span>{{ $b->title }}</span></li>
                         </ul>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
@@ -109,18 +113,22 @@
                 <!-- blogs content -->
                 <div class="col-lg-9 col-12">
                     <div class="wrap_blog_details">
+
+                        @foreach ($blog as $b)
                         <article class="r-article">
                             <div class="blog-thumbnail">
-                                <img src="/storage/{{ $blog->image }}" />
+                                <img src="/storage/{{ $b->image }}" />
                             </div>
                             <ul class="article_meta single_page">
-                                <li><span class="tp_date">{{ Carbon\Carbon::parse($blog->updated_at)->format('d/m/Y H:i') }}</span> |</li>
-                                <li><span class="author_date">by Denner Grillo</span> |</li>
+                                <li><span class="tp_date">{{ Carbon\Carbon::parse($b->updated_at)->format('d/m/Y H:i') }}</span> |</li>
+                                <li><span class="author_date">by {{ $b->userName }}</span> |</li>
                                 <li><span> <i class="bx bx-message-alt"></i> 4 Comentários</span> </li>
                             </ul>
-                            <h2 class="article_title">{{ $blog->title }}</h2>
-                            <p>{{ $blog->text }}</p>
+                            <h2 class="article_title">{{ $b->title }}</h2>
+                            <p>{!! $b->text !!}</p>
                         </article>
+                        @endforeach
+
                         <div class="comment-box">
                             <!-- list of comments ====  -->
                             <div class="list-commetns">
@@ -180,57 +188,45 @@
                 <!--right sidebar -->
                 <div class="col-lg-3 col-12">
                     <div class="wrap_sidebar_content">
+
                         <div class="widget tp_widget categories">
                             <div class="content_widget ">
                                 <ul class="categories_list">
                                     <li class="current">
-                                        <a href="#" title="title">Receitas</a>
+                                        <a href="#" title="title">Categorias</a>
                                     </li>
+                                    @foreach ($category as $cat)
                                     <li>
-                                        <a href="#" title="title">Notícias</a>
+                                        <a href="#" title="{!! $cat->name !!}">{!! $cat->name !!}</a>
                                     </li>
-                                    <li>
-                                        <a href="#" title="title">Musculação</a>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
+
                         <div class="widget tp_widget recent_posts">
                             <div class="head_widget">
                                 <h3 class="rq-meduim-title">Últimos Posts</h3>
                             </div>
                             <div class="content_widget ">
                                 <ul class="posts_list">
+
+                                    @foreach ($latest as $lat)
                                     <li>
                                         <span class="wrap_image">
-                                        <img src="images/city.jpg" alt="post title">
+                                        <img src="/storage/{!! $lat->image !!}" alt="{!! $lat->title !!}">
                                     </span>
                                         <div class="rpost_content">
-                                            <h3><a href="#" title="Lorem ipsum dolor sit amet consectet">Lorem ipsum dolor sit amet consectet</a></h3>
-                                            <span class="rp_date">25,Janeiro 2019</span>
+                                            <h3><a href="#" title="{!! $lat->title !!}">{!! $lat->title !!}</a></h3>
+                                            <span class="rp_date">{{ Carbon\Carbon::parse($lat->updated_at)->format('d/m/Y H:i') }}</span>
                                         </div>
                                     </li>
-                                    <li>
-                                        <span class="wrap_image">
-                                        <img src="images/girl.jpg" alt="post title">
-                                    </span>
-                                        <div class="rpost_content">
-                                            <h3><a href="#" title="Lorem ipsum dolor sit amet consectet">Lorem ipsum dolor sit amet consectet</a></h3>
-                                            <span class="rp_date">25,Janeiro 2019</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <span class="wrap_image">
-                                        <img src="images/computer.jpg" alt="post title">
-                                    </span>
-                                        <div class="rpost_content">
-                                            <h3><a href="#" title="Lorem ipsum dolor sit amet consectet">Lorem ipsum dolor sit amet consectet</a></h3>
-                                            <span class="rp_date">25,Janeiro 2019</span>
-                                        </div>
-                                    </li>
+                                    @endforeach
+
                                 </ul>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -62,6 +62,7 @@ class PostController extends Controller
         $blog->text        = $request->input('text');
         $blog->status      = $request->input('status');
         $blog->category_id = $request->input('category');
+        $blog->slug        = $this->criar_slug($request->input('title'));
 
         $blog->save();
 
@@ -113,5 +114,12 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    function criar_slug($title)
+    {
+        $search     = ['ã','â','ê','é','í','õ','ô','ú',' '];
+        $substituir = ['a','a','e','e','i','o','o','u','-'];
+        return str_replace($search, $substituir,strtolower($title));
     }
 }

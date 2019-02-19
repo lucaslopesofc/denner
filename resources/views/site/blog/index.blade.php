@@ -110,169 +110,80 @@
                 <div class="col-lg-9 col-12">
                     <div class="wrap_blogs_layout_1">
 
+                        @foreach ($blog as $b)
                         <div class="row row_blog ">
                             <div class="col-md-4 col-sm-12 col-12 img-col">
                                 <div class="dummy" ></div>
                                 <div class="wrap_img_thumb">
-                                    <a href="#" title="blog title">
-                                    
-                                        <img src="{{ asset('vendor/site/images/computer.jpg') }}" alt="blog title" />
-                                   
+                                    <a href="{!! route('blog.show', $b->slug) !!}" title="{!! $b->title !!}">
+                                        <img src="/storage/{{ $b->image }}" />
                                 </a>
                                 </div>
                             </div>
                             <div class="col-md-8 col-sm-12 col-12">
                                 <div class="wrap_blog_text">
-                                    <span class="b_meta_date">Janeiro 25, 2019</span>
-                                    <h2><a href="blog_detalhe.html" title="blog title">Título da postagem aqui</a></h2>
-                                    <p>Veryone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar. </p>
+                                    <span class="b_meta_date">{{ Carbon\Carbon::parse($b->updated_at)->format('d/m/Y H:i') }}</span>
+                                    <h2><a href="{!! route('blog.show', $b->slug) !!}" title="{!! $b->title !!}">{!! $b->title !!}</a></h2>
+                                    <p>{{ substr(strip_tags($b->text), 0, 150) }}
+                                        {{ strlen(strip_tags($b->text)) > 50 ? "..." : "" }}
+                                    </p>
                                     <div class="wrap_blog_meta">
-                                        <a><i class="fas fa-user"></i> Denner Grillo</a>
+                                        <a><i class="fas fa-user"></i> {!! $b->name !!}</a>
                                         <a><i class="fas fa-comment-dots"></i> 17</a>
-                                        <a href="blog_detalhe.html" class="b_read_more">Leia mais <i class="fas fa-chevron-right"></i> </a>
+                                        <a href="{!! route('blog.show', $b->slug) !!}" class="b_read_more">Leia mais <i class="fas fa-chevron-right"></i> </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row row_blog ">
-                            <div class="col-md-4 col-sm-12 col-12 img-col">
-                                <div class="dummy" ></div>
-                                <div class="wrap_img_thumb">
-                                    <a href="#" title="blog title">
-                                    
-                                        <img src="{{ asset('vendor/site/images/city.jpg') }}" alt="blog title" />
-                                   
-                                </a>
-                                </div>
-                            </div>
-                            <div class="col-md-8 col-sm-12 col-12">
-                                <div class="wrap_blog_text">
-                                    <span class="b_meta_date">Janeiro 25, 2019</span>
-                                    <h2><a href="blog_detalhe.html" title="blog title">Título da postagem aqui</a></h2>
-                                    <p>Veryone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar. </p>
-                                    <div class="wrap_blog_meta">
-                                        <a><i class="fas fa-user"></i> Denner Grillo</a>
-                                        <a><i class="fas fa-comment-dots"></i> 17</a>
-                                        <a href="blog_detalhe.html" class="b_read_more">Leia mais <i class="fas fa-chevron-right"></i> </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row row_blog ">
-                            <div class="col-md-4 col-sm-12 col-12 img-col">
-                                <div class="dummy" ></div>
-                                <div class="wrap_img_thumb">
-                                    <a href="#" title="blog title">
-                                    
-                                        <img src="{{ asset('vendor/site/images/girl.jpg') }}" alt="blog title" />
-                                   
-                                </a>
-                                </div>
-                            </div>
-                            <div class="col-md-8 col-sm-12 col-12">
-                                <div class="wrap_blog_text">
-                                    <span class="b_meta_date">Janeiro 25, 2019</span>
-                                    <h2><a href="blog_detalhe.html" title="blog title">Título da postagem aqui</a></h2>
-                                    <p>Veryone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar. </p>
-                                    <div class="wrap_blog_meta">
-                                        <a><i class="fas fa-user"></i> Denner Grillo</a>
-                                        <a><i class="fas fa-comment-dots"></i> 17</a>
-                                        <a href="blog_detalhe.html" class="b_read_more">Leia mais <i class="fas fa-chevron-right"></i> </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row row_blog ">
-                            <div class="col-md-4 col-sm-12 col-12 img-col">
-                                <div class="dummy" ></div>
-                                <div class="wrap_img_thumb">
-                                    <a href="#" title="blog title">
-                                    
-                                        <img src="{{ asset('vendor/site/images/meeting.jpg') }}" alt="blog title" />
-                                   
-                                </a>
-                                </div>
-                            </div>
-                            <div class="col-md-8 col-sm-12 col-12">
-                                <div class="wrap_blog_text">
-                                    <span class="b_meta_date">Janeiro 25, 2019</span>
-                                    <h2><a href="blog_detalhe.html" title="blog title">Título da postagem aqui</a></h2>
-                                    <p>Veryone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar. </p>
-                                    <div class="wrap_blog_meta">
-                                        <a><i class="fas fa-user"></i> Denner Grillo</a>
-                                        <a><i class="fas fa-comment-dots"></i> 17</a>
-                                        <a href="blog_detalhe.html" class="b_read_more">Leia mais <i class="fas fa-chevron-right"></i> </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
 
                         <ul class="wrap_pignation">
-                            <li><a href="#"><i class="fas fa-chevron-left"></i> </a></li>
-                            <li class="pigination_action"><span> 1 </span></li>
-                            <li><a href="#">2 </a></li>
-                            <li><a href="#">3 </a></li>
-                            <li><a href="#"><i class="fas fa-chevron-right"></i> </a></li>
+                            {!! $blog->links() !!}
                         </ul>
                     </div>
                 </div>
                 <!--right sidebar -->
                 <div class="col-lg-3 col-12">
                     <div class="wrap_sidebar_content">
+                    
                         <div class="widget tp_widget categories">
                             <div class="content_widget ">
                                 <ul class="categories_list">
                                     <li class="current">
-                                        <a href="#" title="title">Receitas</a>
+                                        <a href="#" title="title">Categorias</a>
                                     </li>
+                                    @foreach ($category as $cat)
                                     <li>
-                                        <a href="#" title="title">Notícias</a>
+                                        <a href="#" title="{!! $cat->name !!}">{!! $cat->name !!}</a>
                                     </li>
-                                    <li>
-                                        <a href="#" title="title">Musculação</a>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
+
                         <div class="widget tp_widget recent_posts">
                             <div class="head_widget">
                                 <h3 class="rq-meduim-title">Últimos Posts</h3>
                             </div>
                             <div class="content_widget ">
                                 <ul class="posts_list">
+
+                                    @foreach ($latest as $lat)
                                     <li>
                                         <span class="wrap_image">
-                                        <img src="{{ asset('vendor/site/images/computer.jpg') }}" alt="post title">
+                                        <img src="/storage/{!! $lat->image !!}" alt="{!! $lat->title !!}">
                                     </span>
                                         <div class="rpost_content">
-                                            <h3><a href="#" title="Lorem ipsum dolor sit amet consectet">Lorem ipsum dolor sit amet consectet</a></h3>
-                                            <span class="rp_date">25,Janeiro 2019</span>
+                                            <h3><a href="#" title="{!! $lat->title !!}">{!! $lat->title !!}</a></h3>
+                                            <span class="rp_date">{{ Carbon\Carbon::parse($lat->updated_at)->format('d/m/Y H:i') }}</span>
                                         </div>
                                     </li>
-                                    <li>
-                                        <span class="wrap_image">
-                                        <img src="{{ asset('vendor/site/images/girl.jpg') }}" alt="post title">
-                                    </span>
-                                        <div class="rpost_content">
-                                            <h3><a href="#" title="Lorem ipsum dolor sit amet consectet">Lorem ipsum dolor sit amet consectet</a></h3>
-                                            <span class="rp_date">25,Janeiro 2019</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <span class="wrap_image">
-                                        <img src="{{ asset('vendor/site/images/city.jpg') }}" alt="post title">
-                                    </span>
-                                        <div class="rpost_content">
-                                            <h3><a href="#" title="Lorem ipsum dolor sit amet consectet">Lorem ipsum dolor sit amet consectet</a></h3>
-                                            <span class="rp_date">25,Janeiro 2019</span>
-                                        </div>
-                                    </li>
+                                    @endforeach
+
                                 </ul>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

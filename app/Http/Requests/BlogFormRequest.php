@@ -24,7 +24,7 @@ class BlogFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'category' => 'required',
+            'category' => 'required|integer',
             'title'    => 'required|string|max:100',
             'text'     => 'required',
             'image'    => 'mimes:jpeg,png,jpg|max:2048',
@@ -36,6 +36,7 @@ class BlogFormRequest extends FormRequest
     {
         return [
             'category.required' => 'Selecione uma categoria.',
+            'category.integer'  => 'Nenhuma categoria selecionada, por favor escolha para prosseguir.',
             'title.required'    => 'O título é obrigatório.',
             'title.string'      => 'O título deve conter somente letras e números.',
             'title.max'         => 'O título deve ter no máximo 100 caracteres.',
