@@ -43,7 +43,8 @@
             @endif
             <td style="text-align: right; vertical-align:middle;">
                 <button type="submit" class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></button>
-                <button type="submit" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$b->id}})" 
+                    data-target="#DeleteModal" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
             </td>
         </tr>
         @endforeach
@@ -57,4 +58,46 @@
     </div>
 </div>
 <!-- /.box -->
+
+<!-- Delete Modal -->
+<div id="DeleteModal" class="modal fade in" role="dialog">
+   <div class="modal-dialog ">
+     <!-- Modal content-->
+     <form action="" id="deleteForm" method="post">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+                 <h4 class="modal-title text-center">Confirmar Exclusão</h4>
+             </div>
+             <div class="modal-body">
+                 {{ csrf_field() }}
+                 {{ method_field('DELETE') }}
+                 <p class="text-center">Você tem certeza que deseja deletar esta postagem?</p>
+             </div>
+             <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+                <button type="submit" name="" class="btn btn-danger" data-dismiss="modal" onclick="formSubmit()">Sim, Deletar</button>
+             </div>
+         </div>
+     </form>
+   </div>
+</div>
+<!-- Delete Modal -->
+
+<!-- Script -->
+<script type="text/javascript">
+    function deleteData(id)
+    {
+        var id = id;
+        var url = '{{ route("admin.post.destroy", ":id") }}';
+        url = url.replace(':id', id);
+        $("#deleteForm").attr('action', url);
+    }
+
+    function formSubmit()
+    {
+        $("#deleteForm").submit();
+    }
+</script>
+<!-- Script -->
 @stop

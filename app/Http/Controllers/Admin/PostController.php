@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\BlogFormRequest;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Blog;
 use App\Models\Category;
 use Session;
@@ -113,7 +114,19 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $blog = Blog::find($id);
+
+        if ($blog->photo != 'images/blog/imagem.jpg') {
+            $photo = $blog->photo;
+            Storage::disk('public')->delete($photo);
+            $blog->delete();
+        }else{
+            $blog->delete();
+        }
+
+        //Session::put('success', 'Este depoimento foi deletado com sucesso.');
+
+        return redirect()->route('admin.post');
     }
 
     function criar_slug($title)
