@@ -67,7 +67,7 @@ class PostController extends Controller
 
         $blog->save();
 
-        //Session::put('success', 'Postagem cadastrada com sucesso.');
+        Session::put('success', 'Postagem cadastrada com sucesso.');
 
         return redirect()->route('admin.post');
     }
@@ -124,7 +124,7 @@ class PostController extends Controller
             $blog->delete();
         }
 
-        //Session::put('success', 'Este depoimento foi deletado com sucesso.');
+        Session::put('success', 'Postagem foi deletada com sucesso.');
 
         return redirect()->route('admin.post');
     }

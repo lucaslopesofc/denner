@@ -15,6 +15,7 @@ class BlogController extends Controller
     public function index()
     {
         $blog = DB::table('blogs')
+                ->orderBy('id', 'desc')
                 ->where('status', '=', '1')
                 ->join('users', 'blogs.user_id', '=', 'users.id')
                 ->select('blogs.*', 'users.name')
@@ -29,8 +30,6 @@ class BlogController extends Controller
 
     public function show($slug)
     {
-        //$blog   = Blog::where('slug', '=', $slug)->firstOrFail();
-
         $blog = DB::table('blogs')
                 ->where('slug', '=', $slug)
                 ->join('categories', 'blogs.category_id', '=', 'categories.id')
