@@ -8,7 +8,7 @@
         <li class="active"><a href="/admin"><i class="fa fa-home"></i> Home</a></li>
         <li><a href="/admin/blog/postagens"> Blog</a></li>
         <li><a href="/admin/blog/postagens"> Postagens</a></li>
-        <li><a> Novo</a></li>
+        <li><a> Editar</a></li>
     </ol>
 @stop
 
@@ -35,19 +35,19 @@
 <div class="col-xs-10" style="float: none;margin: 0 auto;">
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Nova Postagem</h3>
+            <h3 class="box-title">Editar Postagem</h3>
         </div>
         <!-- /.box-header -->
 
-        <form action="{{ route('admin.post.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.post.update', $blog->id) }}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
 
             <div class="form-group">
                 <div class="row">
                     <div class="col-xs-3" style="float:none;margin:0 auto;margin-top:15px;">
-                        <img id="blah" src="/storage/images/services/default.jpg" class="media-object" style="width: 250px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
+                        <img id="blah" src="/storage/{{ $blog->image }}" class="media-object" style="width: 250px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
                         <div class="fileUpload btn btn-primary">
-                            <span>Carregar Imagem da Postagem</span>
+                            <span>Carregar Nova Imagem da Postagem</span>
                             <input type="file" name="image" class="upload" onchange="readURL(this);">
                         </div>
                         @if ($errors->has('image'))
@@ -62,7 +62,7 @@
             <div class="box-body">
                 <div class="form-group">
                     <label>Título da Postagem <b class="text-red">*</b></label>
-                    <input type="text" name="title" value="{{ old('title') }}" class="form-control" maxlength="100" required>
+                    <input type="text" name="title" value="{{ $blog->title }}" class="form-control" maxlength="100" required>
                     @if ($errors->has('title'))
                         <span class="text-red">
                             <strong>{{ $errors->first('title') }}</strong>
@@ -74,10 +74,7 @@
                     <div class="col-xs-6">
                         <label>Categoria <b class="text-red">*</b></label>
                         <select name="category" class="form-control">
-                            <option>Selecione a categoria</option>
-                            @foreach ($category as $cat)
-                                <option value="{{ $cat->id }}">{{ $cat->name }}</option>
-                            @endforeach
+                            <option>{{ $blog->category_id }}</option>
                         </select>
                         @if ($errors->has('category'))
                             <span class="text-red">
@@ -89,8 +86,13 @@
                     <div class="col-xs-6">
                         <label>Status <b class="text-red">*</b></label>
                         <select name="status" class="form-control">
-                            <option value="1">Ativo</option>
-                            <option value="0">Inativo</option>
+                            @if ($blog->status == 0)
+                                <option value="{{ $blog->status }}">Inativo</option>
+                                <option value="1">Ativo</option>
+                            @else
+                                <option value="{{ $blog->status }}">Ativo</option>
+                                <option value="0">Inativo</option>
+                            @endif
                         </select>
                         @if ($errors->has('status'))
                             <span class="text-red">
@@ -102,8 +104,8 @@
 
                 <div class="form-group">
                     <label>Texto <b class="text-red">*</b></label>
-                    <textarea name="text" class="textarea" placeholder="Redija seu texto aqui ..."
-                        style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                    <textarea name="text" value="{!! $blog->text !!}" class="textarea" placeholder="Redija seu texto aqui ..."
+                        style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{!! $blog->text !!}</textarea>
                     @if ($errors->has('text'))
                         <span class="text-red">
                             <strong>{{ $errors->first('text') }}</strong>

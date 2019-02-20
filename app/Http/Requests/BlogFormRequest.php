@@ -26,6 +26,7 @@ class BlogFormRequest extends FormRequest
         return [
             'category' => 'required|integer',
             'title'    => 'required|string|max:100',
+            'slug'     => 'unique:blogs',
             'text'     => 'required',
             'image'    => 'mimes:jpeg,png,jpg|max:2048',
             'status'   => 'required'
@@ -39,6 +40,8 @@ class BlogFormRequest extends FormRequest
             'category.integer'  => 'Nenhuma categoria selecionada, por favor escolha para prosseguir.',
             'title.required'    => 'O título é obrigatório.',
             'title.string'      => 'O título deve conter somente letras e números.',
+            //'title.unique'      => 'Título já existente, por favor digite outro.',
+            //'slug.unique'      => 'Slug já existente, por favor digite outro.',
             'title.max'         => 'O título deve ter no máximo 100 caracteres.',
             'text.required'     => 'O texto da postagem é obrigatório.',
             'image.mimes'       => 'Formato de imagem inválida. Por favor selecione uma com apenas formatos JPEG/PNG/JPG.',

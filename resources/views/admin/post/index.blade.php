@@ -43,7 +43,7 @@
         </tr>
         @foreach ($blog as $b)
         <tr>
-            <td><img src="/storage/{{ $b->image }}" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);"></td>
+            <td><img src="/storage/{{ $b->image }}" class="media-object" style="width: 100px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);"></td>
             <td style="vertical-align:middle;">{{ $b->title }}</td>
             <td style="vertical-align:middle;">{{ $b->name }}</td>
             @if ($b->status == '1')
@@ -52,7 +52,7 @@
                 <td style="vertical-align:middle;"><span class="label label-danger">Inativo</span></td>
             @endif
             <td style="text-align: right; vertical-align:middle;">
-                <button type="submit" class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></button>
+                <a href="{{ route('admin.post.edit', $b->id) }}" class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>
                 <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$b->id}})" 
                     data-target="#DeleteModal" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
             </td>

@@ -149,7 +149,7 @@
                                     <li><a title="{{ $b->name }}" class="r-author"><i class="fas fa-user"></i>{{ $b->name }}</a></li>
                                     <li><span class="r-data"><i class="fas fa-clock"></i>{{ Carbon\Carbon::parse($b->updated_at)->format('d/m/Y H:i') }}</span></li>
                                 </ul>
-                                <p>{{ substr(strip_tags($b->text), 0, 100) }}
+                                <p>{{ substr(strip_tags($b->text), 0, 150) }}
                                     {{ strlen(strip_tags($b->text)) > 50 ? "..." : "" }}
                                 </p>
                                 <div class="ream_more"><a href="{!! route('blog.show', $b->slug) !!}">Leia mais</a></div>

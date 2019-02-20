@@ -23,6 +23,7 @@ class SiteController extends Controller
 
         $blog = DB::table('blogs')
                 ->where('status', '=', '1')
+                ->orderBy('id', 'desc')
                 ->join('users', 'blogs.user_id', '=', 'users.id')
                 ->select('blogs.*', 'users.name')
                 ->paginate(6);

@@ -37,8 +37,8 @@ class BlogController extends Controller
                 ->select('blogs.*', 'categories.name as catName', 'users.name as userName')
                 ->get();
 
-        $infos  = Information::where('id', '=', '1')->get();
-        $latest = DB::table('blogs')->latest()->paginate(4);
+        $infos    = Information::where('id', '=', '1')->get();
+        $latest   = DB::table('blogs')->latest()->paginate(4);
         $category = Category::all();
 
         return view('site.blog.detalhe', compact('infos', 'blog', 'latest', 'category'));

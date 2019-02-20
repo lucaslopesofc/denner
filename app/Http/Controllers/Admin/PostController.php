@@ -22,6 +22,7 @@ class PostController extends Controller
     public function index()
     {
         $blog = DB::table('blogs')
+                    ->orderBy('id', '=', 'desc')
                     ->join('categories', 'blogs.category_id', '=', 'categories.id')
                     ->select('blogs.*', 'categories.name')
                     ->paginate(5);
@@ -91,7 +92,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $blog = Blog::find($id);
+
+        return view('admin.post.editar', compact('blog'));
     }
 
     /**
@@ -101,9 +104,32 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BlogFormRequest $request, $id)
     {
-        //
+        $files = $request->file('image');
+        
+        $blog = Blog::find($id);
+        
+        $blog->user_id     = Auth::user()->id;
+        $blog->title       = $request->input('title');
+        $blog->text        = $request->input('text');
+        $blog->status      = $request->input('status');
+        $blog->category_id = $request->input('category');
+        $blog->slug        = $this->criar_slug($request->input('title'));
+
+        if (!empty($files)) {
+            $image         = $request->file('image');
+            $path          = $request->file('image')->store('images/blog', 'public');
+            $oldFilename   = $blog->image;
+            $blog->image   = $path;
+            Storage::disk('public')->delete($oldFilename);
+        }
+
+        $blog->save();
+
+        Session::put('success', 'Postagem alterada com sucesso.');
+
+        return redirect()->route('admin.post');
     }
 
     /**
@@ -133,6 +159,7 @@ class PostController extends Controller
     {
         $search     = ['ã','â','ê','é','í','õ','ô','ú',' '];
         $substituir = ['a','a','e','e','i','o','o','u','-'];
+        
         return str_replace($search, $substituir,strtolower($title));
     }
 }

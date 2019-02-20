@@ -19,11 +19,11 @@ class CreateBlogsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->string('title', 45);
+            $table->string('title');
             $table->longText('text');
             $table->string('image', 150);
             $table->integer('status')->default(0);
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
