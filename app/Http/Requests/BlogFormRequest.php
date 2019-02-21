@@ -21,27 +21,16 @@ class BlogFormRequest extends FormRequest
      *
      * @return array
      */
-    public function rules($request)
+    public function rules()
     {
-        if($request->input('slug') == $blog->slug)
-        {
-            return [
-                'category' => 'required|integer',
-                'title'    => 'required|max:100',
-                'text'     => 'required',
-                'image'    => 'mimes:jpeg,png,jpg|max:2048',
-                'status'   => 'required'
-            ];
-        }else{
-            return [
-                'category' => 'required|integer',
-                'title'    => 'required|max:100',
-                'slug'     => 'required|alpha_dash|min:5|max:255|unique:blogs,slug',
-                'text'     => 'required',
-                'image'    => 'mimes:jpeg,png,jpg|max:2048',
-                'status'   => 'required'
-            ];
-        }
+        return [
+            'category' => 'required|integer',
+            'title'    => 'required|max:100',
+            'slug'     => 'required|alpha_dash|min:5|max:255|unique:blogs,slug',
+            'text'     => 'required',
+            'image'    => 'mimes:jpeg,png,jpg|max:2048',
+            'status'   => 'required'
+        ];
     }
 
     public function messages()

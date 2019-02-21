@@ -109,7 +109,7 @@
 
                 <div class="form-group">
                     <label>URL <b class="text-red">*</b></label>
-                    <input type="text" name="slug" value="{{ $blog->slug }}" class="form-control">
+                    <input type="text" name="slug" value="{{ $blog->slug }}" class="form-control" maxlength="191" required>
                     @if ($errors->has('slug'))
                         <span class="text-red">
                             <strong>{{ $errors->first('slug') }}</strong>
@@ -127,7 +127,7 @@
                         </span>
                     @endif
                 </div>
-                
+
             </div>
 
             <div class="box-footer">

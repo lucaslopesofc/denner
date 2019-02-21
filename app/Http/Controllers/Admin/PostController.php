@@ -106,12 +106,59 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BlogFormRequest $request, $id)
-    {
-        $files = $request->file('image');
-        
+    public function update(Request $request, $id)
+    {        
         $blog = Blog::find($id);
-        
+
+        if ($request->input('slug') == $blog->slug) {
+            $rules = [
+                'category' => 'required|integer',
+                'title'    => 'required|max:100',
+                'text'     => 'required',
+                'image'    => 'mimes:jpeg,png,jpg|max:2048',
+                'status'   => 'required'
+            ];
+
+            $messages = [
+                'category.required' => 'Selecione uma categoria.',
+                'category.integer'  => 'Nenhuma categoria selecionada, por favor escolha para prosseguir.',
+                'title.required'    => 'O título é obrigatório.',
+                'title.max'         => 'O título deve ter no máximo 100 caracteres.',
+                'text.required'     => 'O texto da postagem é obrigatório.',
+                'image.mimes'       => 'Formato de imagem inválida. Por favor selecione uma com apenas formatos JPEG/PNG/JPG.',
+                'image.max'         => 'Imagem deve ter tamanho máximo de 2MB.',
+                'status.required'   => 'O status é obrigatório.'
+            ];
+            $request->validate($rules, $messages);
+        } else {
+            $rules = [
+                'category' => 'required|integer',
+                'title'    => 'required|max:100',
+                'slug'     => 'required|alpha_dash|min:5|max:191|unique:blogs,slug',
+                'text'     => 'required',
+                'image'    => 'mimes:jpeg,png,jpg|max:2048',
+                'status'   => 'required'
+            ];
+
+            $messages = [
+                'category.required' => 'Selecione uma categoria.',
+                'category.integer'  => 'Nenhuma categoria selecionada, por favor escolha para prosseguir.',
+                'title.required'    => 'O título é obrigatório.',
+                'title.max'         => 'O título deve ter no máximo 100 caracteres.',
+                'slug.required'     => 'O campo URL é obrigatório',
+                'slug.alpha_dash'   => 'A URL não pode conter espaços e nem caracteres epeciais.',
+                'slug.min'          => 'A URL deve ter no mínimo 5 caracateres.',
+                'slug.max'          => 'A URL deve ter no máximo 191 caracteres.',
+                'slug.unique'       => 'URL já existe, por favor digite outra.',
+                'text.required'     => 'O texto da postagem é obrigatório.',
+                'image.mimes'       => 'Formato de imagem inválida. Por favor selecione uma com apenas formatos JPEG/PNG/JPG.',
+                'image.max'         => 'Imagem deve ter tamanho máximo de 2MB.',
+                'status.required'   => 'O status é obrigatório.'
+            ];
+            $request->validate($rules, $messages);
+        }
+
+        $files             = $request->file('image');
         $blog->user_id     = Auth::user()->id;
         $blog->title       = $request->input('title');
         $blog->text        = $request->input('text');
