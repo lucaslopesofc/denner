@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\BlogFormRequest;
+use App\Http\Requests\EditBlogFormRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Blog;
 use App\Models\Category;
@@ -22,10 +23,10 @@ class PostController extends Controller
     public function index()
     {
         $blog = DB::table('blogs')
-                    ->orderBy('id', '=', 'desc')
-                    ->join('categories', 'blogs.category_id', '=', 'categories.id')
-                    ->select('blogs.*', 'categories.name')
-                    ->paginate(5);
+                ->orderBy('id', '=', 'desc')
+                ->join('categories', 'blogs.category_id', '=', 'categories.id')
+                ->select('blogs.*', 'categories.name')
+                ->paginate(5);
 
         return view('admin.post.index', compact('blog'));
     }
@@ -64,7 +65,7 @@ class PostController extends Controller
         $blog->text        = $request->input('text');
         $blog->status      = $request->input('status');
         $blog->category_id = $request->input('category');
-        $blog->slug        = $this->criar_slug($request->input('title'));
+        $blog->slug        = $request->input('slug');
 
         $blog->save();
 
@@ -92,9 +93,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $blog = Blog::find($id);
+        $blog       = Blog::find($id);
+        $categories = Category::all();
 
-        return view('admin.post.editar', compact('blog'));
+        return view('admin.post.editar', compact('blog', 'categories'));
     }
 
     /**
@@ -115,7 +117,7 @@ class PostController extends Controller
         $blog->text        = $request->input('text');
         $blog->status      = $request->input('status');
         $blog->category_id = $request->input('category');
-        $blog->slug        = $this->criar_slug($request->input('title'));
+        $blog->slug        = $request->input('slug');
 
         if (!empty($files)) {
             $image         = $request->file('image');
@@ -153,13 +155,5 @@ class PostController extends Controller
         Session::put('success', 'Postagem foi deletada com sucesso.');
 
         return redirect()->route('admin.post');
-    }
-
-    function criar_slug($title)
-    {
-        $search     = ['ã','â','ê','é','í','õ','ô','ú',' '];
-        $substituir = ['a','a','e','e','i','o','o','u','-'];
-        
-        return str_replace($search, $substituir,strtolower($title));
     }
 }

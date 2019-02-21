@@ -60,6 +60,7 @@
             </div>
 
             <div class="box-body">
+
                 <div class="form-group">
                     <label>Título da Postagem <b class="text-red">*</b></label>
                     <input type="text" name="title" value="{{ old('title') }}" class="form-control" maxlength="100" required>
@@ -69,35 +70,47 @@
                         </span>
                     @endif
                 </div>
+                
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label>Categoria <b class="text-red">*</b></label>
+                            <select name="category" class="form-control">
+                                <option>Selecione uma categoria</option>
+                                @foreach ($category as $cat)
+                                    <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                @endforeach
+                            </select>
+                            @if ($errors->has('category'))
+                                <span class="text-red">
+                                    <strong>{{ $errors->first('category') }}</strong>
+                                </span>
+                            @endif
+                        </div>
 
-                <div class="row">
-                    <div class="col-xs-6">
-                        <label>Categoria <b class="text-red">*</b></label>
-                        <select name="category" class="form-control">
-                            <option>Selecione a categoria</option>
-                            @foreach ($category as $cat)
-                                <option value="{{ $cat->id }}">{{ $cat->name }}</option>
-                            @endforeach
-                        </select>
-                        @if ($errors->has('category'))
-                            <span class="text-red">
-                                <strong>{{ $errors->first('category') }}</strong>
-                            </span>
-                        @endif
+                        <div class="col-xs-6">
+                            <label>Status <b class="text-red">*</b></label>
+                            <select name="status" class="form-control">
+                                <option value="1">Ativo</option>
+                                <option value="0">Inativo</option>
+                            </select>
+                            @if ($errors->has('status'))
+                                <span class="text-red">
+                                    <strong>{{ $errors->first('status') }}</strong>
+                                </span>
+                            @endif
+                        </div>
                     </div>
+                </div>
 
-                    <div class="col-xs-6">
-                        <label>Status <b class="text-red">*</b></label>
-                        <select name="status" class="form-control">
-                            <option value="1">Ativo</option>
-                            <option value="0">Inativo</option>
-                        </select>
-                        @if ($errors->has('status'))
-                            <span class="text-red">
-                                <strong>{{ $errors->first('status') }}</strong>
-                            </span>
-                        @endif
-                    </div>
+                <div class="form-group">
+                    <label>URL <b class="text-red">*</b></label>
+                    <input type="text" name="slug" value="{{ old('slug') }}" class="form-control">
+                    @if ($errors->has('slug'))
+                        <span class="text-red">
+                            <strong>{{ $errors->first('slug') }}</strong>
+                        </span>
+                    @endif
                 </div>
 
                 <div class="form-group">

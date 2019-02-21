@@ -70,41 +70,56 @@
                     @endif
                 </div>
 
-                <div class="row">
-                    <div class="col-xs-6">
-                        <label>Categoria <b class="text-red">*</b></label>
-                        <select name="category" class="form-control">
-                            <option>{{ $blog->category_id }}</option>
-                        </select>
-                        @if ($errors->has('category'))
-                            <span class="text-red">
-                                <strong>{{ $errors->first('category') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-
-                    <div class="col-xs-6">
-                        <label>Status <b class="text-red">*</b></label>
-                        <select name="status" class="form-control">
-                            @if ($blog->status == 0)
-                                <option value="{{ $blog->status }}">Inativo</option>
-                                <option value="1">Ativo</option>
-                            @else
-                                <option value="{{ $blog->status }}">Ativo</option>
-                                <option value="0">Inativo</option>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label>Categoria <b class="text-red">*</b></label>
+                            <select name="category" class="form-control">
+                                <option>{{ $blog->category_id }}</option>
+                                @foreach ($categories as $cat)
+                                    <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                @endforeach
+                            </select>
+                            @if ($errors->has('category'))
+                                <span class="text-red">
+                                    <strong>{{ $errors->first('category') }}</strong>
+                                </span>
                             @endif
-                        </select>
-                        @if ($errors->has('status'))
-                            <span class="text-red">
-                                <strong>{{ $errors->first('status') }}</strong>
-                            </span>
-                        @endif
+                        </div>
+
+                        <div class="col-xs-6">
+                            <label>Status <b class="text-red">*</b></label>
+                            <select name="status" class="form-control">
+                                @if ($blog->status == 0)
+                                    <option value="{{ $blog->status }}">Inativo</option>
+                                    <option value="1">Ativo</option>
+                                @else
+                                    <option value="{{ $blog->status }}">Ativo</option>
+                                    <option value="0">Inativo</option>
+                                @endif
+                            </select>
+                            @if ($errors->has('status'))
+                                <span class="text-red">
+                                    <strong>{{ $errors->first('status') }}</strong>
+                                </span>
+                            @endif
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group">
+                    <label>URL <b class="text-red">*</b></label>
+                    <input type="text" name="slug" value="{{ $blog->slug }}" class="form-control">
+                    @if ($errors->has('slug'))
+                        <span class="text-red">
+                            <strong>{{ $errors->first('slug') }}</strong>
+                        </span>
+                    @endif
+                </div>
+
+                <div class="form-group">
                     <label>Texto <b class="text-red">*</b></label>
-                    <textarea name="text" value="{!! $blog->text !!}" class="textarea" placeholder="Redija seu texto aqui ..."
+                    <textarea name="text" class="textarea" placeholder="Redija seu texto aqui ..."
                         style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{!! $blog->text !!}</textarea>
                     @if ($errors->has('text'))
                         <span class="text-red">
@@ -112,6 +127,7 @@
                         </span>
                     @endif
                 </div>
+                
             </div>
 
             <div class="box-footer">

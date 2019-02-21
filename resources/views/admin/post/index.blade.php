@@ -39,6 +39,7 @@
             <th>Título</th>
             <th>Categoria</th>
             <th>Status</th>
+            <th>Última Atualização</th>
             <th></th>
         </tr>
         @foreach ($blog as $b)
@@ -51,6 +52,7 @@
             @else
                 <td style="vertical-align:middle;"><span class="label label-danger">Inativo</span></td>
             @endif
+            <td style="vertical-align:middle;">{{ Carbon\Carbon::parse($b->updated_at)->format('d/m/Y H:i') }}</td>
             <td style="text-align: right; vertical-align:middle;">
                 <a href="{{ route('admin.post.edit', $b->id) }}" class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>
                 <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$b->id}})" 
