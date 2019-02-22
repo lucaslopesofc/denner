@@ -45,7 +45,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-xs-3" style="float:none;margin:0 auto;margin-top:15px;">
-                        <img id="blah" src="/storage/images/services/default.jpg" class="media-object" style="width: 250px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
+                        <img id="blah" src="/storage/images/blog/default.jpg" class="media-object" style="width: 250px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
                         <div class="fileUpload btn btn-primary">
                             <span>Carregar Imagem da Postagem</span>
                             <input type="file" name="image" class="upload" onchange="readURL(this);">

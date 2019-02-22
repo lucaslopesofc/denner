@@ -52,7 +52,7 @@ class PostController extends Controller
     public function store(BlogFormRequest $request)
     {
         if ($request->file('image') == null) {
-            $path = 'images/blog/imagem.jpg';
+            $path = 'images/blog/default.jpg';
         } else {
             $path = $request->file('image')->store('images/blog', 'public');
         }
@@ -167,12 +167,25 @@ class PostController extends Controller
         $blog->slug        = $request->input('slug');
 
         if (!empty($files)) {
-            $image         = $request->file('image');
-            $path          = $request->file('image')->store('images/blog', 'public');
-            $oldFilename   = $blog->image;
-            $blog->image   = $path;
-            Storage::disk('public')->delete($oldFilename);
+            if (!($blog->image == 'images/blog/default.jpg')) {
+                $image         = $request->file('image');
+                $path          = $request->file('image')->store('images/blog', 'public');
+                $oldFilename   = $blog->image;
+                $blog->image   = $path;
+                Storage::disk('public')->delete($oldFilename);
+            }else{
+                $image         = $request->file('image');
+                $path          = $request->file('image')->store('images/blog', 'public');
+                $oldFilename   = $blog->image;
+                $blog->image   = $path;
+            }
         }
+
+        if ($request->file('photo') == null) {
+            $path = 'avatars/perfil.jpg';
+          } else {
+            $path = $request->file('photo')->store('avatars', 'public');
+          }
 
         $blog->save();
 

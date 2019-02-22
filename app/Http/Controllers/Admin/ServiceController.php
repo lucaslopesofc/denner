@@ -97,13 +97,21 @@ class ServiceController extends Controller
         
         $service->title = $request->input('title');
         $service->text  = $request->input('text');
+        $files          = $request->file('image');
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $path = $request->file('image')->store('images/services', 'public');
-            $oldFilename = $service->image;
-            $service->image = $path;
-            Storage::disk('public')->delete($oldFilename);
+        if (!empty($files)) {
+            if (!($service->image == 'images/services/default.jpg')) {
+                $image          = $request->file('image');
+                $path           = $request->file('image')->store('images/services', 'public');
+                $oldFilename    = $service->image;
+                $service->image = $path;
+                Storage::disk('public')->delete($oldFilename);
+            }else{
+                $image          = $request->file('image');
+                $path           = $request->file('image')->store('images/services', 'public');
+                $oldFilename    = $service->image;
+                $service->image = $path;
+            }
         }
 
         $service->save();
