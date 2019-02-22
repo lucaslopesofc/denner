@@ -96,7 +96,7 @@
                         <h1 class="l-head">{{ $b->title }}</h1>
                         <ul class="breadcrumbs_content-2 ">
                             <li><a href="/" title="home">Home</a> /</li>
-                            <li><a href="#" title="categoria">{{ $b->catName }}</a> /</li>
+                            <li><span>{{ $b->catName }}</span> /</li>
                             <li><span>{{ $b->title }}</span></li>
                         </ul>
                         @endforeach
@@ -137,7 +137,7 @@
                                     <li>
                                         <div class="row row-comment">
                                             <div class="col-lg-2 col-md-2 col-3  col-comment-img">
-                                                <div class="comment-img"><img src="images/cleint_1.jpg" alt="image title"></div>
+                                                <div class="comment-img"><img src="/storage/images/perfil/default.jpg" alt="image title"></div>
                                             </div>
                                             <div class="col-md-10 col-9 ">
                                                 <div class="comment-text">
@@ -189,21 +189,6 @@
                 <div class="col-lg-3 col-12">
                     <div class="wrap_sidebar_content">
 
-                        <div class="widget tp_widget categories">
-                            <div class="content_widget ">
-                                <ul class="categories_list">
-                                    <li class="current">
-                                        <a href="#" title="title">Categorias</a>
-                                    </li>
-                                    @foreach ($category as $cat)
-                                    <li>
-                                        <a href="#" title="{!! $cat->name !!}">{!! $cat->name !!}</a>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-
                         <div class="widget tp_widget recent_posts">
                             <div class="head_widget">
                                 <h3 class="rq-meduim-title">Últimos Posts</h3>
@@ -232,8 +217,6 @@
             </div>
         </div>
     </div>
-
-    
 
     <!-- footer -->
     @foreach ($infos as $info)
@@ -313,6 +296,7 @@
     <script src="{{ asset('vendor/site/js/noframework.waypoints.min.js') }}"></script>
     <script src="{{ asset('vendor/site/js/light-box.js') }}"></script>
     <script src="{{ asset('vendor/site/js/index.js') }}"></script>
+
 </body>
 
 </html>

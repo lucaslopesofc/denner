@@ -117,12 +117,12 @@
                                 <div class="wrap_img_thumb">
                                     <a href="{!! route('blog.show', $b->slug) !!}" title="{!! $b->title !!}">
                                         <img src="/storage/{{ $b->image }}" />
-                                </a>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-md-8 col-sm-12 col-12">
                                 <div class="wrap_blog_text">
-                                    <span class="b_meta_date">{{ Carbon\Carbon::parse($b->updated_at)->format('d/m/Y H:i') }}</span>
+                                    <span class="b_meta_date">{{ Carbon\Carbon::parse($b->updated_at)->format('d/m/Y - H:i') }}</span>
                                     <h2><a href="{!! route('blog.show', $b->slug) !!}" title="{!! $b->title !!}">{!! $b->title !!}</a></h2>
                                     <p>{{ substr(strip_tags($b->text), 0, 150) }}
                                         {{ strlen(strip_tags($b->text)) > 50 ? "..." : "" }}
@@ -145,21 +145,6 @@
                 <!--right sidebar -->
                 <div class="col-lg-3 col-12">
                     <div class="wrap_sidebar_content">
-                    
-                        <div class="widget tp_widget categories">
-                            <div class="content_widget ">
-                                <ul class="categories_list">
-                                    <li class="current">
-                                        <a href="#" title="title">Categorias</a>
-                                    </li>
-                                    @foreach ($category as $cat)
-                                    <li>
-                                        <a href="#" title="{!! $cat->name !!}">{!! $cat->name !!}</a>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
 
                         <div class="widget tp_widget recent_posts">
                             <div class="head_widget">

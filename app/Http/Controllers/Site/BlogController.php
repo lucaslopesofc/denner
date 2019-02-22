@@ -19,7 +19,7 @@ class BlogController extends Controller
                 ->where('status', '=', '1')
                 ->join('users', 'blogs.user_id', '=', 'users.id')
                 ->select('blogs.*', 'users.name')
-                ->paginate(6);
+                ->paginate(5);
 
         $category = Category::all();
         $infos    = Information::where('id', '=', '1')->get();

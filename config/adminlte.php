@@ -143,7 +143,6 @@ return [
                 ],
                 [
                     'text' => 'Comentários',
-                    'url'  => '#',
                 ],
             ],
         ],

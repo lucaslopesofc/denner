@@ -75,9 +75,8 @@
                         <div class="col-xs-6">
                             <label>Categoria <b class="text-red">*</b></label>
                             <select name="category" class="form-control">
-                                <option>{{ $blog->category_id }}</option>
                                 @foreach ($categories as $cat)
-                                    <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                    <option value="{{ $cat->id }}" @if($blog->category_id == $cat->id) selected @endif>{{ $cat->name }}</option>
                                 @endforeach
                             </select>
                             @if ($errors->has('category'))
