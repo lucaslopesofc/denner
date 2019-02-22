@@ -133,7 +133,9 @@
                             <!-- list of comments ====  -->
                             <div class="list-commetns">
                                 <h3 class="count-comments "><strong>3</strong>comentários</h3>
-                                <ul class="list-comments">
+                                <ul class="list-comments">                                    
+                                    
+                                    
                                     <li>
                                         <div class="row row-comment">
                                             <div class="col-lg-2 col-md-2 col-3  col-comment-img">
@@ -142,16 +144,20 @@
                                             <div class="col-md-10 col-9 ">
                                                 <div class="comment-text">
                                                     <div class="comment-head">
-                                                        <h5 class=" comment-name">Nome da Pessoa</h5>
+                                                        <h5 class=" comment-name">Lucas Lopes</h5>
                                                         <span class="comment_date">25 Janeiro , 2019</span>
                                                     </div>
-                                                    <p class="comment-para">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.But in certain circumstances and owing to the claims of duty or the obligations.</p>
+                                                    <p class="comment-para">Comentário</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
+                                    
+                                    
+
                                 </ul>
                             </div>
+
                             <!-- leave comment form ==== -->
                             <div class="leave-comment" id="comment">
                                 <h3 class="count-comments ">Deixe o seu comentário.</h3>

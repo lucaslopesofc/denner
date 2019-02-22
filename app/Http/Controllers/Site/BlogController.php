@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Information;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Comment;
 
 class BlogController extends Controller
 {
