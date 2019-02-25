@@ -91,15 +91,13 @@
             <div class="row">
                 <div class="col-12">
                     <div class="wrap_breadcrumbs_col-2">
-
-                        @foreach ($blog as $b)
-                        <h1 class="l-head">{{ $b->title }}</h1>
+                        
+                        <h1 class="l-head">{!! $blog->title !!}</h1>
                         <ul class="breadcrumbs_content-2 ">
                             <li><a href="/" title="home">Home</a> /</li>
-                            <li><span>{{ $b->catName }}</span> /</li>
-                            <li><span>{{ $b->title }}</span></li>
+                            <li><span>{!! $blog->catName !!}</span> /</li>
+                            <li><span>{!! $blog->title !!}</span></li>
                         </ul>
-                        @endforeach
 
                     </div>
                 </div>
@@ -113,29 +111,27 @@
                 <!-- blogs content -->
                 <div class="col-lg-9 col-12">
                     <div class="wrap_blog_details">
-
-                        @foreach ($blog as $b)
+                        
                         <article class="r-article">
                             <div class="blog-thumbnail">
-                                <img src="/storage/{{ $b->image }}" />
+                                <img src="/storage/{!! $blog->image !!}" />
                             </div>
                             <ul class="article_meta single_page">
-                                <li><span class="tp_date">{{ Carbon\Carbon::parse($b->updated_at)->format('d/m/Y H:i') }}</span> |</li>
-                                <li><span class="author_date">by {{ $b->userName }}</span> |</li>
-                                <li><span> <i class="bx bx-message-alt"></i> 4 Comentários</span> </li>
+                                <li><span class="tp_date">{!! Carbon\Carbon::parse($blog->updated_at)->format('d/m/Y H:i') !!}</span> |</li>
+                                <li><span class="author_date">by {!! $blog->userName !!}</span> |</li>
+                                <li><span> <i class="bx bx-message-alt"></i> {!! count($comment) !!} Comentários</span> </li>
                             </ul>
-                            <h2 class="article_title">{{ $b->title }}</h2>
-                            <p>{!! $b->text !!}</p>
+                            <h2 class="article_title">{!! $blog->title !!}</h2>
+                            <p>{!! $blog->text !!}</p>
                         </article>
-                        @endforeach
 
                         <div class="comment-box">
                             <!-- list of comments ====  -->
                             <div class="list-commetns">
-                                <h3 class="count-comments "><strong>3</strong>comentários</h3>
+                                <h3 class="count-comments "><strong>{!! count($comment) !!}</strong>comentários</h3>
                                 <ul class="list-comments">                                    
                                     
-                                    
+                                    @foreach ($comment as $c)
                                     <li>
                                         <div class="row row-comment">
                                             <div class="col-lg-2 col-md-2 col-3  col-comment-img">
@@ -144,17 +140,15 @@
                                             <div class="col-md-10 col-9 ">
                                                 <div class="comment-text">
                                                     <div class="comment-head">
-                                                        <h5 class=" comment-name">Lucas Lopes</h5>
-                                                        <span class="comment_date">25 Janeiro , 2019</span>
+                                                        <h5 class=" comment-name">{!! $c->name !!}</h5>
+                                                        <span class="comment_date">{{ Carbon\Carbon::parse($c->created_at)->format('d/m/Y H:i') }}</span>
                                                     </div>
-                                                    <p class="comment-para">Comentário</p>
+                                                    <p class="comment-para">{!! $c->comment !!}</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
-                                    
-                                    
-
+                                    </li>                                  
+                                    @endforeach
                                 </ul>
                             </div>
 
