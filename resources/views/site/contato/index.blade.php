@@ -107,6 +107,14 @@
         <div class="container">
             <div class="row">
                 <div class="offset-lg-2 col-lg-8 offset-md-1 col-md-10 col-sm-12 offset-sm-0 col-12">
+
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            {!! $message !!}
+                        </div>
+                        <?php Session::forget('success');?>
+                    @endif
+
                     <div class="wrap_contact_page">
                         @foreach ($infos as $info)
                         <ul class="contact_list">
@@ -132,25 +140,50 @@
                             <form action="{{ route('contato.send') }}" method="POST" class="tp-form-1">
                                 {!! csrf_field() !!}
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-12 col-form-right">
+                                    <div class="col-lg-6 col-md-6 col-12 col-form-left">
                                         <p class="tp-form-el">
-                                            <input type="text" name="name" class="tp-feild tp-user-name" placeholder="Nome completo *">
+                                            <input type="text" name="name" value="{{ old('name') }}" class="tp-feild tp-user-name" placeholder="Nome completo *" maxlength="100" required>
+                                            @if ($errors->has('name'))
+                                                <span class="text-red">
+                                                    <strong>{{ $errors->first('name') }}</strong>
+                                                </span>
+                                            @endif
                                         </p>
                                         <p class="tp-form-el">
-                                            <input type="email" name="email" class="tp-feild tp-email" placeholder="Email *">
+                                            <input type="email" name="email" value="{{ old('email') }}" class="tp-feild tp-email" placeholder="Email *" required>
+                                            @if ($errors->has('email'))
+                                                <span class="text-red">
+                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                </span>
+                                            @endif
                                         </p>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-12 col-form-left">
                                         <p class="tp-form-el">
-                                            <input type="text" name="phone" class="tp-feild tp-phone" placeholder="Telefone *">
+                                            <input type="text" name="phone" value="{{ old('phone') }}" class="tp-feild tp-phone" placeholder="Telefone *" required>
+                                            @if ($errors->has('phone'))
+                                                <span class="text-red">
+                                                    <strong>{{ $errors->first('phone') }}</strong>
+                                                </span>
+                                            @endif
                                         </p>
                                         <p class="tp-form-el">
-                                            <input type="text" name="subject" class="tp-feild tp-phone" placeholder="Assunto *">
+                                            <input type="text" name="subject" value="{{ old('subject') }}" class="tp-feild tp-phone" placeholder="Assunto *" maxlength="30" required>
+                                            @if ($errors->has('subject'))
+                                                <span class="text-red">
+                                                    <strong>{{ $errors->first('subject') }}</strong>
+                                                </span>
+                                            @endif
                                         </p>
                                     </div>
                                     <div class="col-12">
                                         <p class="tp-form-el">
-                                            <textarea name="message" class="tp-message" placeholder="Escreva sua mensagem..."></textarea>
+                                            <textarea name="message" class="tp-message" placeholder="Escreva sua mensagem..." maxlength="300" required>{{ old('message') }}</textarea>
+                                            @if ($errors->has('message'))
+                                                <span class="text-red">
+                                                    <strong>{{ $errors->first('message') }}</strong>
+                                                </span>
+                                            @endif
                                         </p>
                                     </div>
                                     <div class="col-12 ">
