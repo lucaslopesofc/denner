@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Site;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\CommentFormRequest;
+use Session;
 
 use App\Models\Information;
 use App\Models\Blog;
@@ -31,6 +33,22 @@ class BlogController extends Controller
         ->with('blog', $blog)
         ->with('infos', $infos)
         ->with('latest', $latest);
+    }
+
+    public function store(CommentFormRequest $request)
+    {
+        $comment = new Comment();
+
+        $comment->blog_id = $request->input('blog_id');
+        $comment->name    = $request->input('name');
+        $comment->email   = $request->input('email');
+        $comment->comment = $request->input('comment');
+
+        $comment->save();
+
+       Session::put('success', 'Seu comentário foi cadastrado com sucesso.');
+
+        return back();
     }
 
     public function show($slug)

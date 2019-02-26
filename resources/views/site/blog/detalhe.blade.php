@@ -155,33 +155,61 @@
                             <!-- leave comment form ==== -->
                             <div class="leave-comment" id="comment">
                                 <h3 class="count-comments ">Deixe o seu comentário.</h3>
-                                <form action="#" class="comment-form">
+
+                                @if ($message = Session::get('success'))
+                                    <div class="alert alert-success">
+                                        {!! $message !!}
+                                    </div>
+                                    <?php Session::forget('success');?>
+                                @endif
+                                
+                                <form action="{!! route('blog.store') !!}" method="POST" class="comment-form">
+                                    {!! csrf_field() !!}
+
+                                    <input type="hidden" name="blog_id" value="{!! $blog->id !!}">
+
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-12 ">
                                             <p class="comment-feild">
-                                                <label for="commentname">Nome :</label>
-                                                <input type="text" name="comment-name" id="commentname">
+                                                <label for="commentname">Nome <span class="text-red">*</span></label>
+                                                <input type="text" name="name" value="{{ old('name') }}">
+                                                @if ($errors->has('name'))
+                                                    <span class="text-red">
+                                                        <strong>{{ $errors->first('name') }}</strong>
+                                                    </span>
+                                                @endif
                                             </p>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-12 ">
                                             <p class="comment-feild">
-                                                <label for="commentemail">Email :</label>
-                                                <input type="text" name="comment-name" id="commentemail">
+                                                <label>Email <span class="text-red">*</span></label>
+                                                <input type="text" name="email" value="{{ old('email') }}">
+                                                @if ($errors->has('email'))
+                                                    <span class="text-red">
+                                                        <strong>{{ $errors->first('email') }}</strong>
+                                                    </span>
+                                                @endif
                                             </p>
                                         </div>
                                         <div class="col-12">
                                             <p class="comment-feild">
-                                                <textarea name="comment" id="commentid" placeholder="Escreva seu comentário aqui...."></textarea>
+                                                <textarea name="comment" placeholder="Escreva seu comentário aqui....">{{ old('comment') }}</textarea>
+                                                @if ($errors->has('comment'))
+                                                    <span class="text-red">
+                                                        <strong>{{ $errors->first('comment') }}</strong>
+                                                    </span>
+                                                @endif
                                             </p>
                                         </div>
                                         <div class="col-12">
                                             <p class="comment-feil">
-                                                <button type="submit" name="comment" class="btn-comment">Enviar</button>
+                                                <button type="submit" class="btn-comment">Enviar</button>
                                             </p>
                                         </div>
                                     </div>
                                 </form>
                             </div>
+
                         </div>
                     </div>
                 </div>

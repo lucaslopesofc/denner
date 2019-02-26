@@ -129,7 +129,6 @@
                                     </p>
                                     <div class="wrap_blog_meta">
                                         <a><i class="fas fa-user"></i> {!! $b->name !!}</a>
-                                        <a><i class="fas fa-comment-dots"></i> 17</a>
                                         <a href="{!! route('blog.show', $b->slug) !!}" class="b_read_more">Leia mais <i class="fas fa-chevron-right"></i> </a>
                                     </div>
                                 </div>

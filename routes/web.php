@@ -58,6 +58,10 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::get('blog/categorias/editar/{id}', 'CategoryController@edit')->name('admin.category.edit');
     Route::post('blog/categorias/editar/{id}', 'CategoryController@update')->name('admin.category.update');
 
+    // Comentários de Post
+    Route::get('blog/comentarios', 'CommentController@index')->name('admin.comment');
+    Route::delete('blog/comentarios/{id}', 'CommentController@destroy')->name('admin.comment.destroy');
+
     // Página Inicial do Administrador
     Route::get('/', 'AdminController@index')->name('admin.home');
 });
@@ -67,6 +71,7 @@ Route::get('/sobremim', 'Site\SobreMimController@index')->name('sobremim');
 Route::get('/servicos', 'Site\ServicosController@index')->name('servicos');
 
 Route::get('/blog', 'Site\BlogController@index')->name('blog');
+Route::post('/blog', 'Site\BlogController@store')->name('blog.store');
 Route::get('/blog/{slug}', 'Site\BlogController@show')->name('blog.show');
 
 Route::get('/depoimentos', 'Site\DepoimentoController@index')->name('depoimento');

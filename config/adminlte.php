@@ -143,6 +143,7 @@ return [
                 ],
                 [
                     'text' => 'Comentários',
+                    'url'  => 'admin/blog/comentarios'
                 ],
             ],
         ],

@@ -3,11 +3,11 @@
 @section('title')
 
 @section('content_header')
-    <h1>Painel Administrativo <small>Depoimentos</small></h1>
+    <h1>Painel Administrativo <small>Comentários</small></h1>
     <ol class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-home"></i> Home</a></li>
-        <li class="active">Depoimentos</li>
-        <li class="active">Aprovados</li>
+        <li class="active"><a href="/admin/blog/postagens"> Blog</a></li>
+        <li class="active"><a> Comentários</a></li>
     </ol>
 @stop
 
@@ -26,41 +26,25 @@
 
         <div class="box box-primary">
 
-            <div class="box-header">
-                <h3 class="box-title">Depoimentos Aprovados</h3>
-                <div class="box-tools">
-                    <form action="" method="POST">
-                    {{ csrf_field() }}
-                        <div class="input-group input-group-sm" style="width: 250px;">
-                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Procurar depoimento...">
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- /.box-header -->
-
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
                     <tr>
                         <th>ID</th>
+                        <th>Postagem</th>
                         <th>Nome</th>
-                        <th>Cidade</th>
+                        <th>Email</th>
                         <th>Comentário</th>
-                        <th>Status</th>
                         <th></th>
                     </tr>
-                    @foreach ($testimonies as $testimonie)
+                    @foreach ($comment as $c)
                         <tr>
-                            <td style="width: 50px; vertical-align:middle;font-size: 15px;">{{ $testimonie->id }}</td>
-                            <td style="width: 200px; vertical-align:middle;font-size: 15px;">{{ $testimonie->name }}</td>
-                            <td style="width: 200px; vertical-align:middle;font-size: 15px;">{{ $testimonie->city }}</td>
-                            <td style="vertical-align:middle;font-size: 15px;">{{ $testimonie->comment }}</td>
-                            <td style="vertical-align:middle;" ><span class="label label-success">Aprovado</span></td>
+                            <td style="vertical-align:middle;font-size: 15px;">{!! $c->id !!}</td>
+                            <td style="vertical-align:middle;font-size: 15px;">{!! $c->title !!}</td>
+                            <td style="vertical-align:middle;font-size: 15px;">{!! $c->name !!}</td>
+                            <td style="vertical-align:middle;font-size: 15px;">{!! $c->email !!}</td>
+                            <td style="width:500px;vertical-align:middle;font-size: 15px;">{!! $c->comment !!}</td>
                             <td style="width: 100px; text-align: right; vertical-align:middle;">
-                                <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$testimonie->id}})" 
+                                <a href="javascript:;" data-toggle="modal" onclick="deleteData({{ $c->id }})" 
                                     data-target="#DeleteModal" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
@@ -71,7 +55,7 @@
 
             <div class="box-footer clearfix">
                 <ul class="pagination pagination-sm no-margin pull-right">
-                    {{ $testimonies->links() }}
+                    {!! $comment->links() !!}
                 </ul>
             </div>
 
@@ -94,7 +78,7 @@
              <div class="modal-body">
                  {{ csrf_field() }}
                  {{ method_field('DELETE') }}
-                 <p class="text-center">Você tem certeza que deseja deletar este depoimento?</p>
+                 <p class="text-center">Você tem certeza que deseja deletar este comentário?</p>
              </div>
              <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
@@ -111,7 +95,7 @@
     function deleteData(id)
     {
         var id = id;
-        var url = '{{ route("admin.testimony.approved.destroy", ":id") }}';
+        var url = '{{ route("admin.comment.destroy", ":id") }}';
         url = url.replace(':id', id);
         $("#deleteForm").attr('action', url);
     }
