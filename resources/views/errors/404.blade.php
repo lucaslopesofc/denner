@@ -33,7 +33,7 @@
                 <div class="col-lg-2 col-md-12 col-12 col-logo-3">
                     <div class="tagpoint-wrap-logo ">
                         <a href="/" title="Denner Grillo">       
-                            <img src="{{ asset('vendor/site/images/logo.png') }}" alt="Denner Grillo" class="tp_whitelogo">
+                            <img src="/storage/images/logo.png" alt="Denner Grillo" class="tp_whitelogo">
                         </a>
                         <span class="phone_menu  primary-color">
                             <i class="fas fa-bars"></i>
@@ -118,7 +118,7 @@
 
                 <div class="col-lg-3 col-md-6 col-sm-12 col-12">
                     <div class="wrap_footer_col">
-                        <img src="{{ asset('vendor/site/images/logo.png') }}" alt="Raqeeb Template">
+                        <img src="/storage/images/logo.png" alt="Raqeeb Template">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor ut labore et dolore magna aliqua ut enim. </p>
                         <ul class="footer_sicons">
                             <li>

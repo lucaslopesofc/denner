@@ -127,38 +127,41 @@
                             </li>
                         </ul>
                         @endforeach
+
                         <div class="rq-wrap-form ">
-                            <form action="#" id="tp-form" class="tp-form-1">
+                            <form action="{{ route('contato.send') }}" method="POST" class="tp-form-1">
+                                {!! csrf_field() !!}
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-12 col-form-right">
                                         <p class="tp-form-el">
-                                            <input type="text" name="tp-username" id="tp-username" class="tp-feild tp-user-name" required="" placeholder="Nome completo *">
+                                            <input type="text" name="name" class="tp-feild tp-user-name" placeholder="Nome completo *">
                                         </p>
                                         <p class="tp-form-el">
-                                            <input type="email" name="tp-email" class="tp-feild tp-email" id="tp-email" required="" placeholder="Email *">
+                                            <input type="email" name="email" class="tp-feild tp-email" placeholder="Email *">
                                         </p>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-12 col-form-left">
                                         <p class="tp-form-el">
-                                            <input type="text" id="tp-phone" name="tp-phone" class="tp-feild tp-phone" placeholder="Telefone *">
+                                            <input type="text" name="phone" class="tp-feild tp-phone" placeholder="Telefone *">
                                         </p>
                                         <p class="tp-form-el">
-                                            <input type="text" id="tp-company" name="tp-company" class="tp-feild tp-phone" placeholder="Assunto *">
+                                            <input type="text" name="subject" class="tp-feild tp-phone" placeholder="Assunto *">
                                         </p>
                                     </div>
                                     <div class="col-12">
                                         <p class="tp-form-el">
-                                            <textarea name="tp-message" class="tp-message" placeholder="Escreva sua mensagem."></textarea>
+                                            <textarea name="message" class="tp-message" placeholder="Escreva sua mensagem..."></textarea>
                                         </p>
                                     </div>
                                     <div class="col-12 ">
                                         <div class="tp-wrap-btn">
-                                            <button type="submit" class=" sendmessage_btn" id="tp-submit">Enviar</button>
+                                            <button type="submit" class="sendmessage_btn">Enviar</button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
+
                     </div>
                 </div>
             </div>

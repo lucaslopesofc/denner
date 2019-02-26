@@ -78,5 +78,6 @@ Route::get('/depoimentos', 'Site\DepoimentoController@index')->name('depoimento'
 Route::post('/depoimentos', 'Site\DepoimentoController@store')->name('depoimento.store');
 
 Route::get('/contato', 'Site\ContatoController@index')->name('contato');
+Route::post('/contato', 'Site\ContatoController@send')->name('contato.send');
 
 Auth::routes();

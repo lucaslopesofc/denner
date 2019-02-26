@@ -172,7 +172,7 @@
                                         <div class="col-lg-6 col-md-6 col-12 ">
                                             <p class="comment-feild">
                                                 <label for="commentname">Nome <span class="text-red">*</span></label>
-                                                <input type="text" name="name" value="{{ old('name') }}">
+                                                <input type="text" name="name" value="{{ old('name') }}" maxlength="50" required>
                                                 @if ($errors->has('name'))
                                                     <span class="text-red">
                                                         <strong>{{ $errors->first('name') }}</strong>
@@ -183,7 +183,7 @@
                                         <div class="col-lg-6 col-md-6 col-12 ">
                                             <p class="comment-feild">
                                                 <label>Email <span class="text-red">*</span></label>
-                                                <input type="text" name="email" value="{{ old('email') }}">
+                                                <input type="email" name="email" value="{{ old('email') }}" required>
                                                 @if ($errors->has('email'))
                                                     <span class="text-red">
                                                         <strong>{{ $errors->first('email') }}</strong>
@@ -193,7 +193,7 @@
                                         </div>
                                         <div class="col-12">
                                             <p class="comment-feild">
-                                                <textarea name="comment" placeholder="Escreva seu comentário aqui....">{{ old('comment') }}</textarea>
+                                                <textarea name="comment" placeholder="Escreva seu comentário aqui...." maxlength="400" required>{{ old('comment') }}</textarea>
                                                 @if ($errors->has('comment'))
                                                     <span class="text-red">
                                                         <strong>{{ $errors->first('comment') }}</strong>
