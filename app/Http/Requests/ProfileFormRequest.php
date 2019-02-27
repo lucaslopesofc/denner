@@ -24,11 +24,13 @@ class ProfileFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'     => 'required|string|max:100',
-            'login'    => 'required|string|max:100',
-            'email'    => 'required|email',
-            'password' => 'nullable|min:6',
-            'photo'    => 'mimes:jpeg,png,jpg|max:2048',
+            'name'                  => 'required|string|max:100',
+            'login'                 => 'required|string|max:100',
+            'email'                 => 'required|email',
+            'password'              => 'nullable|min:6',
+            'newPassword'           => 'min:6|required_with:password_confirmation|same:password_confirmation',
+            'password_confirmation' => 'min:6',
+            'photo'                 => 'mimes:jpeg,png,jpg|max:2048',
         ];
     }
 
@@ -46,6 +48,9 @@ class ProfileFormRequest extends FormRequest
             'password.min'   => 'O campo senha deve conter no mínimo 6 caracteres.',
             'photo.mimes'    => 'Formato de imagem inválida. Por favor selecione uma com apenas formatos JPEG/PNG/JPG.',
             'photo.max'      => 'Imagem deve ter tamanho máximo de 2MB.',
+            'newPassword.min' => 'A nova senha deve ter no mínimo 6 caracteres.',
+            'newPassword.required_with' => 'Teste',
+            'newPassword.same' => 'A nova senha e a confirmação da senha devem corresponder.',
         ];
     }
 }

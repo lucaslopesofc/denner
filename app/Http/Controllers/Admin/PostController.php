@@ -181,12 +181,6 @@ class PostController extends Controller
             }
         }
 
-        if ($request->file('photo') == null) {
-            $path = 'avatars/perfil.jpg';
-          } else {
-            $path = $request->file('photo')->store('avatars', 'public');
-          }
-
         $blog->save();
 
         Session::put('success', 'Postagem alterada com sucesso.');
@@ -204,9 +198,9 @@ class PostController extends Controller
     {
         $blog = Blog::find($id);
 
-        if ($blog->photo != 'images/blog/imagem.jpg') {
-            $photo = $blog->photo;
-            Storage::disk('public')->delete($photo);
+        if ($blog->image != 'images/blog/default.jpg') {
+            $image = $blog->image;
+            Storage::disk('public')->delete($image);
             $blog->delete();
         }else{
             $blog->delete();

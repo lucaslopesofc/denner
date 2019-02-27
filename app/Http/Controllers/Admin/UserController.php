@@ -81,12 +81,14 @@ class UserController extends Controller
         $user->login = $request->input('login');
         $user->email = $request->input('email');
 
-        if(password_verify($request->input('password'), Auth::user()->password)) {
-            $user = Auth::user();
-            $user->password = bcrypt($request->input('newPassword'));
-        }else{
-            //Session::put('error', 'Senha atual incorreta. Por favor digite a sua senha antiga corretamente.');
-            //return redirect()->route('admin.config.user');
+        if(!empty($request->input('password'))) {
+            if(password_verify($request->input('password'), Auth::user()->password)) {
+                $user = Auth::user();
+                $user->password = bcrypt($request->input('newPassword'));
+            }else{
+                Session::put('error', 'Senha atual incorreta. Por favor digite a sua senha antiga corretamente.');
+                return redirect()->route('admin.config.user');
+            }
         }
 
         if ($request->hasFile('photo')) {
