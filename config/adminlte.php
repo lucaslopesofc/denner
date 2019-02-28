@@ -143,7 +143,7 @@ return [
                 ],
                 [
                     'text' => 'Comentários',
-                    'url'  => 'admin/blog/comentarios'
+                    'url'  => 'admin/blog/comentarios',
                 ],
             ],
         ],
@@ -176,6 +176,10 @@ return [
                 [
                     'text' => 'Usuário',
                     'url'  => 'admin/configuracoes/usuario',
+                ],
+                [
+                    'text' => 'Alterar Senha',
+                    'url'  => 'admin/configuracoes/senha',
                 ],
             ],
         ],

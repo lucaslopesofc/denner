@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProfileFormRequest;
+use App\Http\Requests\ResetPasswordFormRequest;
 use App\User;
 use Auth;
 use Session;
@@ -21,6 +22,12 @@ class UserController extends Controller
     {
         $user = User::all();
         return view('admin.user.index', compact('user'));
+    }
+
+    public function indexPassword()
+    {
+        $user = User::all();
+        return view('admin.user.password', compact('user'));
     }
 
     /**
@@ -81,16 +88,6 @@ class UserController extends Controller
         $user->login = $request->input('login');
         $user->email = $request->input('email');
 
-        if(!empty($request->input('password'))) {
-            if(password_verify($request->input('password'), Auth::user()->password)) {
-                $user = Auth::user();
-                $user->password = bcrypt($request->input('newPassword'));
-            }else{
-                Session::put('error', 'Senha atual incorreta. Por favor digite a sua senha antiga corretamente.');
-                return redirect()->route('admin.config.user');
-            }
-        }
-
         if ($request->hasFile('photo')) {
             $photo = $request->file('photo');
             $path = $request->file('photo')->store('images/perfil', 'public');
@@ -104,6 +101,24 @@ class UserController extends Controller
         Session::put('success', 'Informações do usuário alteradas com sucesso.');
 
         return redirect()->route('admin.config.user');
+    }
+
+    public function updatePassword(ResetPasswordFormRequest $request, $id)
+    {
+        $user = User::find($id);
+
+        if(!empty($request->input('password'))) {
+            if(password_verify($request->input('password'), Auth::user()->password)) {
+                $user = Auth::user();
+                $user->password = bcrypt($request->input('newPassword'));
+            }
+        }
+
+        $user->save();
+
+        Session::put('success', 'Senha alterada com sucesso.');
+
+        return redirect()->route('admin.config.user.password');
     }
 
     /**

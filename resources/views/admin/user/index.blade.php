@@ -110,40 +110,6 @@
                             @endif
                         </div>
 
-                        <div class="form-group">
-                            <label>Senha Atual</label>
-                            <input type="password" name="password" class="form-control">
-                            @if ($errors->has('password'))
-                                <span class="text-red">
-                                    <strong>{{ $errors->first('password') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <label>Nova Senha</label>
-                                    <input type="password" name="newPassword" class="form-control">
-                                    @if ($errors->has('newPassword'))
-                                        <span class="text-red">
-                                            <strong>{{ $errors->first('newPassword') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                                
-                                <div class="col-xs-6">
-                                    <label>Repita a Senha</label>
-                                    <input type="password" name="password_confirmation" class="form-control">
-                                    @if ($errors->has('password_confirmation'))
-                                        <span class="text-red">
-                                            <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">

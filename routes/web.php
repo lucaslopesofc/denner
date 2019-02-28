@@ -30,6 +30,8 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     // Configurações de Usuário
     Route::get('configuracoes/usuario', 'UserController@index')->name('admin.config.user');
     Route::post('configuracoes/usuario/{id}', 'UserController@update')->name('admin.config.user.update');
+    Route::get('configuracoes/senha', 'UserController@indexPassword')->name('admin.config.user.password');
+    Route::post('configuracoes/senha/{id}', 'UserController@updatePassword')->name('admin.config.user.password.update');
 
     // Estatísticas da Página Sobre Mim
     Route::get('estatistica', 'StatistcController@index')->name('admin.statistic');
