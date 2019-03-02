@@ -11,6 +11,7 @@
 
 @section('content')
 <div class="row">
+
     <div class="col-lg-4 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-aqua">
@@ -64,5 +65,70 @@
         </div>
     </div>
     <!-- ./col -->
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="box box-primary">
+
+        <div class="box-header">
+            <h3 class="box-title">Novos Depoimentos</h3>
+        </div>
+
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Cidade</th>
+                        <th>Status</th>
+                    </tr>
+                    @foreach ($testimonies as $t)
+                        <tr>
+                            <td style="vertical-align:middle;font-size: 15px;">{{ $t->name }}</td>
+                            <td style="vertical-align:middle;font-size: 15px;">{{ $t->city }}</td>
+                            <td style="vertical-align:middle;" ><span class="label label-warning">Pendente</span></td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+            <!-- /.box-body -->
+
+        </div>
+        <!-- /.box -->
+    </div>
+
+    <div class="col-md-6">
+        <div class="box box-primary">
+
+            <div class="box-header">
+                <h3 class="box-title">Últimos Comentários</h3>
+            </div>
+
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tr>
+                        <th>Postagem</th>
+                        <th>Nome</th>
+                        <th>Comentário</th>
+                    </tr>
+                    @foreach ($comment as $c)
+                        <tr>
+                            <td style="vertical-align:middle;font-size: 15px;">{{ $c->title }}</td>
+                            <td style="vertical-align:middle;font-size: 15px;">{{ $c->name }}</td>
+                            <td style="vertical-align:middle;font-size: 15px;">{{ $c->comment }}</td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+            <!-- /.box-body -->
+
+            <div class="box-footer clearfix">
+                <ul class="pagination pagination-sm no-margin pull-right">
+                </ul>
+            </div>
+
+        </div>
+        <!-- /.box -->
+    </div>
 </div>
 @stop

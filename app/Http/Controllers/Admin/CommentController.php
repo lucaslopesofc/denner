@@ -20,6 +20,7 @@ class CommentController extends Controller
         $comment = DB::table('comments')
             ->join('blogs', 'blogs.id', '=', 'comments.blog_id')
             ->select('comments.*', 'blogs.title')
+            ->orderBy('created_at', 'desc')
             ->paginate(6);
 
         return view('admin.comment.index', compact('comment'));
