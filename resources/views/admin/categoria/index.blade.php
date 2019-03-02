@@ -6,7 +6,7 @@
     <h1>Painel Administrativo <small>Categorias</small></h1>
     <ol class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-home"></i> Home</a></li>
-        <li class="active"><a href="/admin/blog"> Blog</a></li>
+        <li class="active"><a href="/admin/blog/postagens"> Blog</a></li>
         <li class="active"><a> Categorias</a></li>
     </ol>
 @stop

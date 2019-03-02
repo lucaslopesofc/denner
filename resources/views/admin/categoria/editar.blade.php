@@ -6,7 +6,7 @@
     <h1>Painel Administrativo <small>Categorias</small></h1>
     <ol class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-home"></i> Home</a></li>
-        <li class="active"><a href="/admin/blog"> Blog</a></li>
+        <li class="active"><a href="/admin/blog/postagens"> Blog</a></li>
         <li class="active"><a href="/admin/blog/categorias"> Categorias</a></li>
         <li class="active"><a> Editar</a></li>
     </ol>
@@ -27,7 +27,7 @@
     <div class="col-md-6" style="float: none;margin: 0 auto;">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Cadastrar Nova Categoria</h3>
+                <h3 class="box-title">Editar Categoria</h3>
             </div>
             <!-- /.box-header -->
         
@@ -48,7 +48,7 @@
             <!-- /.box-body -->
             <div class="box-footer">
                 <button type="submit" class="btn btn-primary pull-right">Enviar</button>
-                <a href="{{ URL::previous() }}" class="btn btn-danger">Cancelar</a>
+                <a href="{{ route('admin.category') }}" class="btn btn-danger">Cancelar</a>
             </div>
         </form>
     </div>
