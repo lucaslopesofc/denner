@@ -41,7 +41,8 @@
 @endif
 
 <div class="row">
-    <div class="col-md-6" style="float: none;margin: 0 auto;">
+
+    <div class="col-md-7">
         <div class="box box-primary">
             <div class="box-header with-border">
                 <h3 class="box-title">Informações do Site</h3>
@@ -62,7 +63,6 @@
                                         <span>Carregar Nova Logomarca</span>
                                         <input type="file" name="logo" value="{{ $info->logo }}" class="upload" onchange="readURL(this);" />
                                     </div>
-                                    <p class="help-block">Tamanho da Imagem: 200x40</p>
                                 </div>
                             </div>
                             @if ($errors->has('photo'))
@@ -210,6 +210,27 @@
         </div>
         <!-- /.box -->
     </div>
+
+    <div class="col-md-5">
+        <div class="box box-danger">
+
+            <div class="box-header with-border">
+                <h3 class="box-title">Informações</h3>
+            </div>
+            <!-- /.box-header -->
+
+            <div class="box-body">
+                <ul>
+                    <li>A logomarca deve ter tamanho 200 x 40;</li>
+                    <li>Imagens apenas nos formatos JPEG/PNG/JPG;</li>
+                    <li>Tamanho máximo da imagem 2MB.</li>
+                </ul>
+            </div>
+            <!-- /.box-body -->
+
+        </div>
+    </div>
+
 </div>
 
 <script>
