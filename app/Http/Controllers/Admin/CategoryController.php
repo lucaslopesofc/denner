@@ -107,7 +107,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
 
         $category->delete();
-
+        
         Session::put('success', 'Categoria deletada com sucesso.');
 
         return redirect()->route('admin.category');

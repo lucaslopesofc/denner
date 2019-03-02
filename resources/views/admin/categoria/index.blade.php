@@ -22,6 +22,15 @@
     <?php Session::forget('success');?>
 @endif
 
+@if ($message = Session::get('error'))
+    <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><i class="icon fa fa-check"></i> Ocorreu um erro!</h4>
+        {!! $message !!}
+    </div>
+    <?php Session::forget('error');?>
+@endif
+
 <div class="row">
     <div class="col-md-6">
         <div class="box box-primary">
@@ -109,7 +118,9 @@
              <div class="modal-body">
                  {{ csrf_field() }}
                  {{ method_field('DELETE') }}
+                 <p class="text-center">Pode ser que exista postagens vinculadas a essa categoria.</p>
                  <p class="text-center">Você tem certeza que deseja deletar esta categoria?</p>
+                 <p class="text-center"><b class="text-red">OBS:</b> Irá apagar as postagens vinculadas a esta categoria.</p>
              </div>
              <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
