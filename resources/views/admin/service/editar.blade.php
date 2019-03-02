@@ -32,10 +32,12 @@
 </style>
 
 <div class="row">
-    <div class="col-md-6" style="float: none;margin: 0 auto;">
+
+    <div class="col-md-7">
         <div class="box box-primary">
+
             <div class="box-header with-border">
-                <h3 class="box-title">Adicionar Novo Serviço</h3>
+                <h3 class="box-title">Editar Serviço</h3>
             </div>
             <!-- /.box-header -->
 
@@ -54,16 +56,23 @@
                                 </div>
                             </div>
                         </div>
-                        @if ($errors->has('image'))
-                            <span class="text-red">
-                                <strong>{{ $errors->first('image') }}</strong>
-                            </span>
-                        @endif
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12" style="text-align:center;">
+                                @if ($errors->has('image'))
+                                    <span class="text-red">
+                                        <strong>{{ $errors->first('image') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label>Título do Serviço</label>
-                        <input type="text" name="title" class="form-control" value="{{ $service->title }}" required>
+                        <input type="text" name="title" class="form-control" value="{{ $service->title }}" maxlength="50" required>
                         @if ($errors->has('title'))
                             <span class="text-red">
                                 <strong>{{ $errors->first('title') }}</strong>
@@ -73,7 +82,7 @@
 
                     <div class="form-group">
                         <label>Descrição do Serviço</label>
-                        <textarea name="text" class="form-control" rows="6" value="{{ $service->text }}">{{ $service->text }}</textarea>
+                        <textarea name="text" class="form-control" rows="6" value="{{ $service->text }}" required>{{ $service->text }}</textarea>
                         @if ($errors->has('text'))
                             <span class="text-red">
                                 <strong>{{ $errors->first('text') }}</strong>
@@ -83,14 +92,36 @@
 
                 </div>
                 <!-- /.box-body -->
+
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary pull-right">Enviar</button>
-                    <a href="{{ URL::previous() }}" class="btn btn-danger">Cancelar</a>
+                    <a href="{{ route('admin.service') }}" class="btn btn-danger">Cancelar</a>
                 </div>
+                <!-- /.box-footer -->
+
             </form>
 
         </div>
         <!-- /.box -->
+    </div>
+
+    <div class="col-md-5">
+        <div class="box box-danger">
+
+            <div class="box-header with-border">
+                <h3 class="box-title">Informações</h3>
+            </div>
+            <!-- /.box-header -->
+
+            <div class="box-body">
+                <ul>
+                    <li>Para melhor visualização no site, a imagem deve ter tamanho de 1200 x 800;</li>
+                    <li>Imagens apenas nos formatos JPEG/PNG/JPG.</li>
+                </ul>
+            </div>
+            <!-- /.box-body -->
+
+        </div>
     </div>
 
 </div>

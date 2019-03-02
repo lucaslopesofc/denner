@@ -25,7 +25,7 @@ class ServiceFormRequest extends FormRequest
     {
         return [
             'image' => 'mimes:jpeg,png,jpg|max:2048',
-            'title' => 'required|string',
+            'title' => 'required|string|max:50',
             'text'  => 'required|string',
         ];
     }
@@ -38,6 +38,7 @@ class ServiceFormRequest extends FormRequest
 
             'title.required' => 'O campo título é obrigatório.',
             'title.string'   => 'O título deve ser formado apenas por letras e números.',
+            'title.max'      => 'O título deve ter no máximo 50 caracteres.',
 
             'text.required'  => 'O campo descrição é obrigatório.',
             'text.string'    => 'O campo descrição deve ser formador apenas por letras e números.',
