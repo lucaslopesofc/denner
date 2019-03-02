@@ -23,15 +23,15 @@
 @endif
 
 <div class="box box-primary">
+
     <div class="box-header">
         <h3 class="box-title">Postagens</h3>
-
         <div class="box-tools pull-right">
-        <a href="{{ route('admin.post.create') }}" type="button" class="btn btn-block btn-success btn-flat"><i class="fa fa-plus"></i> Nova Postagem</a>
+            <a href="{{ route('admin.post.create') }}" type="button" class="btn btn-block btn-success btn-flat"><i class="fa fa-plus"></i> Nova Postagem</a>
         </div>
-
     </div>
     <!-- /.box-header -->
+
     <div class="box-body table-responsive no-padding">
         <table class="table table-hover">
         <tr>
