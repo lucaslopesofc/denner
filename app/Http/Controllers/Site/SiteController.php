@@ -16,7 +16,7 @@ class SiteController extends Controller
 {
     public function index()
     {
-        $testimonies = Testimony::where('status', '=', '1')->orderBy('id', 'desc')->paginate(6);
+        $testimonies = Testimony::where('status', '=', '1')->orderBy('updated_at', 'desc')->paginate(6);
         $slider      = Slider::where('status', '=', '1')->get();
         $pages       = Page::where('tags', '=', 'Home')->get();
         $infos       = Information::where('id', '=', '1')->get();

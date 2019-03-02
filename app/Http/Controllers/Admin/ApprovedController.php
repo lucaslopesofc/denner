@@ -18,7 +18,7 @@ class ApprovedController extends Controller
      */
     public function index()
     {
-        $testimonies = Testimony::where('status', '=', '1')->orderBy('id', 'desc')->paginate(8);
+        $testimonies = Testimony::where('status', '=', '1')->orderBy('updated_at', 'desc')->paginate(8);
         return view('admin.testimony.approved', compact('testimonies'));
     }
 

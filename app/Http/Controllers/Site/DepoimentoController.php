@@ -14,7 +14,7 @@ class DepoimentoController extends Controller
 {
     public function index()
     {
-        $testimonies = Testimony::where('status', '=', '1')->orderBy('id', 'desc')->paginate(6);
+        $testimonies = Testimony::where('status', '=', '1')->orderBy('updated_at', 'desc')->paginate(6);
         $infos       = Information::where('id', '=', '1')->get();
         return view('site.depoimento.index', compact('testimonies', 'infos'));
     }

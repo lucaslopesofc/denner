@@ -18,7 +18,7 @@ class PendingController extends Controller
      */
     public function index()
     {
-        $testimonies = Testimony::where('status', '=', '0')->orderBy('id', 'desc')->paginate(8);
+        $testimonies = Testimony::where('status', '=', '0')->orderBy('created_at', 'desc')->paginate(8);
         return view('admin.testimony.pending', compact('testimonies'));
     }
 
