@@ -57,19 +57,25 @@
 
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-xs-4" style="float:none;margin:0 auto;">
+                                <div class="centralizarImagem">
                                     <img id="blah" src="/storage/{{ $info->logo }}" style="width: 200px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);" />
+                                </div>
+
+                                <div class="centralizarImagem">
                                     <div class="fileUpload btn btn-primary">
-                                        <span>Carregar Nova Logomarca</span>
+                                        <span>Carregar imagem</span>
                                         <input type="file" name="logo" value="{{ $info->logo }}" class="upload" onchange="readURL(this);" />
                                     </div>
                                 </div>
                             </div>
-                            @if ($errors->has('photo'))
-                                <span class="text-red">
-                                    <strong>{{ $errors->first('photo') }}</strong>
-                                </span>
-                            @endif
+
+                            <div class="centralizarTexto">
+                                @if ($errors->has('logo'))
+                                    <span class="text-red">
+                                        <strong>{{ $errors->first('logo') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
 
                         <div class="form-group">

@@ -48,25 +48,24 @@
                     
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-4" style="float:none;margin:0 auto;">
+                                <div class="centralizarImagem">
                                     <img id="blah" src="/storage/{{ $slider->image }}" style="width: 200px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);" />
+                                </div>
+
+                                <div class="centralizarImagem">
                                     <div class="fileUpload btn btn-primary">
-                                        <span>Selecione a Imagem do Slider</span>
+                                        <span>Carregar imagem</span>
                                         <input type="file" name="image" value="{{ old('image') }}" class="upload" onchange="readURL(this);" />
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-12" style="text-align:center;">
-                                    @if ($errors->has('image'))
-                                        <span class="text-red">
-                                            <strong>{{ $errors->first('image') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
+                            <div class="centralizarTexto">
+                                @if ($errors->has('image'))
+                                    <span class="text-red">
+                                        <strong>{{ $errors->first('image') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 

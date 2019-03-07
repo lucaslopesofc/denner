@@ -46,27 +46,27 @@
                 {{ csrf_field() }}
                 <div class="box-body">
 
-                    <div class="form-group" style="text-align:center;">
+                    <div class="form-group">
                         <div class="row">
-                            <div class="col-xs-3" style="float:none;margin:0 auto;">
+
+                            <div class="centralizarImagem">
                                 <img id="blah" src="/storage/{{ $service->image }}" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);" />
+                            </div>
+
+                            <div class="centralizarImagem">                                
                                 <div class="fileUpload btn btn-primary">
-                                    <span>Imagem do Serviço</span>
-                                    <input type="file" name="image" value="{{ $service->image }}" class="upload" onchange="readURL(this);" />
+                                    <span>Carregar imagem</span>
+                                    <input type="file" name="image" value="" class="upload" onchange="readURL(this);" />
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-12" style="text-align:center;">
-                                @if ($errors->has('image'))
-                                    <span class="text-red">
-                                        <strong>{{ $errors->first('image') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                        <div class="centralizarTexto">
+                            @if ($errors->has('image'))
+                                <span class="text-red">
+                                    <strong>{{ $errors->first('image') }}</strong>
+                                </span>
+                            @endif
                         </div>
                     </div>
 
