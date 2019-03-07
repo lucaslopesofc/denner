@@ -117,10 +117,34 @@
                         <?php Session::forget('success');?>
                     @endif
 
-                        <div class="rq-wrap-form ">
+                        <div class="rq-wrap-form">
                             <form action="depoimentos" method="POST" class="tp-form-1" enctype="multipart/form-data">
                             {!! csrf_field() !!}
                                 <div class="row">
+
+                                    <div class="col-12">
+                                        <div class="centralizarImagem">
+                                            <span class="employee_img">
+                                                <img id="blah" src="/storage/images/perfil/default.jpg">
+                                            </span>
+                                        </div>
+
+                                        <div class="centralizarImagem">
+                                            <div class="fileupload btn btn-success">
+                                                <span>Carregar Foto</span>
+                                                <input type="file" name="photo" class="upload" onchange="readURL(this);" />
+                                            </div>
+                                        </div>
+
+                                        <div class="centralizarTexto" >
+                                            @if ($errors->has('photo'))
+                                                <span class="text-red">
+                                                    <strong>{{ $errors->first('photo') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
+
                                     <div class="col-lg-6 col-md-6 col-12 col-form-right">
 
                                         @if ($errors->has('name'))
@@ -131,15 +155,6 @@
                                         <p class="tp-form-el">
                                             <input type="text" name="name" value="{{ old('name') }}" class="tp-feild" placeholder="Nome completo *" maxlength="30" required>
                                         </p>
-
-                                        @if ($errors->has('photo'))
-                                            <span class="text-red">
-                                                <strong>{{ $errors->first('photo') }}</strong>
-                                            </span>
-                                        @endif
-                                        <div class="form-group">
-                                            <input type="file" name="photo" value="{{ old('photo') }}" style="margin-bottom: 15px;">
-                                        </div>
 
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-12 col-form-left">
@@ -164,7 +179,7 @@
                                             <textarea name="comment" value="{{ old('comment') }}" class="tp-message" placeholder="Seu depoimento deverá conter no máximo 160 caracteres." maxlength="160" required></textarea>
                                         </p>
                                     </div>
-                                    <div class="col-12 ">
+                                    <div class="col-12">
                                         <div class="tp-wrap-btn">
                                             <button type="submit" class="sendmessage_btn" id="tp-submit">Enviar</button>
                                         </div>
@@ -277,6 +292,21 @@
         </div>
     </footer>
     @endforeach
+
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 
     <!-- js library including -->
     <script src="{{ asset('vendor/site/js/jquery.min.js') }}"></script>

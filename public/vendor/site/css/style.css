@@ -402,10 +402,7 @@ Style Documentation:
          transform: translateY(0);
      }
  }
- 
- 
- 
- 
+
  
  
  /* 4- slider image (layout 1)  */
@@ -2703,8 +2700,7 @@ Style Documentation:
  .partner_list li a {
      display: inline-block;
      padding: 10px 46px;
- }
- 
+ } 
  
  /* 25- what is the new */
  
@@ -3177,7 +3173,7 @@ Style Documentation:
  }
  
  .employee_img img {
-     width: 110%;
+     width: 100%;
      max-width: none;
  }
  
@@ -5199,4 +5195,60 @@ Style Documentation:
          -webkit-transform: rotate(360deg);
          transform: rotate(360deg);
      }
+ }
+
+ .btn {
+     border-radius: 4px;
+     -webkit-box-shadow: none;
+     box-shadow: none;
+     border: 1px solid transparent;
+	 cursor: pointer;
+	 line-height: inherit;
+	 padding: 0.75rem 1.25rem;
+ }
+
+ .fileupload {
+     overflow: hidden;
+     position: relative;
+     margin-bottom: 15px;
+ }
+ .fileupload input.upload {
+     cursor: pointer;
+     filter: alpha(opacity=0);
+     font-size: 20px;
+     margin: 0;
+     opacity: 0;
+     padding: 0;
+     position: absolute;
+     right: 0;
+     top: 0;
+ }
+
+ .btn-success {
+     background-color: #1960a0;
+     border-color: #1960a0;
+     color: #fff;
+ }
+  
+ .btn-success:hover {
+     background-color: #1960a0;
+     border-color: #1960a0;
+     color: #fff;
+ }
+  
+ .btn-success:focus, .btn-success.focus {
+     color: #fff;
+ }
+  
+ .btn-success.disabled, .btn-success:disabled {
+     background-color: #1960a0;
+     border-color: #1960a0;
+     opacity: 0.5;
+ }
+  
+ .btn-success:active, .btn-success.active,
+ .show > .btn-success.dropdown-toggle {
+     background-color: #1960a0 !important;
+     border-color: #1960a0 !important;
+     color: #fff;
  }
