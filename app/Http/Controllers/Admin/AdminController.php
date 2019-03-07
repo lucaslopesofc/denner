@@ -16,12 +16,7 @@ class AdminController extends Controller
     {
         $stats       = Statistic::orderBy('id', 'desc')->first();
         $testimonies = Testimony::where('status', '=', '0')->orderBy('created_at', 'desc')->paginate(6);
-        $comment = DB::table('comments')
-            ->join('blogs', 'blogs.id', '=', 'comments.blog_id')
-            ->select('comments.*', 'blogs.title')
-            ->orderBy('created_at', 'desc')
-            ->paginate(6);
 
-        return view('admin.home.index', compact('stats', 'testimonies', 'comment'));
+        return view('admin.home.index', compact('stats', 'testimonies'));
     }
 }

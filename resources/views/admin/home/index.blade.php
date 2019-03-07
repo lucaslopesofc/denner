@@ -68,7 +68,7 @@
 </div>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-xs-12">
         <div class="box box-primary">
 
         <div class="box-header">
@@ -92,40 +92,6 @@
                 </table>
             </div>
             <!-- /.box-body -->
-
-        </div>
-        <!-- /.box -->
-    </div>
-
-    <div class="col-md-6">
-        <div class="box box-primary">
-
-            <div class="box-header">
-                <h3 class="box-title">Últimos Comentários</h3>
-            </div>
-
-            <div class="box-body table-responsive no-padding">
-                <table class="table table-hover">
-                    <tr>
-                        <th>Postagem</th>
-                        <th>Nome</th>
-                        <th>Comentário</th>
-                    </tr>
-                    @foreach ($comment as $c)
-                        <tr>
-                            <td style="vertical-align:middle;font-size: 15px;">{{ $c->title }}</td>
-                            <td style="vertical-align:middle;font-size: 15px;">{{ $c->name }}</td>
-                            <td style="vertical-align:middle;font-size: 15px;">{{ $c->comment }}</td>
-                        </tr>
-                    @endforeach
-                </table>
-            </div>
-            <!-- /.box-body -->
-
-            <div class="box-footer clearfix">
-                <ul class="pagination pagination-sm no-margin pull-right">
-                </ul>
-            </div>
 
         </div>
         <!-- /.box -->
