@@ -210,4 +210,13 @@ class PostController extends Controller
 
         return redirect()->route('admin.post');
     }
+
+    public function searchPost(Request $request)
+    {
+
+        $blog = Blog::where('title', 'like', '%'.$request->input('search').'%')->orderBy('title', 'desc')->paginate(5);
+
+        return view('admin.post.index', compact('blog'));
+    }
+
 }

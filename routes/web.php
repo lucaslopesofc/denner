@@ -52,6 +52,7 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::delete('blog/postagens/{id}', 'PostController@destroy')->name('admin.post.destroy');
     Route::get('blog/postagens/editar/{id}', 'PostController@edit')->name('admin.post.edit');
     Route::post('blog/postagens/editar/{id}', 'PostController@update')->name('admin.post.update');
+    Route::post('blog/postagens/pesquisar', 'PostController@searchPost')->name('admin.post.search');
 
     // Categorias
     Route::get('blog/categorias', 'CategoryController@index')->name('admin.category');
