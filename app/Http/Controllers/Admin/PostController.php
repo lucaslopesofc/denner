@@ -213,8 +213,11 @@ class PostController extends Controller
 
     public function searchPost(Request $request)
     {
-
-        $blog = Blog::where('title', 'like', '%'.$request->input('search').'%')->orderBy('title', 'desc')->paginate(5);
+        $blog = Blog::where('title', 'like', '%'.$request->input('search').'%')
+                    ->orderBy('title', 'desc')
+                    ->join('categories', 'blogs.category_id', '=', 'categories.id')
+                    ->select('blogs.*', 'categories.name')
+                    ->paginate(5);
 
         return view('admin.post.index', compact('blog'));
     }

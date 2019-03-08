@@ -25,27 +25,21 @@
 <div class="row">
 
     <div class="col-md-2">
+
+        <form class="" action="{!! route('admin.post.search') !!}" method="post">
+            {{ csrf_field() }}
+            <div class="has-feedback">
+                <input type="text" name="search" class="form-control input-sm margin-bottom" placeholder="Procurar postagem...">
+                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+            </div>
+        </form>
+
         <a href="{{ route('admin.post.create') }}" type="button" class="btn btn-block btn-success margin-bottom"><i class="fa fa-plus"></i> Nova Postagem</a>
+        
     </div>
 
     <div class="col-md-10">
         <div class="box box-primary">
-
-            <div class="box-header with-border">
-                <h3 class="box-title">Postagens</h3>
-
-                <div class="box-tools pull-right">
-                    <form class="" action="{!! route('admin.post.search') !!}" method="post">
-                        {{ csrf_field() }}
-                        <div class="has-feedback">
-                            <input type="text" name="search" class="form-control input-sm" placeholder="Procurar postagem...">
-                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-            <!-- /.box-header -->
 
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
