@@ -12,6 +12,7 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     // Depoimentos Aprovados
     Route::get('depoimentos/aprovados', 'ApprovedController@index')->name('admin.testimony.approved');
     Route::delete('depoimento/aprovados/{id}', 'ApprovedController@destroy')->name('admin.testimony.approved.destroy');
+    Route::post('depoimento/aprovados/pesquisar', 'ApprovedController@searchCommentApproved')->name('admin.testimony.search');
 
     // Depoimentos Pendentes
     Route::get('depoimentos/pendentes', 'PendingController@index')->name('admin.testimony.pending');

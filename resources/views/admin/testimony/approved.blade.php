@@ -26,6 +26,21 @@
 
         <div class="box box-primary">
 
+            <div class="box-header with-border">
+                <h3 class="box-title">Depoimentos Aprovados</h3>
+
+                <div class="box-tools pull-right">
+                    <form class="" action="{!! route('admin.testimony.search') !!}" method="post">
+                        {{ csrf_field() }}
+                        <div class="has-feedback">
+                            <input type="text" name="search" class="form-control input-sm" placeholder="Pesquisar depoimento...">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.box-tools -->
+            </div>
+
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
                     <tr>

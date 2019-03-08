@@ -100,4 +100,14 @@ class ApprovedController extends Controller
         return redirect()->route('admin.testimony.approved');
     }
 
+    public function searchCommentApproved(Request $request)
+    {
+        $testimonies = Testimony::where('name', 'like', '%'.$request->input('search').'%')
+                                ->where('status', '=', '1')
+                                ->orderBy('name', 'desc')
+                                ->paginate(8);
+
+        return view('admin.testimony.approved', compact('testimonies'));
+    }
+
 }
